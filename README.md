@@ -1,6 +1,6 @@
 # Bar Buddies
-COMP 2930 Projects, Bar Buddies project
-A soscial media fitness app.
+COMP 2930 Projects - Team 17, Bar Buddies project
+A social media fitness app.
 
 ## Contents
 * README.md - About the app
