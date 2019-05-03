@@ -9,6 +9,8 @@
 <script>
 import ImageSlider from './components/ImageSlider'
 import LoginSignup from './components/LoginSignup'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: 'App',
