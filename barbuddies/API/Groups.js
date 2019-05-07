@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const GroupsSchema = Schema(
+const GroupsSchema =  new Schema(
     {
-        GroupID:{type:String, required = true},
-        UserID:{type:Array, required = true}
+        GroupID: String,
+        UserID: Array
     }
 );
-const Groups = mongoose.model("Groups", UserSchema);
+const Groups = mongoose.model("Groups", GroupsSchema);
 module.exports = Groups;
