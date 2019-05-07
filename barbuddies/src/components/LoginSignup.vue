@@ -14,7 +14,7 @@
 
         <b-modal id="modal-2" title="Bar Buddies" ok-title="Signup">
         <p class="my-4">Sign-up</p>
-          <input v-model = "firstName" type="text" placeholder="First Name"> 
+          <input v-model = "firstName" type="text" placeholder="First Name">
           <input v-model = "lastName" type="text" placeholder="Last Name">
           <input v-model = "email" type="text" placeholder="Email">
           <input v-model = "DOB" type="text" placeholder="Date Of Birth">
@@ -24,23 +24,22 @@
           <input v-model = "password" type="password" placeholder="Password">
           <input type="password" placeholder="Confirm Password">
       </b-modal>
-      
       </div>
     </div>
   </div>
 </template>
 <script>
-import { createUser }  from '../repository'
+import { createUser } from '../repository'
 export default {
   name: 'LoginSignup',
-  methods:{
-    onClick: function() {
+  methods: {
+    onClick: function () {
       let data = {
         firstName: this.firstName,
         lastName: this.lastName,
         DOB: this.DOB,
         gender: this.gender,
-        weight:this.weight,
+        weight: this.weight,
         height: this.height,
         email: this.email,
         password: this.password,
@@ -48,10 +47,10 @@ export default {
         groupID: 0
       }
       createUser(data)
-      .then(data => {
-          this.$emit('createUser', data.user);
+        .then(data => {
+          this.$emit('createUser', data.user)
         })
-      .catch(err => alert(err.message));
+        .catch(err => alert(err.message))
     }
   }
 }
@@ -63,7 +62,7 @@ export default {
     text-align: center;
   }
   /*#signup {
-    position: 
+    position:
   }*/
   input {
     border: solid grey 1px;
