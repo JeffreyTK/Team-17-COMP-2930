@@ -6,7 +6,7 @@
         </div>
         <div class="col-6 text-center">
           <a class="navbar-brand" href="#">
-            <img src="https://dummyimage.com/100x50/000/fff" alt="Center image">
+            <img src="../assets/logoBlack.png" alt="Logo">
           </a>
           <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
