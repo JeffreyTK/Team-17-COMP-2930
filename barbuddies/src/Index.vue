@@ -20,6 +20,11 @@ export default {
     ImageSlider,
     LoginSignup,
     Calendar
+  },
+  methods: {
+    createNote (user) {
+      this.user = [user, ...this.user]
+    }
   }
 }
 </script>
