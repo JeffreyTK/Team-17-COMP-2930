@@ -1,21 +1,13 @@
 <template>
   <div id="homepage">
-<<<<<<< HEAD
     <Calendar/>
-=======
-    <NavBar />
-    <calendar/>
->>>>>>> develop
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
+/* eslint-disable */
 import Calendar from './Calendar'
-=======
-import calendar from './Calendar'
 import NavBar from './NavBar'
->>>>>>> develop
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
@@ -23,7 +15,7 @@ export default {
   name: 'homepage',
   components: {
     NavBar,
-    calendar
+    Calendar
   }
 }
 </script>
