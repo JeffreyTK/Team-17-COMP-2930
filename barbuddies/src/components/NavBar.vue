@@ -16,7 +16,7 @@
               <a href="#"><h1 id="userFirst">LUKE</h1><h1 id="userLast">HANSEN</h1></a>
             <br />
             <a href="#">CALENDAR</a>
-            <a href="#">GROUPS</a>
+            <router-link to="groups">GROUPS</router-link>
           </div>
         </div>
         <div class="col text-center"></div>
