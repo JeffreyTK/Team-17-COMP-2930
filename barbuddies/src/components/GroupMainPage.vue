@@ -42,7 +42,7 @@
     import NavBar from './NavBar'
 
     export default {
-        name: 'App',
+        name: 'Groups',
         components: {
             NavBar
         }
