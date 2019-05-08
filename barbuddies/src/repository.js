@@ -1,9 +1,5 @@
 import axios from 'axios'
-<<<<<<< HEAD
 const BASE_URL = 'http://localhost:5000'
-=======
-const BASE_URL = 'http://localhost:5000/'
->>>>>>> develop
 export function createUser (data) {
   return axios.post(`${BASE_URL}/api/user/create`,
     {

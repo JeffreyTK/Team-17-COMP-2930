@@ -1,5 +1,5 @@
 <template>
-  <div class="NavBar">
+ <div class="NavBar">
       <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-sm-start fixed-top">
         <div class="col" id="main">
           <button class="openbtn float-left" v-on:click="openNav()">☰</button>
@@ -20,12 +20,11 @@
           </div>
         </div>
         <div class="col text-center"></div>
-         
-      </nav>     
-    
-  </div> 
+      </nav>
+  </div>
 </template>
 <script>
+/* eslint-disable */
     export default {
         name: "NavBar",
         methods: {
