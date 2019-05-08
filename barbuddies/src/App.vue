@@ -1,27 +1,27 @@
 <template>
-  <div id="homepage">
-    <NavBar />
-    <calendar/>
+  <div id="app">
+    <img src="./assets/bb_logo.png">
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import calendar from './Calendar'
-import NavBar from './NavBar'
+import LoginSignup from './components/LoginSignup'
+import homepage from './components/Homepage'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
-  name: 'Homepage',
+  name: 'App',
   components: {
-    NavBar,
-    calendar
+    LoginSignup,
+    homepage
   }
 }
 </script>
 
 <style>
-#homepage {
+#app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
