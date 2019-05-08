@@ -1,13 +1,17 @@
 <template>
-  <div id="LoginSignup">
-    <div id="login">
-      <b-button v-b-modal.modal-1>Login</b-button>
+  <div>
+    <ImageSlider />
+    <div id="LoginSignup">
+      <div id="login">
+        <b-button v-b-modal.modal-1>Login</b-button>
+        
 
-      <b-modal id="modal-1" title="Bar Buddies" ok-title="Login">
-        <p class="my-4">Login</p>
-          <input type="text" placeholder="Email">
-          <input type="password" placeholder="Password">
-      </b-modal>
+        <b-modal id="modal-1" title="Bar Buddies" ok-title="Login" hide-footer="true">
+          <p class="my-4">Login</p>
+            <input type="text" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <router-link to="homepage">Login</router-link>
+        </b-modal>
 
     <div id="signup">
     <b-button @click="onClick">Signup</b-button>
@@ -27,11 +31,16 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 <script>
 import { createUser } from '../repository'
+import ImageSlider from './ImageSlider'
 export default {
   name: 'LoginSignup',
+  components: {
+    ImageSlider
+  },
   methods: {
     onClick: function () {
       let data = {
