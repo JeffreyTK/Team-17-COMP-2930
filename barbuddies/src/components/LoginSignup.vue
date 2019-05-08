@@ -35,8 +35,12 @@
 </template>
 <script>
 import { createUser } from '../repository'
+import ImageSlider from './ImageSlider'
 export default {
   name: 'LoginSignup',
+  components: {
+    ImageSlider
+  },
   methods: {
     onClick: function () {
       let data = {

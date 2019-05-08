@@ -1,17 +1,20 @@
 <template>
   <div id="homepage">
+    <NavBar />
     <calendar/>
   </div>
 </template>
 
 <script>
 import calendar from './Calendar'
+import NavBar from './NavBar'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: 'homepage',
   components: {
+    NavBar,
     calendar
   }
 }
