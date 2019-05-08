@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/bb_logo.png">
     <ImageSlider/>
     <Calendar/>
     <LoginSignup/>
