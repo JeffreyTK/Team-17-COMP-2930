@@ -41,6 +41,18 @@ export default {
   components: {
     ImageSlider
   },
+  data () {
+    return {
+      firstName: '',
+      lastName: '',
+      DOB: '',
+      gender: '',
+      weight: '',
+      height: '',
+      email: '',
+      password: ''
+    }
+  },
   methods: {
     onClick: function () {
       let data = {
@@ -55,6 +67,7 @@ export default {
         userID: 0,
         groupID: 0
       }
+      console.log('created user')
       createUser(data)
         .then(data => {
           this.$emit('createUser', data.user)
