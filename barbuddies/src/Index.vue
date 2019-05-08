@@ -22,7 +22,7 @@ export default {
     Calendar
   },
   methods: {
-    createNote (user) {
+    createUser (user) {
       this.user = [user, ...this.user]
     }
   }

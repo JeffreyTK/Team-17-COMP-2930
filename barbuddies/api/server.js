@@ -16,7 +16,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
-app.post('/api/users/create', (req, res) => {
+app.post('/api/user/create', (req, res) => {
+  console.log('successful connect')
     const user = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -45,3 +46,9 @@ app.post('/api/users/create', (req, res) => {
       return res.send({ group });
     });
   });
+
+
+const PORT = 5000;
+
+app.listen(PORT);
+console.log('api runnging on port ' + PORT + ': ');
