@@ -1,24 +1,21 @@
 <template>
   <div id="app">
-    <ImageSlider/>
-    <Calendar/>
-    <LoginSignup/>
+    <img src="./assets/bb_logo.png">
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import ImageSlider from './components/ImageSlider'
 import LoginSignup from './components/LoginSignup'
-import Calendar from './components/Calendar'
+import homepage from './components/Homepage'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: 'App',
   components: {
-    ImageSlider,
     LoginSignup,
-    Calendar
+    homepage
   },
   methods: {
     createUser (user) {
