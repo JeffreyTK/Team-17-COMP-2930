@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <img src="./assets/bb_logo.png">
+    <img id ="logo" src="./assets/bb_logo.png">
     <ImageSlider/>
     <Calendar/>
     <LoginSignup/>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -34,7 +35,7 @@ export default {
   margin-top: 0px;
   margin-left: 0px;
 }
-img {
-  width: 200px;
+#logo {
+  width: 300px;
 }
 </style>

@@ -6,6 +6,7 @@
       (also, click a date/time to add an event)
     </div>
     <FullCalendar
+      schedulerLicenseKey="GPL-My-Project-Is-Open-Source"
       class='demo-app-calendar'
       ref="fullCalendar"
       defaultView="dayGridMonth"
@@ -27,6 +28,8 @@ import FullCalendar from '@fullcalendar/vue'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
+import resourceTimelinePlugin from '@fullcalendar/resource-timeline'
+
 export default {
   components: {
     FullCalendar // make the <FullCalendar> tag available
@@ -36,7 +39,8 @@ export default {
       calendarPlugins: [ // plugins must be defined in the JS
         dayGridPlugin,
         timeGridPlugin,
-        interactionPlugin // needed for dateClick
+        interactionPlugin, // needed for dateClick
+        resourceTimelinePlugin
       ],
       calendarWeekends: true,
       calendarEvents: [ // initial event data

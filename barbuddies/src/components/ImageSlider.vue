@@ -1,7 +1,7 @@
 <template>
   <div id="slider">
     <p>
-      <a @click="prev" href='#'></a> || <a @click="next" href='#'>></a>
+      <a @click="prev" href='#'>&#60;</a> || <a @click="next" href='#'>&#62;</a>
     </p>
     <transition-group name='fade' tag='div'>
       <div
