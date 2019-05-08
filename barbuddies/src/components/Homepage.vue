@@ -1,19 +1,18 @@
 <template>
   <div id="homepage">
-    <img src="./assets/bb_logo.png">
-    <Calendar/>
+    <calendar/>
   </div>
 </template>
 
 <script>
-import Calendar from './components/Calendar'
+import calendar from './Calendar'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: 'homepage',
   components: {
-    Calendar
+    calendar
   }
 }
 </script>
