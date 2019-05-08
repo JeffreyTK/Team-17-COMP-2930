@@ -1,9 +1,8 @@
 <template>
   <div id="slider">
     <p>
-      <a @click="prev" href='#'><</a> || <a @click="next" href='#'>></a>
+      <a @click="prev" href='#'></a> || <a @click="next" href='#'>></a>
     </p>
-    
     <transition-group name='fade' tag='div'>
       <div
        v-for="number in [currentNumber]"
@@ -34,27 +33,27 @@ export default {
     }
   },
   mounted: function () {
-    this.startRotation();
+    this.startRotation()
   },
   methods: {
-    startRotation: function() {
-      this.timer = setInterval(this.next, 3000);
+    startRotation: function () {
+      this.timer = setInterval(this.next, 3000)
     },
-    stopRotation: function() {
-      clearTimeout(this.timer);
-      this.timer = null;
+    stopRotation: function () {
+      clearTimeout(this.timer)
+      this.timer = null
     },
-    next: function() {
+    next: function () {
       this.currentNumber += 1
     },
-    prev: function() {
+    prev: function () {
       this.currentNumber -= 1
     }
   },
   computed: {
-    	currentImage: function() {
-      	return this.images[Math.abs(this.currentNumber) % this.images.length];
-      }
+    currentImage: function () {
+      return this.images[Math.abs(this.currentNumber) % this.images.length]
+    }
   }
 }
 </script>

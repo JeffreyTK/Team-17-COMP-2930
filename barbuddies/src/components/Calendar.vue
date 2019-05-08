@@ -31,7 +31,7 @@ export default {
   components: {
     FullCalendar // make the <FullCalendar> tag available
   },
-  data: function() {
+  data: function () {
     return {
       calendarPlugins: [ // plugins must be defined in the JS
         dayGridPlugin,
@@ -45,14 +45,14 @@ export default {
     }
   },
   methods: {
-    toggleWeekends() {
+    toggleWeekends () {
       this.calendarWeekends = !this.calendarWeekends // update a property
     },
-    gotoPast() {
+    gotoPast () {
       let calendarApi = this.$refs.fullCalendar.getApi() // from the ref="..."
       calendarApi.gotoDate('2000-01-01') // call a method on the Calendar object
     },
-    handleDateClick(arg) {
+    handleDateClick (arg) {
       if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
         this.calendarEvents.push({ // add new event data
           title: 'New Event',
