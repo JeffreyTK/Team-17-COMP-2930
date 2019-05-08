@@ -4,11 +4,21 @@
     <div id="LoginSignup">
       <div id="login">
         <b-button v-b-modal.modal-1>Login</b-button>
+<<<<<<< HEAD
 
         <b-modal id="modal-1" title="Bar Buddies" ok-title="Login">
           <p class="my-4">Login</p>
             <input  placeholder="Email">
             <input type="password" placeholder="Password">
+=======
+        
+
+        <b-modal id="modal-1" title="Bar Buddies" ok-title="Login" hide-footer="true">
+          <p class="my-4">Login</p>
+            <input type="text" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <router-link to="homepage">Login</router-link>
+>>>>>>> develop
         </b-modal>
 
       <div id="signup">
@@ -29,11 +39,15 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 <script>
 import { createUser } from '../repository'
 import ImageSlider from './ImageSlider'
+<<<<<<< HEAD
 console.log('starting script')
+=======
+>>>>>>> develop
 export default {
   name: 'LoginSignup',
   components: {
