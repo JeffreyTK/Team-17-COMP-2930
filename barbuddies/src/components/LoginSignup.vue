@@ -1,5 +1,5 @@
 <template>
-  <div>  
+  <div>
     <ImageSlider />
     <div id="LoginSignup">
       <div id="login">

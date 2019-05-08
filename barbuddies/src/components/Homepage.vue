@@ -1,12 +1,11 @@
 <template>
   <div id="homepage">
-    <img src="./assets/bb_logo.png">
     <Calendar/>
   </div>
 </template>
 
 <script>
-import Calendar from './components/Calendar'
+import Calendar from './Calendar'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
