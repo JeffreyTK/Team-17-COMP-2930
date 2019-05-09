@@ -17,7 +17,6 @@
                             <h3 id="numOfPpl">3
                                 <img src="../assets/groupicon.png" class="groupicon" alt="group icon">
                             </h3>
-                            
                         </a>
                     </div>
             </div>
@@ -28,7 +27,6 @@
                             <h3 id="numOfPpl">3
                                 <img src="../assets/groupicon.png" class="groupicon" alt="group icon">
                             </h3>
-                            
                         </a>
                     </div>
             </div>
@@ -37,38 +35,29 @@
     </div>
 </template>
 
-
 <script>
-    import NavBar from './NavBar'
-
-    export default {
-        name: 'Groups',
-        components: {
-            NavBar
-        }
-    }         
+import NavBar from './NavBar'
+export default {
+  name: 'Groups',
+  components: {
+    NavBar
+  }
+}
 
 </script>
 <style scoped>
-
-    a h1 {
-        color: black;
-    }
-    a h1:hover {
-        color: gray;
-    }
-    a:hover {
-        text-decoration: none;
-    }
-
-    .groupicon {
-        height: 30px;
-        width: 40px;
-        margin-left: 10px;
-    }
-
-  
-    
+a h1 {
+  color: black;
+}
+a h1:hover {
+  color: gray;
+}
+a:hover {
+  text-decoration: none;
+}
+.groupicon {
+  height: 30px;
+  width: 40px;
+  margin-left: 10px;
+}
 </style>
-
-

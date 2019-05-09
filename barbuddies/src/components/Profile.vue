@@ -30,28 +30,28 @@ export default {
   components: {
     NavBar
   },
-  data() {
+  data () {
     return {
       user: {
-          firstName: 'Gina',
-          lastName: 'Kim',
-          email: 'gina.kim@bcit.ca',
-          birthdate: '12/30/1994',
-          gender: 'Female',
-          weight: '45',
-          height: '175',
-          password: '0000'
-      },
+        firstName: 'Gina',
+        lastName: 'Kim',
+        email: 'gina.kim@bcit.ca',
+        birthdate: '12/30/1994',
+        gender: 'Female',
+        weight: '45',
+        height: '175',
+        password: '0000'
+      }
     }
   },
   methods: {
-    save: function() {
+    save: function () {
 
     }
   },
   computed: {
-    fullName: function() {
-      return this.user.firstName+" "+this.user.lastName;
+    fullName: function () {
+      return this.user.firstName + ' ' + this.user.lastName
     }
   }
 }
