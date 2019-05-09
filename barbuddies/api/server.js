@@ -1,3 +1,4 @@
+'use strict';
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -15,7 +16,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
-app.post('/api/users/create', (req, res) => {
+app.post('/api/user/create', (req, res) => {
+  console.log('successful connect')
     const user = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -29,7 +31,7 @@ app.post('/api/users/create', (req, res) => {
         groupID:req.body.groupID
     });
     user.save( (err) => {
-      if (err) return res.status(404).send({message: err.message});      
+      if (err) return res.status(404).send({message: err.message});
       return res.send({ user });
     });
   });
@@ -40,7 +42,13 @@ app.post('/api/users/create', (req, res) => {
         UserID:req.body.UserID
     });
     group.save( (err) => {
-      if (err) return res.status(404).send({message: err.message});      
+      if (err) return res.status(404).send({message: err.message});
       return res.send({ group });
     });
   });
+
+
+const PORT = 5000;
+
+app.listen(PORT);
+console.log('api runnging on port ' + PORT + ': ');

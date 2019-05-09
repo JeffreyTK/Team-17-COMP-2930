@@ -16,6 +16,11 @@ export default {
   components: {
     LoginSignup,
     homepage
+  },
+  methods: {
+    createUser (user) {
+      this.user = [user, ...this.user]
+    }
   }
 }
 </script>
