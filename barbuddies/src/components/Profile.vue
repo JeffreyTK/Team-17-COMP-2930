@@ -29,30 +29,6 @@ export default {
   name: 'Profile',
   components: {
     NavBar
-  },
-  data () {
-    return {
-      user: {
-        firstName: 'Gina',
-        lastName: 'Kim',
-        email: 'gina.kim@bcit.ca',
-        birthdate: '12/30/1994',
-        gender: 'Female',
-        weight: '45',
-        height: '175',
-        password: '0000'
-      }
-    }
-  },
-  methods: {
-    save: function () {
-
-    }
-  },
-  computed: {
-    fullName: function () {
-      return this.user.firstName + ' ' + this.user.lastName
-    }
   }
 }
 </script>
