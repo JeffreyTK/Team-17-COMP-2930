@@ -11,11 +11,11 @@
           <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
               <br />
-              <a href="#"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></a>
+              <router-link to="Profile"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></router-link>
               <br />
-              <a href="#"><h1 id="userFirst">LUKE</h1><h1 id="userLast">HANSEN</h1></a>
+              <router-link to="Profile"><h1 id="userFirst">LUKE</h1><h1 id="userLast">HANSEN</h1></router-link>
             <br />
-            <a href="#">CALENDAR</a>
+            <router-link to="calendar">CALENDAR</router-link>
             <router-link to="groups">GROUPS</router-link>
           </div>
         </div>
