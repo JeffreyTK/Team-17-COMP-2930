@@ -1,42 +1,44 @@
 <template>
-  <div class="NavBar">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-sm-start fixed-top">
-    <div class="col" id="main">
-        <button class="openbtn float-left" v-on:click="openNav()">☰</button>
-    </div>
-    <div class="col-6 text-center">
-      <a class="navbar-brand" href="#">
-        <img src="../assets/logoBlack.png" alt="Logo" id="logo">
-      </a>
-      <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
-        <br />
-        <a href="#"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></a>
-        <br />
-        <a href="#"><h1 id="userFirst">LUKE</h1><h1 id="userLast">HANSEN</h1></a>
-        <br />
-        <a href="#">CALENDAR</a>
-        <router-link to="groups">GROUPS</router-link>
-      </div>
-    </div>
-      <div class="col text-center"></div>
-    </nav>
+ <div class="NavBar">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-sm-start fixed-top">
+        <div class="col" id="main">
+          <button class="openbtn float-left" v-on:click="openNav()">☰</button>
+        </div>
+        <div class="col-6 text-center">
+          <a class="navbar-brand" href="#">
+            <img src="../assets/logoBlack.png" alt="Logo">
+          </a>
+          <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
+              <br />
+              <a href="#"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></a>
+              <br />
+              <a href="#"><h1 id="userFirst">LUKE</h1><h1 id="userLast">HANSEN</h1></a>
+            <br />
+            <a href="#">CALENDAR</a>
+            <router-link to="groups">GROUPS</router-link>
+          </div>
+        </div>
+        <div class="col text-center"></div>
+      </nav>
   </div>
 </template>
 <script>
-export default {
-  name: 'NavBar',
-  methods: {
-    openNav: function () {
-      document.getElementById('mySidebar').style.width = '250px'
-      document.getElementById('main').style.marginLeft = '250px'
-    },
-    closeNav: function () {
-      document.getElementById('mySidebar').style.width = '0'
-      document.getElementById('main').style.marginLeft = '0'
-    }
-  }
-}
+/* eslint-disable */
+    export default {
+        name: "NavBar",
+        methods: {
+            openNav: function() {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            },
+            closeNav: function() {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";
+            }
+        }
+    }         
+
 </script>
 <style scoped>
 body {
