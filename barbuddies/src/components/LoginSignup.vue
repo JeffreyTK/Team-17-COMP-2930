@@ -1,8 +1,8 @@
 <template>
   <div>
     <ImageSlider />
-    <div id="LoginSignup">
-      <div id="login">
+    <div id="LoginSignup" class="container">
+      <div id="login" class="d-flex justify-content-center">
         <b-button v-b-modal.modal-1>Login</b-button>
 
         <b-modal id="modal-1" title="Bar Buddies" ok-title="Login" hide-footer="true">
@@ -87,6 +87,7 @@ export default {
     position: absolute;
     bottom: 0px;
     text-align: center;
+    margin-bottom: 20%;
   }
   /*#signup {
     position:
