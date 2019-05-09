@@ -24,7 +24,7 @@
   </div>
 </template>
 <script>
-/* eslint-disable */a
+/* eslint-disable */
     export default {
         name: "NavBar",
         methods: {
