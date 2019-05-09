@@ -24,7 +24,7 @@
   </div>
 </template>
 <script>
-/* eslint-disable */
+/* eslint-disable */a
     export default {
         name: "NavBar",
         methods: {
@@ -37,7 +37,7 @@
                 document.getElementById("main").style.marginLeft= "0";
             }
         }
-    }         
+    }
 
 </script>
 <style scoped>
