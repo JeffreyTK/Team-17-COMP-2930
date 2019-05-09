@@ -8,15 +8,15 @@
       <h3>{{user.email}}</h3>
       <br/>
       <br/>
-      <label>DOB</label><input style="text" v-model="user.birthdate">
+      <label>DOB</label><input style="text">
       <br/>
-      <label>Gender</label><input style="text" v-model="user.gender">
+      <label>Gender</label><input style="text">
       <br/>
-      <label>Weight</label><input style="number" v-model="user.weight">
+      <label>Weight</label><input style="number">
       <br/>
-      <label>Height</label><input style="number" v-model="user.height">
+      <label>Height</label><input style="number">
       <br/>
-      <label>Password</label><input type="password" v-model="user.password">
+      <label>Password</label><input type="password">
       <br/>
       <button v-on:click="save">Save</button>
     </div>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import NavBar from './Navbar'
+import NavBar from './NavBar'
 export default {
   name: 'Profile',
   components: {

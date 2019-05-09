@@ -1,7 +1,12 @@
 
 <template>
-    <div class="GroupMainPage">
-        <NavBar/>
+  <div class="GroupMainPage">
+      <NavBar/>
+      <br />
+      <br />
+      <br />
+      <div class="container">
+        <h1>MY GROUPS</h1>
         <br />
         <br />
         <br />
@@ -9,7 +14,7 @@
         <div class="container">
             <h1>MY GROUPS</h1>
             <br />
-            <br />
+            <br />  
             <div class="jumbotron" id="group1">
                 <a href="#"><h1>Group 1</h1></a>
                     <div>
@@ -30,11 +35,10 @@
                         </a>
                     </div>
             </div>
-
-        </div>
-    </div>
+          </div>
+      </div>
+  </div>
 </template>
-
 <script>
 import NavBar from './NavBar'
 export default {
