@@ -15,34 +15,31 @@
               <br />
               <a href="#"><h1 id="userFirst">LUKE</h1><h1 id="userLast">HANSEN</h1></a>
             <br />
-            <a href="#">CALENDAR</a>
+            <router-link to="homepage">CALENDAR</router-link>
             <router-link to="groups">GROUPS</router-link>
           </div>
         </div>
         <div class="col text-center"></div>
-         
-      </nav>     
-    
-  </div> 
+      </nav>
+  </div>
 </template>
 <script>
-    export default {
-        name: "NavBar",
-        methods: {
-            openNav: function() {
-                document.getElementById("mySidebar").style.width = "250px";
-                document.getElementById("main").style.marginLeft = "250px";
-            },
-            closeNav: function() {
-                document.getElementById("mySidebar").style.width = "0";
-                document.getElementById("main").style.marginLeft= "0";
-            }
-        }
-    }         
+export default {
+  name: 'NavBar',
+  methods: {
+    openNav: function () {
+      document.getElementById('mySidebar').style.width = '250px'
+      document.getElementById('main').style.marginLeft = '250px'
+    },
+    closeNav: function () {
+      document.getElementById('mySidebar').style.width = '0'
+      document.getElementById('main').style.marginLeft = '0'
+    }
+  }
+}
 
 </script>
 <style scoped>
-
 
 body {
   font-family: "Lato", sans-serif;
@@ -74,8 +71,6 @@ body {
   color: #f1f1f1;
 }
 
-
-
 .sidebar .closebtn {
   position: absolute;
   top: 0;
@@ -102,7 +97,6 @@ body {
   padding: 16px;
 }
 
-
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
@@ -110,4 +104,3 @@ body {
 }
 
 </style>
-

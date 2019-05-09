@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/bb_logo.png">
+    <router-link to="groups"><img src="./assets/bb_logo.png"></router-link>
     <router-view></router-view>
   </div>
 </template>

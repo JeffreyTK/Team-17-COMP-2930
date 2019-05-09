@@ -1,32 +1,27 @@
 <template>
-  <div id="app">
-    <img id ="logo" src="./assets/bb_logo.png">
-    <ImageSlider/>
+  <div id="homepage">
+    <NavBar />
     <Calendar/>
-    <LoginSignup/>
-    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import ImageSlider from './components/ImageSlider'
-import LoginSignup from './components/LoginSignup'
-import Calendar from './components/Calendar'
+import Calendar from '@/components/Calendar'
+import NavBar from '@/components/NavBar'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
-  name: 'App',
+  name: 'Homepage',
   components: {
-    ImageSlider,
-    LoginSignup,
+    NavBar,
     Calendar
   }
 }
 </script>
 
 <style>
-#app {
+#homepage {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,7 +30,7 @@ export default {
   margin-top: 0px;
   margin-left: 0px;
 }
-#logo {
-  width: 300px;
+img {
+  width: 200px;
 }
 </style>
