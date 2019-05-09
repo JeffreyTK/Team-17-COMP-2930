@@ -1,5 +1,5 @@
 <template>
-  <div class="NavBar">
+ <div class="NavBar">
       <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-sm-start fixed-top">
         <div class="col" id="main">
           <button class="openbtn float-left" v-on:click="openNav()">☰</button>
@@ -11,11 +11,11 @@
           <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
               <br />
-              <a href="#"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></a>
+              <router-link to="Profile"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></router-link>
               <br />
-              <a href="#"><h1 id="userFirst">LUKE</h1><h1 id="userLast">HANSEN</h1></a>
+              <router-link to="Profile"><h1 id="userFirst">LUKE</h1><h1 id="userLast">HANSEN</h1></router-link>
             <br />
-            <router-link to="homepage">CALENDAR</router-link>
+            <router-link to="calendar">CALENDAR</router-link>
             <router-link to="groups">GROUPS</router-link>
           </div>
         </div>
@@ -24,25 +24,30 @@
   </div>
 </template>
 <script>
-export default {
-  name: 'NavBar',
-  methods: {
-    openNav: function () {
-      document.getElementById('mySidebar').style.width = '250px'
-      document.getElementById('main').style.marginLeft = '250px'
-    },
-    closeNav: function () {
-      document.getElementById('mySidebar').style.width = '0'
-      document.getElementById('main').style.marginLeft = '0'
-    }
-  }
-}
+/* eslint-disable */
+    export default {
+        name: "NavBar",
+        methods: {
+            openNav: function() {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            },
+            closeNav: function() {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";
+            }
+        }
+    }         
 
 </script>
 <style scoped>
-
 body {
   font-family: "Lato", sans-serif;
+}
+
+#logo {
+  height:120px;
+  width: 150px;
 }
 
 .sidebar {

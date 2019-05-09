@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import homepage from '@/components/Homepage'
-import LoginSignup from '@/components/LoginSignup'
 import groups from '@/components/GroupMainPage'
+import Profile from '@/components/Profile'
 
 Vue.use(Router)
 
@@ -22,6 +22,11 @@ export default new Router({
       path: '/groups/',
       name: 'groups',
       component: groups
+    },
+    {
+      path: '/profile/',
+      name: 'Profile',
+      component: Profile
     }
   ]
 })

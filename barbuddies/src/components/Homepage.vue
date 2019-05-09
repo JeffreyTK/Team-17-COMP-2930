@@ -6,8 +6,9 @@
 </template>
 
 <script>
-import Calendar from '@/components/Calendar'
-import NavBar from '@/components/NavBar'
+/* eslint-disable */
+import Calendar from './Calendar'
+import NavBar from './NavBar'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
