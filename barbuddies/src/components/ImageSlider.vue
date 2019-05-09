@@ -3,7 +3,7 @@
     <p>
       <a @click="prev" href='#'></a> || <a @click="next" href='#'>></a>
     </p>
-    
+
     <transition-group name='fade' tag='div'>
       <div
        v-for="number in [currentNumber]"
@@ -16,9 +16,9 @@
              />
       </div>
     </transition-group>
-    
+
   </div>
-  
+
 </template>
 
 <script>
@@ -36,7 +36,7 @@ export default {
         image2,
         image3,
         image4
-        ],
+      ],
       currentNumber: 0,
       timer: null
     }
