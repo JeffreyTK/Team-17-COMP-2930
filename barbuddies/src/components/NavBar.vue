@@ -15,8 +15,8 @@
               <br />
               <router-link to="Profile"><h1 id="userFirst">LUKE</h1><h1 id="userLast">HANSEN</h1></router-link>
             <br />
-            <router-link to="calendar">CALENDAR</router-link>
-            <router-link to="groups">GROUPS</router-link>
+            <router-link to="Calendar">CALENDAR</router-link>
+            <router-link to="Groups">GROUPS</router-link>
           </div>
         </div>
         <div class="col text-center"></div>
@@ -24,7 +24,7 @@
   </div>
 </template>
 <script>
-/* eslint-disable */
+/* eslint-disable */a
     export default {
         name: "NavBar",
         methods: {
@@ -37,14 +37,17 @@
                 document.getElementById("main").style.marginLeft= "0";
             }
         }
-    }         
+    }
 
 </script>
 <style scoped>
-
-
 body {
   font-family: "Lato", sans-serif;
+}
+
+#logo {
+  height:120px;
+  width: 150px;
 }
 
 .sidebar {
@@ -73,8 +76,6 @@ body {
   color: #f1f1f1;
 }
 
-
-
 .sidebar .closebtn {
   position: absolute;
   top: 0;
@@ -101,7 +102,6 @@ body {
   padding: 16px;
 }
 
-
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
@@ -109,4 +109,3 @@ body {
 }
 
 </style>
-

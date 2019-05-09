@@ -21,8 +21,8 @@ export function createUser (data) {
 export function createGroup (data) {
   return axios.post(`${BASE_URL}/api/group/create`,
     {
-      GroupID: {type: String},
-      UserID: {type: Array}
+      GroupID: data.GroupID,
+      UserID: data.UserID
     }).then(response => {
     return response.data
   })
