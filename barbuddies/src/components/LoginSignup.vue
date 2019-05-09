@@ -5,10 +5,11 @@
       <div id="login">
         <b-button v-b-modal.modal-1>Login</b-button>
 
-        <b-modal id="modal-1" title="Bar Buddies" ok-title="Login">
+        <b-modal id="modal-1" title="Bar Buddies" ok-title="Login" hide-footer="true">
           <p class="my-4">Login</p>
             <input  placeholder="Email">
             <input type="password" placeholder="Password">
+            <router-link to="homepage">Login</router-link>
         </b-modal>
 
       <div id="signup">
