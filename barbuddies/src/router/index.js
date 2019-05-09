@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import homepage from '@/components/Homepage'
 import groups from '@/components/GroupMainPage'
 import Profile from '@/components/Profile'
+import LoginSignup from '@/components/LoginSignup'
 
 Vue.use(Router)
 
@@ -25,7 +26,7 @@ export default new Router({
     },
     {
       path: '/profile/',
-      name: 'Profile',
+      name: 'profile',
       component: Profile
     }
   ]
