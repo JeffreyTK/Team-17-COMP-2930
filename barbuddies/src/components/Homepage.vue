@@ -1,5 +1,6 @@
 <template>
   <div id="homepage">
+    <NavBar />
     <Calendar/>
   </div>
 </template>
