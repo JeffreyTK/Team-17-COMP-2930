@@ -18,6 +18,7 @@ export default {
     homepage
   },
   methods: {
+    //creates the method createUser that actually creates a brand new user
     createUser (user) {
       this.user = [user, ...this.user]
     }
