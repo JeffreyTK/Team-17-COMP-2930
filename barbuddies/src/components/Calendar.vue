@@ -1,7 +1,11 @@
 <template>
-  <div id="calendar">
-    <NavBar/>
-    <br/>
+  <div class='demo-app'>
+    <br /><br /><br /><br /><br /><br /><br />
+    <div class='demo-app-top'>
+      <button @click="toggleWeekends">toggle weekends</button>
+      <button @click="gotoPast">go to a date in the past</button>
+      (also, click a date/time to add an event)
+    </div>
     <FullCalendar
       defaultView="dayGridMonth"
       :header="{
