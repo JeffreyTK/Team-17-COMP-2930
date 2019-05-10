@@ -1,5 +1,5 @@
 <template>
-  <div id="homepage">
+  <div id="calendar">
     <NavBar/>
     <br/>
     <FullCalendar/>
@@ -9,6 +9,9 @@
 <script>
 /* eslint-disable */
 import FullCalendar from './FullCalendar'
+import dayGridPlugin from '@fullcalendar/daygrid'
+import timeGridPlugin from '@fullcalendar/timegrid'
+import interactionPlugin from '@fullcalendar/interaction'
 import NavBar from './NavBar'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -19,6 +22,15 @@ export default {
   components: {
     NavBar,
     FullCalendar
+  },
+  data: function () {
+    return {
+      calendarPlugins: [ // plugins must be defined in the JS
+        dayGridPlugin,
+        timeGridPlugin,
+        interactionPlugin // needed for dateClick
+      ],
+    }
   }
 }
 </script>
