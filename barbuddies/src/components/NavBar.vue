@@ -15,8 +15,8 @@
               <br />
               <router-link to="Profile"><h1 id="userFirst">LUKE</h1><h1 id="userLast">HANSEN</h1></router-link>
             <br />
-            <router-link to="Calendar">CALENDAR</router-link>
-            <router-link to="Groups">GROUPS</router-link>
+            <router-link to="calendar">CALENDAR</router-link>
+            <router-link to="groups">GROUPS</router-link>
           </div>
         </div>
         <div class="col text-center"></div>
@@ -37,7 +37,7 @@
                 document.getElementById("main").style.marginLeft= "0";
             }
         }
-    }
+    }         
 
 </script>
 <style scoped>
