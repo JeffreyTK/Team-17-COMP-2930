@@ -6,17 +6,17 @@
         </div>
         <div class="col-6 text-center">
           <a class="navbar-brand" href="#">
-            <img src="../assets/logoBlack.png" alt="Logo">
+            <img src="../assets/logoBlack.png" alt="Logo" id="logo">
           </a>
           <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
               <br />
-              <a href="#"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></a>
+              <router-link to="Profile"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></router-link>
               <br />
-              <a href="#"><h1 id="userFirst">LUKE</h1><h1 id="userLast">HANSEN</h1></a>
+              <router-link to="Profile"><h1 id="userFirst">LUKE</h1><h1 id="userLast">HANSEN</h1></router-link>
             <br />
-            <a href="#">CALENDAR</a>
-            <router-link to="groups">GROUPS</router-link>
+            <router-link to="Calendar">CALENDAR</router-link>
+            <router-link to="Groups">GROUPS</router-link>
           </div>
         </div>
         <div class="col text-center"></div>
@@ -37,14 +37,33 @@
                 document.getElementById("main").style.marginLeft= "0";
             }
         }
-    }         
+    }
 
 </script>
 <style scoped>
-
-
 body {
   font-family: "Lato", sans-serif;
+}
+
+.navbar-brand{
+  height: 10vh;
+}
+
+.navbar {
+  padding: 0;
+}
+
+
+
+#main {
+  padding: 0;
+}
+
+#logo {
+  margin: 0;
+  height: 120px;
+  width: 120px;
+  padding-bottom: 40px;
 }
 
 .sidebar {
@@ -73,8 +92,6 @@ body {
   color: #f1f1f1;
 }
 
-
-
 .sidebar .closebtn {
   position: absolute;
   top: 0;
@@ -101,7 +118,6 @@ body {
   padding: 16px;
 }
 
-
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
@@ -109,4 +125,3 @@ body {
 }
 
 </style>
-

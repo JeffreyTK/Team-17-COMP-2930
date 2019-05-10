@@ -4,7 +4,6 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
 const Groups = require('./Groups');
 const User = require('./User');
 mongoose.connect(
@@ -51,4 +50,4 @@ app.post('/api/user/create', (req, res) => {
 const PORT = 5000;
 
 app.listen(PORT);
-console.log('api runnging on port ' + PORT + ': ');
+console.log('api running on port ' + PORT + ': ');
