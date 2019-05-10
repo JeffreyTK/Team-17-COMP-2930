@@ -5,7 +5,7 @@
       <br/>
       <img id="avatar" src="../assets/coop.png">
       <h2>Testing</h2>
-      <h3>test@email.mctest</h3>
+      <h3>testing@email.mctest</h3>
       <br/>
       <br/>
       <label>DOB</label><input style="text">

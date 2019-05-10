@@ -40,6 +40,12 @@ export default new Router({
       path: '/profile/',
       name: 'Profile',
       component: Profile
+    },
+    {
+      path: '/groups/',
+      name: 'Groups',
+      component: Groups
     }
+
   ]
 })

@@ -2,7 +2,14 @@
   <div id="calendar">
     <NavBar/>
     <br/>
-    <FullCalendar/>
+    <FullCalendar
+      defaultView="dayGridMonth"
+      :header="{
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      }"
+      />
   </div>
 </template>
 
