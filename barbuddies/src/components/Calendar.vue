@@ -1,5 +1,6 @@
 <template>
   <div class='demo-app'>
+    <br /><br /><br /><br /><br /><br /><br />
     <div class='demo-app-top'>
       <button @click="toggleWeekends">toggle weekends</button>
       <button @click="gotoPast">go to a date in the past</button>

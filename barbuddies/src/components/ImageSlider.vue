@@ -1,23 +1,53 @@
 <template>
-  <div id="slider">
-    <p>
-      <a @click="prev" href='#'></a> || <a @click="next" href='#'>></a>
+  <div class="conatainer">
+    
+    <b-carousel
+      id="carousel-1"
+      v-model="slide"
+      :interval="4000"
+      controls
+      indicators
+      background="#ababab"
+      img-width="1024"
+      img-height="480"
+      style="text-shadow: 1px 1px 2px #333;"
+      @sliding-start="onSlideStart"
+      @sliding-end="onSlideEnd"
+    >
+      <!-- Text slides with image -->
+      <b-carousel-slide
+        caption="First slide"
+        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+        img-src="https://images.unsplash.com/photo-1519311965067-36d3e5f33d39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"
+      ></b-carousel-slide>
+
+      <!-- Slides with custom text -->
+      <b-carousel-slide img-src="https://images.unsplash.com/photo-1518310952931-b1de897abd40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80">
+        <h1>Hello world!</h1>
+      </b-carousel-slide>
+
+      <!-- Slides with image only -->
+      <b-carousel-slide img-src="https://images.unsplash.com/photo-1549540807-5c95f853bf4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"></b-carousel-slide>
+
+      <!-- Slides with img slot -->
+      <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
+      <b-carousel-slide>
+        <img
+          slot="img"
+          class="d-block img-fluid w-100"
+          width="1024"
+          height="480"
+          src="https://images.unsplash.com/photo-1517130038641-a774d04afb3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+          alt="image slot"
+        >
+      </b-carousel-slide>
+    </b-carousel>
+
+    <p class="mt-4">
+      Slide #: {{ slide }}<br>
+      Sliding: {{ sliding }}
     </p>
-    
-    <transition-group name='fade' tag='div'>
-      <div
-       v-for="number in [currentNumber]"
-       :key='number'
-       >
-         <img
-             :src="currentImage"
-             v-on:mouseover="stopRotation"
-             v-on:mouseout="startRotation"
-             />
-      </div>
-    </transition-group>
-    
-  </div>
+    </div>
   
 </template>
 
@@ -27,62 +57,27 @@ import image2 from '../assets/imageSlider2.jpeg'
 import image3 from '../assets/imageSlider3.jpeg'
 import image4 from '../assets/imageSlider4.jpeg'
 
-export default {
-  name: 'ImageSlider',
-  data () {
-    return {
-      images: [
-        image1,
-        image2,
-        image3,
-        image4
-        ],
-      currentNumber: 0,
-      timer: null
-    }
-  },
-  mounted: function () {
-    this.startRotation()
-  },
-  methods: {
-    startRotation: function () {
-      this.timer = setInterval(this.next, 3000)
+  export default {
+    data() {
+      return {
+        slide: 0,
+        sliding: null
+      }
     },
-    stopRotation: function () {
-      clearTimeout(this.timer)
-      this.timer = null
-    },
-    next: function () {
-      this.currentNumber += 1
-    },
-    prev: function () {
-      this.currentNumber -= 1
-    }
-  },
-  computed: {
-    currentImage: function () {
-      return this.images[Math.abs(this.currentNumber) % this.images.length]
+    methods: {
+      onSlideStart(slide) {
+        this.sliding = true
+      },
+      onSlideEnd(slide) {
+        this.sliding = false
+      }
     }
   }
-}
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.fade-enter-active, .fade-leave-active {
-  transition: all 4.0s ease;
-  overflow: hidden;
-  visibility: visible;
-  opacity: 1;
-  position: absolute;
+.jumbotron{
+  color: #efefef;
 }
 
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-  visibility: hidden;
-}
-#slider img {
-  width: 100%;
-}
 </style>

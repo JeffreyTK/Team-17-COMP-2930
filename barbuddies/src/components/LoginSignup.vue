@@ -1,5 +1,6 @@
 <template>
   <div>
+    <img src="../assets/bb_logo.png">
     <ImageSlider />
     <div id="LoginSignup" class="container">
       <div id="login" class="d-flex justify-content-center">
@@ -31,6 +32,7 @@
         </div>
       </div>
     </div>
+    
   </div>
 </template>
 <script>
