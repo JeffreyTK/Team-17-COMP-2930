@@ -2,13 +2,16 @@
   <div id="homepage">
     <NavBar />
     <Calendar/>
+    <EasterEgg video-id="BBJa32lCaaY"/>
   </div>
 </template>
 
 <script>
+
 /* eslint-disable */
 import Calendar from './Calendar'
 import NavBar from './NavBar'
+import EasterEgg from './EasterEgg'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
@@ -16,7 +19,8 @@ export default {
   name: 'homepage',
   components: {
     NavBar,
-    Calendar
+    Calendar,
+    EasterEgg
   }
 }
 </script>
