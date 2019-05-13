@@ -5,6 +5,8 @@
       <br />
       <br />
       <br />
+      <br />
+      <br />
       <div class="container">
         <h1>MY GROUPS</h1>
         <br />
@@ -29,6 +31,19 @@
             </a>
             </div>
           </div>
+          <div>
+            <b-button v-b-modal.modal-1 class="addBtn">+</b-button>
+            <b-modal id="modal-1" title="New Group">
+              <form>
+                <input v-model = "groupName" placeholder="Group Name">
+                <br />
+                <input v-model = "email" placeholder="Email">
+                <br />
+                <div id="form"></div>
+                <b-button v-b-modal.modal-1 v-on:click="addEmail()">Add New Email</b-button>
+              </form>
+            </b-modal>
+          </div>
       </div>
   </div>
 </template>
@@ -38,6 +53,17 @@ export default {
   name: 'Groups',
   components: {
     NavBar
+  },
+  methods: {
+    addEmail: function add() {
+      var newInput = document.createElement('input');
+      newInput.setAttribute("v-model", "email");
+      newInput.setAttribute("placeholder", "Email");
+      document.getElementById('form').appendChild(newInput);
+      var break1 = document.createElement('br');
+      document.getElementById('form').appendChild(break1);
+
+    }
   }
 }
 </script>
@@ -58,4 +84,16 @@ export default {
         width: 40px;
         margin-left: 10px;
     }
+
+    .addBtn {
+      border-radius: 50%;
+      background: #e8e8e8;
+      border-color: #e8e8e8;
+      color: black;
+    }
+
+    .addBtn:hover {
+      background: grey;
+    }
+
 </style>
