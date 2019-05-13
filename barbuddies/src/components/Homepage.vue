@@ -1,31 +1,30 @@
 <template>
   <div id="homepage">
-    <NavBar />
-    <Calendar
-     default-view="dayGridMonth"
-     :plugins="calendarPlugins" />
-    />
+    <NavBar/>
+    <br/>
+    <FullCalendar/>
   </div>
 </template>
 
 <script>
 /* eslint-disable */
-import Calendar from './Calendar'
+import FullCalendar from './FullCalendar'
 import NavBar from './NavBar'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 
 export default {
   name: 'Homepage',
   components: {
     NavBar,
-    Calendar
+    FullCalendar
   }
 }
 
 </script>
 
-<style>
+<style scoped>
 #homepage {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
