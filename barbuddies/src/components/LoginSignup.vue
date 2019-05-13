@@ -1,8 +1,9 @@
 <template>
   <div>
+    <img src="../assets/bb_logo.png">
     <ImageSlider />
-    <div id="LoginSignup">
-      <div id="login">
+    <div id="LoginSignup" class="container">
+      <div id="login" class="d-flex justify-content-center">
         <b-button v-b-modal.modal-1>Login</b-button>
 
         <b-modal id="modal-1" title="Bar Buddies" ok-title="Login" hide-footer="true">
@@ -16,6 +17,7 @@
       <b-button v-b-modal.modal-2>Signup</b-button>
           <b-modal id="modal-2" title="Bar Buddies" hide-footer="true">
           <p class="my-4">Sign-up</p>
+          <!--the v-model allows for custom events and is an unique identifier-->
             <input v-model = "firstName" placeholder="First Name">
             <input v-model = "lastName" placeholder="Last Name">
             <input v-model = "email"  placeholder="Email">
@@ -26,6 +28,7 @@
             <input v-model = "weight"  placeholder="Weight">
             <input type="password" placeholder="Confirm Password">
             <br />
+            <!--binds the onclick function to clicking the signup button-->
             <router-link to="homepage"><a @click = "onClick">Signup</a></router-link>>
         </b-modal>
         </div>
@@ -34,6 +37,7 @@
   </div>
 </template>
 <script>
+//importing the createuser function from repository into this file
 import { createUser } from '../repository'
 import ImageSlider from './ImageSlider'
 console.log('starting script')
@@ -42,6 +46,7 @@ export default {
   components: {
     ImageSlider
   },
+  //data function to instantiate the data schema without any informtion
   data () {
     return {
       firstName: '',
@@ -59,7 +64,9 @@ export default {
   methods: {
     onClick: function () {
       console.log('function started')
+      //setting the data so that it pulls the information from the sign up sheet
       let data = {
+        //this.firstName the this means that the firstname on THIS page
         firstName: this.firstName,
         lastName: this.lastName,
         DOB: this.DOB,
@@ -72,9 +79,11 @@ export default {
         groupID: 0
       }
       console.log('created user')
+      //pasting the data created user into the create user function which create an object
       createUser(data)
         .then(data => {
           console.log('data is sent')
+          //pushes the change up to the parent from child
           this.$emit('createUser', data.user)
         })
         .catch(err => alert(err.message))
@@ -87,6 +96,7 @@ export default {
     position: absolute;
     bottom: 0px;
     text-align: center;
+    margin-bottom: 20%;
   }
   /*#signup {
     position:
