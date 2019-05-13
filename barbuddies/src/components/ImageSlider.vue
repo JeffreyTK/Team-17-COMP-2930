@@ -28,7 +28,6 @@ import image3 from '../assets/imageSlider3.jpeg'
 import image4 from '../assets/imageSlider4.jpeg'
 
 export default {
-  name: 'ImageSlider',
   data () {
     return {
       images: [
@@ -40,9 +39,6 @@ export default {
       currentNumber: 0,
       timer: null
     }
-  },
-  mounted: function () {
-    this.startRotation()
   },
   methods: {
     startRotation: function () {

@@ -29,7 +29,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 
 export default {
-  name: 'homepage',
+  name: 'Calendar',
   components: {
     NavBar,
     FullCalendar

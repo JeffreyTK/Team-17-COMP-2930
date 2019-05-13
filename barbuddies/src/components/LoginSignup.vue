@@ -6,7 +6,7 @@
       <div id="login" class="d-flex justify-content-center">
         <b-button v-b-modal.modal-1>Login</b-button>
 
-        <b-modal id="modal-1" title="Bar Buddies" ok-title="Login" hide-footer="true">
+        <b-modal id="modal-1" title="Bar Buddies" ok-title="Login" hide-footer>
           <p class="my-4">Login</p>
             <input  placeholder="Email">
             <input type="password" placeholder="Password">

@@ -32,6 +32,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 export default {
+  name: 'FullCalendar',
   components: {
     NavBar,
     FullCalendar // make the <FullCalendar> tag available
