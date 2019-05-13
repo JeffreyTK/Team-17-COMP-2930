@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import LoginSignup from '@/components/LoginSignup'
 import homepage from '@/components/Homepage'
+import calendar from '@/components/Calendar'
+import FullCalendar from '@/components/FullCalendar'
 import Profile from '@/components/Profile'
 import Groups from '@/components/GroupMainPage'
 
@@ -31,14 +33,13 @@ export default new Router({
     },
     {
       path: '/groups/',
-      name: 'groups',
-      component: groups
+      name: 'Groups',
+      component: Groups
     },
     {
       path: '/profile/',
       name: 'Profile',
       component: Profile
-    },
-
+    }
   ]
 })

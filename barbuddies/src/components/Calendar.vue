@@ -1,19 +1,7 @@
 <template>
   <div class='demo-app'>
-    <br /><br /><br /><br /><br /><br /><br />
-    <div class='demo-app-top'>
-      <button @click="toggleWeekends">toggle weekends</button>
-      <button @click="gotoPast">go to a date in the past</button>
-      (also, click a date/time to add an event)
-    </div>
-    <FullCalendar
-      defaultView="dayGridMonth"
-      :header="{
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-      }"
-      />
+    <br/><br/><br/><br/>
+    <FullCalendar/>
   </div>
 </template>
 
@@ -29,7 +17,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 
 export default {
-  name: 'homepage',
+  name: 'Calendar',
   components: {
     NavBar,
     FullCalendar

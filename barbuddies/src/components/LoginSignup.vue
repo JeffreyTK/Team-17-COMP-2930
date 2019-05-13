@@ -5,7 +5,7 @@
       <div id="login">
         <b-button v-b-modal.modal-1>Login</b-button>
 
-        <b-modal id="modal-1" title="Bar Buddies" ok-title="Login" hide-footer="true">
+        <b-modal id="modal-1" title="Bar Buddies" ok-title="Login" hide-footer>
           <p class="my-4">Login</p>
             <input  placeholder="Email">
             <input type="password" placeholder="Password">
@@ -14,7 +14,7 @@
 
       <div id="signup">
       <b-button v-b-modal.modal-2 @click = "onClick" >Signup</b-button>
-          <b-modal id="modal-2" title="Bar Buddies" ok-title="Signup">
+          <b-modal id="modal-2" title="Bar Buddies" ok-title="Signup" hide-footer>
           <p class="my-4">Sign-up</p>
             <input v-model = "firstName" placeholder="First Name">
             <input v-model = "lastName" placeholder="Last Name">

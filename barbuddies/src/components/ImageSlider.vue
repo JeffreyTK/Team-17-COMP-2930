@@ -1,79 +1,58 @@
 <template>
-  <div id="slider">
-    <p>
-      <a @click="prev" href='#'></a> || <a @click="next" href='#'>></a>
-    </p>
-    <transition-group name='fade' tag='div'>
-      <div
-       v-for="number in [currentNumber]"
-       :key='number'
-       >
-         <img
-             :src="currentImage"
-             v-on:mouseover="stopRotation"
-             v-on:mouseout="startRotation"
-             />
-      </div>
-    </transition-group>
-  </div>
+  <div class="container">
+    <b-carousel
+      id="carousel-1"
+      v-model="slide"
+      :interval="4000"
+      controls
+      indicators
+      background="#ababab"
+      img-width="1024"
+      img-height="480"
+      style="text-shadow: 1px 1px 2px #333;"
+      @sliding-start="onSlideStart"
+      @sliding-end="onSlideEnd"
+    >
+      <!-- Text slides with image -->
+      <b-carousel-slide
+        caption="Workout With Friends"
+        text="Join a group and share each others' calendars"
+        img-src="https://images.pexels.com/photos/1855269/pexels-photo-1855269.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500%22%3E"
+      >
+      </b-carousel-slide>
+
+      <!-- Slides with custom text -->
+      <b-carousel-slide
+        caption="Keep Track of Your Workouts"
+        text="Record your workout and view your progress"
+        img-src="https://images.unsplash.com/photo-1520334363269-c1b342d17261?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80%22%3E"
+      >
+      </b-carousel-slide>
+    </b-carousel>
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'ImageSlider',
   data () {
     return {
-      images: [
-        'https://lafayettefamilyymca.org/wp-content/uploads/2015/07/workout-partner-1200x675.jpg',
-        'https://resveralife.com/wp-content/uploads/2016/12/Resveralife-Setting-Realistic-Workout-Expectations.jpg',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzwxoLFSB2bQf1kfrI7bJbQD97GIzo10JuO3vFfUnF0_IFF0bv'
-      ],
-      currentNumber: 0,
-      timer: null
+      slide: 0,
+      sliding: null
     }
-  },
-  mounted: function () {
-    this.startRotation()
   },
   methods: {
-    startRotation: function () {
-      this.timer = setInterval(this.next, 3000)
+    onSlideStart (slide) {
+      this.sliding = true
     },
-    stopRotation: function () {
-      clearTimeout(this.timer)
-      this.timer = null
-    },
-    next: function () {
-      this.currentNumber += 1
-    },
-    prev: function () {
-      this.currentNumber -= 1
-    }
-  },
-  computed: {
-    currentImage: function () {
-      return this.images[Math.abs(this.currentNumber) % this.images.length]
+    onSlideEnd (slide) {
+      this.sliding = false
     }
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-.fade-enter-active, .fade-leave-active {
-  transition: all 3.0s ease;
-  overflow: hidden;
-  visibility: visible;
-  opacity: 1;
-  position: absolute;
+#carousel-1{
+  height: 62vh;
 }
 
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-  visibility: hidden;
-}
-#slider img {
-  width: 100%;
-}
 </style>

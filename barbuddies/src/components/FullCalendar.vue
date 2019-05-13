@@ -2,11 +2,6 @@
   <div>
     <NavBar />
     <div class='demo-app'>
-      <div class='demo-app-top'>
-        <!-- <button @click="toggleWeekends">toggle weekends</button>
-        <button @click="gotoPast">go to a date in the past</button>
-        (also, click a date/time to add an event) -->
-      </div>
       <FullCalendar
         class='demo-app-calendar'
         ref="fullCalendar"
@@ -14,7 +9,7 @@
         :header="{
           left: 'prev,next',
           center: 'title',
-          right: 'timeGridWeek,timeGridDay'
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
         }"
         :plugins="calendarPlugins"
         :weekends="calendarWeekends"
@@ -50,13 +45,6 @@ export default {
     }
   },
   methods: {
-    toggleWeekends () {
-      this.calendarWeekends = !this.calendarWeekends // update a property
-    },
-    gotoPast () {
-      let calendarApi = this.$refs.fullCalendar.getApi() // from the ref="..."
-      calendarApi.gotoDate('2000-01-01') // call a method on the Calendar object
-    },
     handleDateClick (arg) {
       if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
         this.calendarEvents.push({ // add new event data
@@ -76,10 +64,7 @@ export default {
 @import '@fullcalendar/timegrid/main.css';
 .demo-app {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-  font-size: 12px;
-}
-.demo-app-top {
-  margin: 0 0 3em;
+  font-size: 10px;
 }
 .demo-app-calendar {
   margin: 0 auto;
