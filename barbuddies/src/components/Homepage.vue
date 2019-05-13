@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 /* eslint-disable */
 import FullCalendar from './FullCalendar'
 import NavBar from './NavBar'
@@ -23,7 +24,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #homepage {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -5,6 +5,8 @@ import homepage from '@/components/Homepage'
 import Calendar from '@/components/Calendar'
 import FullCalendar from '@/components/FullCalendar'
 import Profile from '@/components/Profile'
+import Calendar from '@/components/Calendar'
+import FullCalendar from '@/components/FullCalendar'
 import Groups from '@/components/GroupMainPage'
 
 Vue.use(Router)

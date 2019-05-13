@@ -6,7 +6,7 @@
         </div>
         <div class="col-6 text-center">
           <a class="navbar-brand" href="#">
-            <img src="../assets/logoBlack.png" alt="Logo">
+            <img src="../assets/logoBlack.png" alt="Logo" id="logo">
           </a>
           <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
@@ -37,7 +37,7 @@
                 document.getElementById("main").style.marginLeft= "0";
             }
         }
-    }
+    }         
 
 </script>
 <style scoped>
@@ -45,9 +45,25 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+.navbar-brand{
+  height: 10vh;
+}
+
+.navbar {
+  padding: 0;
+}
+
+
+
+#main {
+  padding: 0;
+}
+
 #logo {
-  height:120px;
-  width: 150px;
+  margin: 0;
+  height: 120px;
+  width: 120px;
+  padding-bottom: 40px;
 }
 
 .sidebar {
