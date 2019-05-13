@@ -33,9 +33,4 @@ export default {
 }
 </script>
 
-<style scoped>
-  #avatar {
-    width: 90px;
-    height: 90px;
-  }
-</style>
+=

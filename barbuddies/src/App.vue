@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/bb_logo.png">
     <router-view></router-view>
     <footer>
       <b-button id="btn" v-b-modal.modal-3 size="sm" variant="light">BarBuddies is unoffically owned by Team 17, Team Moto Moto</b-button>
@@ -24,6 +23,7 @@ export default {
     homepage
   },
   methods: {
+    //creates the method createUser that actually creates a brand new user
     createUser (user) {
       this.user = [user, ...this.user]
     }

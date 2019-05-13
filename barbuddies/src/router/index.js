@@ -20,15 +20,25 @@ export default new Router({
       component: homepage
     },
     {
+      path: '/calendar/',
+      name: 'Calendar',
+      component: calendar
+    },
+    {
+      path: '/fullCalendar/',
+      name: 'FullCalendar',
+      component: FullCalendar
+    },
+    {
+      path: '/groups/',
+      name: 'groups',
+      component: groups
+    },
+    {
       path: '/profile/',
       name: 'Profile',
       component: Profile
     },
-    {
-      path: '/groups/',
-      name: 'Groups',
-      component: Groups
-    }
 
   ]
 })
