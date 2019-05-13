@@ -1,4 +1,8 @@
 <template>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> afed780dc4a74678e696cdef8070981df6c79aaa
   <div class="container">
     <b-carousel
       id="carousel-1"
@@ -30,30 +34,103 @@
       </b-carousel-slide>
     </b-carousel>
     </div>
+<<<<<<< HEAD
+=======
+  <div id="slider">
+    <p>
+      <a @click="prev" href='#'></a> || <a @click="next" href='#'>></a>
+    </p>
+
+    <transition-group name='fade' tag='div'>
+      <div
+       v-for="number in [currentNumber]"
+       :key='number'
+       >
+         <img
+             :src="currentImage"
+             v-on:mouseover="stopRotation"
+             v-on:mouseout="startRotation"
+             />
+      </div>
+    </transition-group>
+
+  </div>
+
+>>>>>>> fdd9d08edf241488cab35a9fcf1689e030efb538
+=======
+>>>>>>> afed780dc4a74678e696cdef8070981df6c79aaa
 </template>
 
 <script>
 export default {
   data () {
     return {
+<<<<<<< HEAD
+<<<<<<< HEAD
+      slide: 0,
+      sliding: null
+=======
+      images: [
+        image1,
+        image2,
+        image3,
+        image4
+      ],
+      currentNumber: 0,
+      timer: null
+>>>>>>> fdd9d08edf241488cab35a9fcf1689e030efb538
+    }
+  },
+  methods: {
+<<<<<<< HEAD
+=======
       slide: 0,
       sliding: null
     }
   },
   methods: {
+>>>>>>> afed780dc4a74678e696cdef8070981df6c79aaa
     onSlideStart (slide) {
       this.sliding = true
     },
     onSlideEnd (slide) {
       this.sliding = false
+<<<<<<< HEAD
+=======
+    startRotation: function () {
+      this.timer = setInterval(this.next, 3000)
+    },
+    methods: {
+      onSlideStart(slide) {
+        this.sliding = true
+      },
+      onSlideEnd(slide) {
+        this.sliding = false
+      }
+>>>>>>> fdd9d08edf241488cab35a9fcf1689e030efb538
+=======
+>>>>>>> afed780dc4a74678e696cdef8070981df6c79aaa
     }
   }
 }
 </script>
 <style scoped>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> afed780dc4a74678e696cdef8070981df6c79aaa
 #carousel-1{
   height: 62vh;
 }
 
 </style>
+<<<<<<< HEAD
+=======
+.jumbotron{
+  color: #efefef;
+}
+</style>
+>>>>>>> fdd9d08edf241488cab35a9fcf1689e030efb538
+=======
 
+>>>>>>> afed780dc4a74678e696cdef8070981df6c79aaa

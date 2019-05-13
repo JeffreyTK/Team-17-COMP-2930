@@ -13,8 +13,18 @@
         </b-modal>
 
       <div id="signup">
+<<<<<<< HEAD
+<<<<<<< HEAD
       <b-button v-b-modal.modal-2 @click = "onClick" >Signup</b-button>
           <b-modal id="modal-2" title="Bar Buddies" ok-title="Signup" hide-footer>
+=======
+      <b-button v-b-modal.modal-2>Signup</b-button>
+          <b-modal id="modal-2" title="Bar Buddies" hide-footer="true">
+>>>>>>> fdd9d08edf241488cab35a9fcf1689e030efb538
+=======
+      <b-button v-b-modal.modal-2 @click = "onClick" >Signup</b-button>
+          <b-modal id="modal-2" title="Bar Buddies" ok-title="Signup" hide-footer>
+>>>>>>> afed780dc4a74678e696cdef8070981df6c79aaa
           <p class="my-4">Sign-up</p>
             <input v-model = "firstName" placeholder="First Name">
             <input v-model = "lastName" placeholder="Last Name">

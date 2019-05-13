@@ -8,10 +8,10 @@
 <script>
 /* eslint-disable */
 import FullCalendar from './FullCalendar'
+import NavBar from './NavBar'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
-import NavBar from './NavBar'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 

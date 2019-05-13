@@ -5,7 +5,7 @@
       <FullCalendar
         class='demo-app-calendar'
         ref="fullCalendar"
-        :defaultView="calendarView"
+        defaultView="dayGridMonth"
         :header="{
           left: 'prev,next',
           center: 'title',
@@ -22,7 +22,6 @@
 
 <script>
 import NavBar from './NavBar'
-import Calendar from './Calendar'
 import FullCalendar from '@fullcalendar/vue'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
@@ -35,7 +34,6 @@ export default {
   name: 'FullCalendar',
   components: {
     NavBar,
-    Calendar,
     FullCalendar // make the <FullCalendar> tag available
   },
   data: function () {
@@ -61,8 +59,8 @@ export default {
         })
       }
     }
-  },
-  mounted: {
+  }
+  /* mounted: {
     calendarView: function () {
       if (Calendar._inactive) {
         FullCalendar.defaultView = 'timeGridWeek'
@@ -70,7 +68,7 @@ export default {
         FullCalendar.defaultView = 'dayGridMonth'
       }
     }
-  }
+  } */
 }
 </script>
 
