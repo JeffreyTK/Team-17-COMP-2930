@@ -1,31 +1,31 @@
 <template>
   <div id="homepage">
-    <NavBar />
-    <Calendar/>
-    <EasterEgg video-id="BBJa32lCaaY"/>
+    <NavBar/>
+    <br/>
+    <FullCalendar/>
   </div>
 </template>
 
 <script>
 
 /* eslint-disable */
-import Calendar from './Calendar'
+import FullCalendar from './FullCalendar'
 import NavBar from './NavBar'
 import EasterEgg from './EasterEgg'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+
 export default {
   name: 'homepage',
   components: {
     NavBar,
-    Calendar,
-    EasterEgg
+    FullCalendar
   }
 }
 </script>
 
-<style>
+<style scoped>
 #homepage {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
