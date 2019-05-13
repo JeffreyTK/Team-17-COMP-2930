@@ -1,6 +1,9 @@
 import axios from 'axios'
+//the base url is the localhost at which the database is stored
 const BASE_URL = 'http://localhost:5000'
 export function createUser (data) {
+  //on the post call if the url is this
+  //sets the data of first name to the first name and responds with the data to the database
   return axios.post(`${BASE_URL}/api/user/create`,
     {
       firstName: data.firstName,
@@ -16,13 +19,14 @@ export function createUser (data) {
     }).then(response => {
     return response.data
   })
+  //on error will push out the error message
     .catch(err => Promise.reject(err.message))
 }
 export function createGroup (data) {
   return axios.post(`${BASE_URL}/api/group/create`,
     {
-      GroupID: {type: String},
-      UserID: {type: Array}
+      GroupID: data.GroupID,
+      UserID: data.UserID
     }).then(response => {
     return response.data
   })

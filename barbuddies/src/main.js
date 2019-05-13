@@ -4,9 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import BootstrapVue from 'bootstrap-vue'
+import VueYoutube from 'vue-youtube'
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
+Vue.use(VueYoutube)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
