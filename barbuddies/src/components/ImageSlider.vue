@@ -1,5 +1,8 @@
 <template>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> afed780dc4a74678e696cdef8070981df6c79aaa
   <div class="container">
     <b-carousel
       id="carousel-1"
@@ -31,6 +34,7 @@
       </b-carousel-slide>
     </b-carousel>
     </div>
+<<<<<<< HEAD
 =======
   <div id="slider">
     <p>
@@ -53,17 +57,15 @@
   </div>
 
 >>>>>>> fdd9d08edf241488cab35a9fcf1689e030efb538
+=======
+>>>>>>> afed780dc4a74678e696cdef8070981df6c79aaa
 </template>
 
 <script>
-import image1 from '../assets/imageSlider1.jpeg'
-import image2 from '../assets/imageSlider2.jpeg'
-import image3 from '../assets/imageSlider3.jpeg'
-import image4 from '../assets/imageSlider4.jpeg'
-
 export default {
   data () {
     return {
+<<<<<<< HEAD
 <<<<<<< HEAD
       slide: 0,
       sliding: null
@@ -81,11 +83,19 @@ export default {
   },
   methods: {
 <<<<<<< HEAD
+=======
+      slide: 0,
+      sliding: null
+    }
+  },
+  methods: {
+>>>>>>> afed780dc4a74678e696cdef8070981df6c79aaa
     onSlideStart (slide) {
       this.sliding = true
     },
     onSlideEnd (slide) {
       this.sliding = false
+<<<<<<< HEAD
 =======
     startRotation: function () {
       this.timer = setInterval(this.next, 3000)
@@ -98,19 +108,29 @@ export default {
         this.sliding = false
       }
 >>>>>>> fdd9d08edf241488cab35a9fcf1689e030efb538
+=======
+>>>>>>> afed780dc4a74678e696cdef8070981df6c79aaa
     }
   }
+}
 </script>
 <style scoped>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> afed780dc4a74678e696cdef8070981df6c79aaa
 #carousel-1{
   height: 62vh;
 }
 
 </style>
+<<<<<<< HEAD
 =======
 .jumbotron{
   color: #efefef;
 }
 </style>
 >>>>>>> fdd9d08edf241488cab35a9fcf1689e030efb538
+=======
+
+>>>>>>> afed780dc4a74678e696cdef8070981df6c79aaa
