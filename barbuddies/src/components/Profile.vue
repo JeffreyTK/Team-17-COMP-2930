@@ -29,6 +29,10 @@ export default {
   name: 'Profile',
   components: {
     NavBar
+  },
+  methods: {
+    save: function () {
+    }
   }
 }
 </script>

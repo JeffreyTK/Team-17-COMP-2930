@@ -11,7 +11,6 @@
 /* eslint-disable */
 import FullCalendar from './FullCalendar'
 import NavBar from './NavBar'
-import EasterEgg from './EasterEgg'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 

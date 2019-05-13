@@ -3,7 +3,7 @@
     <router-view></router-view>
     <footer>
       <b-button id="btn" v-b-modal.modal-3 size="sm" variant="light">BarBuddies is unoffically owned by Team 17, Team Moto Moto</b-button>
-      <b-modal id="modal-3" title="Bar Buddies" ok-title="Login" hide-footer="true">
+      <b-modal id="modal-3" title="Bar Buddies" ok-title="Login" hide-footer>
         <iframe src="https://vlipsy.com/embed/NVUkq5IE" width="100%" height="100%" frameborder="0"></iframe>
       </b-modal>
     </footer>
