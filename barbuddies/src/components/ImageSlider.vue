@@ -21,7 +21,7 @@
       ></b-carousel-slide>
 
       <!-- Slides with custom text -->
-      <b-carousel-slide 
+      <b-carousel-slide
         caption="Keep Track of Your Workouts"
         text="Record your workout and view your progress"
         img-src="https://images.unsplash.com/photo-1520334363269-c1b342d17261?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80">
