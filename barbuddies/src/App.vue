@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <router-link to="groups"><img src="./assets/bb_logo.png"></router-link>
     <router-view></router-view>
   </div>
 </template>
@@ -18,6 +17,7 @@ export default {
     homepage
   },
   methods: {
+    //creates the method createUser that actually creates a brand new user
     createUser (user) {
       this.user = [user, ...this.user]
     }

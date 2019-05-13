@@ -1,7 +1,10 @@
 <template>
   <div id="homepage">
     <NavBar />
-    <Calendar/>
+    <Calendar
+     default-view="dayGridMonth"
+     :plugins="calendarPlugins" />
+    />
   </div>
 </template>
 
@@ -19,6 +22,7 @@ export default {
     Calendar
   }
 }
+
 </script>
 
 <style>
