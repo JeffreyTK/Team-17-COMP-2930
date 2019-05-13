@@ -1,5 +1,5 @@
 <template>
-  <div class='demo-app'>
+  <div id='Calendar'>
     <br/><br/><br/><br/>
     <FullCalendar/>
   </div>
@@ -14,7 +14,6 @@ import interactionPlugin from '@fullcalendar/interaction'
 import NavBar from './NavBar'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-
 
 export default {
   name: 'Calendar',
@@ -35,7 +34,7 @@ export default {
 </script>
 
 <style>
-#homepage {
+#Calendar {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

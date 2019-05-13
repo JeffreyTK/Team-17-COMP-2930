@@ -5,7 +5,7 @@
       <FullCalendar
         class='demo-app-calendar'
         ref="fullCalendar"
-        defaultView="timeGridWeek"
+        :defaultView="calendarView"
         :header="{
           left: 'prev,next',
           center: 'title',
@@ -22,13 +22,19 @@
 
 <script>
 import NavBar from './NavBar'
+import Calendar from './Calendar'
 import FullCalendar from '@fullcalendar/vue'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
+import '@fullcalendar/core/main.css'
+import '@fullcalendar/daygrid/main.css'
+import '@fullcalendar/timegrid/main.css'
+
 export default {
   components: {
     NavBar,
+    Calendar,
     FullCalendar // make the <FullCalendar> tag available
   },
   data: function () {
@@ -45,13 +51,22 @@ export default {
     }
   },
   methods: {
-    handleDateClick (arg) {
+    handleDateClick: function (arg) {
       if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
         this.calendarEvents.push({ // add new event data
           title: 'New Workout',
           start: arg.date,
           allDay: arg.allDay
         })
+      }
+    }
+  },
+  mounted: {
+    calendarView: function () {
+      if (Calendar._inactive) {
+        FullCalendar.defaultView = 'timeGridWeek'
+      } else {
+        FullCalendar.defaultView = 'dayGridMonth'
       }
     }
   }
