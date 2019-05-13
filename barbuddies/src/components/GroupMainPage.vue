@@ -35,7 +35,7 @@
             <b-button v-b-modal.modal-1 class="addBtn">+</b-button>
             <b-modal id="modal-1" title="New Group">
               <form>
-                <input v-model = "groupName" placeholder="Group Name">
+                <input v-model = "name" placeholder="Group Name">
                 <br />
                 <input v-model = "email" placeholder="Email">
                 <br />
@@ -55,14 +55,13 @@ export default {
     NavBar
   },
   methods: {
-    addEmail: function add() {
-      var newInput = document.createElement('input');
-      newInput.setAttribute("v-model", "email");
-      newInput.setAttribute("placeholder", "Email");
-      document.getElementById('form').appendChild(newInput);
-      var break1 = document.createElement('br');
-      document.getElementById('form').appendChild(break1);
-
+    addEmail: function add () {
+      var newInput = document.createElement('input')
+      newInput.setAttribute('v-model', 'email')
+      newInput.setAttribute('placeholder', 'Email')
+      document.getElementById('form').appendChild(newInput)
+      var break1 = document.createElement('br')
+      document.getElementById('form').appendChild(break1)
     }
   }
 }
