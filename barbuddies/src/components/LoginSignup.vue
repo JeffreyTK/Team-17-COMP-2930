@@ -1,20 +1,22 @@
 <template>
   <div>
-    <img src="../assets/bb_logo.png">
+    <img src="../assets/bb_logo.png" id="logo">
     <ImageSlider />
+    <br /><br /><br />
     <div id="LoginSignup" class="container">
-      <div id="login" class="d-flex justify-content-center">
-        <b-button v-b-modal.modal-1>Login</b-button>
-
+      <div id="login" class="row">
+        <div class="col">
+        <b-button v-b-modal.modal-1 size="lg" id="loginBtn">Login</b-button>
         <b-modal id="modal-1" title="Bar Buddies" ok-title="Login" hide-footer="true">
           <p class="my-4">Login</p>
             <input  placeholder="Email">
             <input type="password" placeholder="Password">
             <router-link to="homepage">Login</router-link>
         </b-modal>
+        </div>
 
-      <div id="signup">
-      <b-button v-b-modal.modal-2>Signup</b-button>
+      <div id="signup" class="col">
+        <b-button v-b-modal.modal-2 size="lg" id="signupBtn">Signup</b-button>
           <b-modal id="modal-2" title="Bar Buddies" hide-footer="true">
           <p class="my-4">Sign-up</p>
             <input v-model = "firstName" placeholder="First Name">
@@ -84,16 +86,17 @@ export default {
 }
 </script>
 <style scoped>
-  #LoginSignup {
-    position: absolute;
-    bottom: 0px;
-    text-align: center;
-    margin-bottom: 20%;
-  }
-  /*#signup {
-    position:
-  }*/
   input {
     border: solid grey 1px;
+  }
+  #loginBtn {
+    width: 100%;
+  }
+  #signupBtn {
+    width: 100%;
+  }
+  #logo {
+    padding: 0;
+    height: 150px;
   }
 </style>
