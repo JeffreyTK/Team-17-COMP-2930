@@ -1,11 +1,8 @@
 <template>
-  <div class="homepage">
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <FullCalendar />
+  <div id="homepage">
+    <NavBar/>
+    <br/>
+    <FullCalendar changeView="timeGridWeek"/>
   </div>
 </template>
 <script>
@@ -19,6 +16,11 @@ export default {
   components: {
     NavBar,
     FullCalendar
+  },
+  data() {
+    return {
+      changeView: ''
+    }
   }
 }
 </script>
