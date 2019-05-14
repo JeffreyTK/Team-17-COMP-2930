@@ -1,8 +1,8 @@
 <template>
   <div id='Calendar'>
-    <NavBar/>
+    <NavBar />
     <br/><br/><br/><br/>
-    <FullCalendar/>
+<FullCalendar changeView="dayGridMonth"/>    
   </div>
 </template>
 
@@ -29,6 +29,7 @@ export default {
         timeGridPlugin,
         interactionPlugin // needed for dateClick
       ],
+      changeView: ''
     }
   }
 }
