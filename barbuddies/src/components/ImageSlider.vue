@@ -1,4 +1,4 @@
-template>
+<template>
   <div class="container">
     <b-carousel
       id="carousel-1"
@@ -29,7 +29,7 @@ template>
       >
       </b-carousel-slide>
     </b-carousel>
-    </div>
+  </div>
 </template>
 
 <script>
