@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar />
+    <NavBar/>
     <br/><br/><br/>
     <div class="profile">
       <br /><br /><br /><br /><br />

@@ -7,7 +7,8 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
+const passport = require("passport")
+const LocalStrategy = require('passport-local').Strategy
 //links the variable groups to require the file groups
 const Groups = require('./Groups');
 
@@ -33,7 +34,48 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 //app uses middleware that connects express to the application
 app.use(cors());
+app.use(cookieSession({
+  name: 'mysession',
+  keys: ['vueauthrandomkey'],
+  maxAge: 24 * 60 * 60 * 1000
+}))
+app.use(passport.initialize());
+app.use(passport.session());
+app.post("/api/login", (req, res ,next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      return next(err);
+    }
+    if(!user) {
+      return res.status(400).send([user, "Cannot log in", info]);
+    }
 
+    req.login(user, err => {
+      res.send('logged in');
+    });
+  })(req, res , next);
+});
+app.get("/api/logout", function (req, res){
+  req.logout();
+  console.log("logged out")
+  return res.send();
+});
+
+app.get("/api/user", authMiddleware, (req, res) => {
+  let user = user.find(user =>{
+    return user.id === req.session.passport.user
+  })
+  console.log([user, req.session])
+
+  res.send({user: user})
+})
+const authMiddleware = (req, res, next) => {
+  if(!req.isAuthenticated()){
+    res.status(401).send('You are not authenticated')
+  } else {
+    return next()
+  }
+} 
 //first creating the url for the website to submit a req/res to
 app.post('/api/user/create', (req, res) => {
   console.log('successful connect')
