@@ -29,7 +29,7 @@
       >
       </b-carousel-slide>
     </b-carousel>
-    </div>
+  </div>
 </template>
 
 <script>

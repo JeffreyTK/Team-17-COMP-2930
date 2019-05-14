@@ -26,6 +26,7 @@
 </template>
 <script>
 import { updateUser } from '../repository'
+import changeView from './FullCalendar'
 /* eslint-disable */
     export default {
         name: "NavBar",

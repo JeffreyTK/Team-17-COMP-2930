@@ -10,7 +10,7 @@
       <FullCalendar
         class='demo-app-calendar'
         ref="fullCalendar"
-        defaultView="timeGridWeek"
+        :defaultView="changeView"
         :header="{
           left: 'prev,next',
           center: 'title',
@@ -49,7 +49,7 @@ export default {
       calendarWeekends: true,
       calendarEvents: [ // initial event data
         { title: 'Event Now', start: new Date() }
-      ]
+      ],
     }
   },
   methods: {
@@ -62,8 +62,12 @@ export default {
         })
       }
     }
-  }
-}
+  },
+  props: ["changeView"]
+} 
+        
+// homepage "timeGridWeek"
+// calendar "dayGridMonth"
 </script>
 
 <style lang='scss'>
