@@ -58,6 +58,11 @@ app.post('/api/user/create', (req, res) => {
     });
   });
 
+  app.get('/api/users/:id', async (req, res) => {
+    const user = await User.findById(req.params.id);
+    res.json(user);
+  });
+
 //server port at 5000
 const PORT = 5000;
 //let the app listen for port 5000

@@ -28,6 +28,7 @@
             <input v-model = "height"  placeholder="Height">
             <input v-model = "weight"  placeholder="Weight">
             <input type="password" placeholder="Confirm Password">
+            <router-link to = "homepage"><a @click = "onClick" href = ''>Signup</a></router-link>
         </b-modal>
         </div>
       </div>
