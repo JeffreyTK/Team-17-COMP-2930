@@ -8,7 +8,8 @@ import BootstrapVue from 'bootstrap-vue'
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 
-new Vue({ // eslint-disable-line no-new
+/* eslint-disable no-new */
+new Vue({
   el: '#app',
   router,
   components: { App },

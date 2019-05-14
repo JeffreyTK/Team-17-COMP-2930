@@ -1,65 +1,57 @@
 <template>
-  <div id="slider">
-    <p>
-       <a @click="prev" href='#'>&#60;</a> || <a @click="next" href='#'>&#62;</a>
-    </p>
+  <div class="container">
+    <b-carousel
+      id="carousel-1"
+      v-model="slide"
+      :interval="4000"
+      controls
+      indicators
+      background="#ababab"
+      img-width="1024"
+      img-height="480"
+      style="text-shadow: 1px 1px 2px #333;"
+      @sliding-start="onSlideStart"
+      @sliding-end="onSlideEnd"
+    >
+      <!-- Text slides with image -->
+      <b-carousel-slide
+        caption="Workout With Friends"
+        text="Join a group and share each others' calendars"
+        img-src="https://images.pexels.com/photos/1855269/pexels-photo-1855269.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500%22%3E"
+      >
+      </b-carousel-slide>
 
-    <transition-group name='fade' tag='div'>
-      <div
-       v-for="number in [currentNumber]"
-       :key='number'
-       >
-         <img
-             :src="currentImage"
-             v-on:mouseover="stopRotation"
-             v-on:mouseout="startRotation"
-             />
-      </div>
-    </transition-group>
-
-  </div>
-
+      <!-- Slides with custom text -->
+      <b-carousel-slide
+        caption="Keep Track of Your Workouts"
+        text="Record your workout and view your progress"
+        img-src="https://images.unsplash.com/photo-1520334363269-c1b342d17261?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80%22%3E"
+      >
+      </b-carousel-slide>
+    </b-carousel>
+    </div>
 </template>
 
 <script>
-import image1 from '../assets/imageSlider1.jpeg'
-import image2 from '../assets/imageSlider2.jpeg'
-import image3 from '../assets/imageSlider3.jpeg'
-import image4 from '../assets/imageSlider4.jpeg'
 export default {
-  name: 'ImageSlider',
   data () {
     return {
-      images: [
-        image1,
-        image2,
-        image3,
-        image4
-      ],
-      currentNumber: 0,
-      timer: null
+      slide: 0,
+      sliding: null
     }
   },
-  mounted: function () {
-    this.startRotation()
-  },
   methods: {
-    startRotation: function () {
-      this.timer = setInterval(this.next, 3000)
+    onSlideStart (slide) {
+      this.sliding = true
     },
-    methods: {
-      onSlideStart (slide) {
-        this.sliding = true
-      },
-      onSlideEnd (slide) {
-        this.sliding = false
-      }
+    onSlideEnd (slide) {
+      this.sliding = false
     }
   }
 }
 </script>
 <style scoped>
-.jumbotron{
-  color: #efefef;
+#carousel-1{
+  height: 62vh;
 }
 </style>

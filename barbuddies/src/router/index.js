@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import homepage from '@/components/Homepage'
+import Calendar from '@/components/Calendar'
 import Profile from '@/components/Profile'
+import FullCalendar from '@/components/FullCalendar'
 import Groups from '@/components/GroupMainPage'
 import Calendar from '@/components/Calendar'
 import FullCalendar from '@/components/FullCalendar'
@@ -33,7 +35,7 @@ export default new Router({
     },
     {
       path: '/groups/',
-      name: 'groups',
+      name: 'Groups',
       component: Groups
     },
     {
