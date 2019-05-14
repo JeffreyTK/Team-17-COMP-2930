@@ -1,7 +1,7 @@
 <template>
   <div id="homepage">
     <NavBar/>
-    <br/>
+    <br/><br/><br/><br/><br/>
     <FullCalendar changeView="timeGridWeek"/>
   </div>
 </template>
