@@ -29,7 +29,7 @@
       >
       </b-carousel-slide>
     </b-carousel>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -54,4 +54,5 @@ export default {
 #carousel-1{
   height: 62vh;
 }
+
 </style>
