@@ -49,7 +49,7 @@ export default {
       calendarWeekends: true,
       calendarEvents: [ // initial event data
         { title: 'Event Now', start: new Date() }
-      ],
+      ]
     }
   },
   methods: {
@@ -63,9 +63,9 @@ export default {
       }
     }
   },
-  props: ["changeView"]
-} 
-        
+  props: ['changeView']
+}
+
 // homepage "timeGridWeek"
 // calendar "dayGridMonth"
 </script>

@@ -1,7 +1,8 @@
 <template>
   <div id='Calendar'>
+    <NavBar/>
     <br/><br/><br/><br/>
-<FullCalendar changeView="dayGridMonth"/>    
+<FullCalendar changeView="dayGridMonth"/>
   </div>
 </template>
 

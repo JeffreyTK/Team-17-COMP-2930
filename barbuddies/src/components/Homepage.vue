@@ -1,11 +1,12 @@
 <template>
   <div class="homepage">
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <FullCalendar />
+    <NavBar/>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <FullCalendar />
   </div>
 </template>
 <script>
@@ -20,7 +21,7 @@ export default {
     NavBar,
     FullCalendar
   },
-  data() {
+  data () {
     return {
       changeView: ''
     }
