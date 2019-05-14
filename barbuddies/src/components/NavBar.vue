@@ -17,6 +17,7 @@
             <br />
             <router-link to="calendar">CALENDAR</router-link>
             <router-link to="groups">GROUPS</router-link>
+            <router-link to="aboutUs">ABOUT US</router-link>
           </div>
         </div>
         <div class="col text-center"></div>

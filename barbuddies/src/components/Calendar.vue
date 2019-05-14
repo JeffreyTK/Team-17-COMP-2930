@@ -20,15 +20,6 @@ export default {
   components: {
     NavBar,
     FullCalendar
-  },
-  data: function () {
-    return {
-      calendarPlugins: [ // plugins must be defined in the JS
-        dayGridPlugin,
-        timeGridPlugin,
-        interactionPlugin // needed for dateClick
-      ],
-    }
   }
 }
 </script>
