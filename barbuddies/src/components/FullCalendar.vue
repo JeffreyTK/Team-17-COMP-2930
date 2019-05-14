@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar />
+    <NavBar/>
     <div class='demo-app'>
       <div class='demo-app-top'>
         <!-- <button @click="toggleWeekends">toggle weekends</button>

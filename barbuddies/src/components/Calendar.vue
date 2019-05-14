@@ -1,5 +1,6 @@
 <template>
   <div id='Calendar'>
+    <NavBar/>
     <br/><br/><br/><br/>
     <FullCalendar/>
   </div>

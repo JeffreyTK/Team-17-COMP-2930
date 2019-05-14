@@ -1,5 +1,6 @@
 <template>
   <div>
+    <NavBar/>
     <img src="../assets/bb_logo.png" id="logo">
     <ImageSlider />
     <br /><br /><br />
