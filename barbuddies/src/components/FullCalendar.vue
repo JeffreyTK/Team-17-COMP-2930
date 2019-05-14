@@ -63,15 +63,6 @@ export default {
       }
     }
   }
-  /* mounted: {
-    calendarView: function () {
-      if (Calendar._inactive) {
-        FullCalendar.defaultView = 'timeGridWeek'
-      } else {
-        FullCalendar.defaultView = 'dayGridMonth'
-      }
-    }
-  } */
 }
 </script>
 
