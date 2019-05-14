@@ -13,7 +13,7 @@
               <br />
               <router-link to="Profile"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></router-link>
               <br />
-              <router-link to="Profile"><h1 id="userFirst">LUKE</h1><h1 id="userLast">HANSEN</h1></router-link>
+              <router-link to="Profile"><h1 id="userFirst">{{firstName}}</h1><h1 id="userLast">{{lastName}}</h1></router-link>
             <br />
             <router-link to="calendar">CALENDAR</router-link>
             <router-link to="groups">GROUPS</router-link>
@@ -24,9 +24,16 @@
   </div>
 </template>
 <script>
+import { updateUser } from '../repository'
 /* eslint-disable */
     export default {
         name: "NavBar",
+        data () {
+       return {
+        firstName : '',
+        lastName : '',
+    }
+  },
         methods: {
             openNav: function() {
                 document.getElementById("mySidebar").style.width = "250px";
@@ -36,11 +43,22 @@
                 document.getElementById("mySidebar").style.width = "0";
                 document.getElementById("main").style.marginLeft= "0";
             }
-        }
-    }         
+            },
+            mounted(){
+              let id = '5cdb23cecb38bb9baed28ac2'
+              updateUser(id).then((data)=>{
+                this.firstName = data.firstName,
+                this.lastName = data.lastName
+              });
+            }
+        }      
 
 </script>
 <style scoped>
+#profileImg{
+  width: 150px;
+  height: 150px;
+}
 body {
   font-family: "Lato", sans-serif;
 }

@@ -1,41 +1,27 @@
 <template>
-  <div id="homepage">
-    <NavBar/>
-    <br/>
-    <FullCalendar/>
+  <div class="homepage">
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <FullCalendar />
   </div>
 </template>
-
 <script>
-
-/* eslint-disable */
-import FullCalendar from './FullCalendar'
 import NavBar from './NavBar'
+import FullCalendar from './FullCalendar'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-
 export default {
-  name: 'Homepage',
+  name: 'Groups',
   components: {
     NavBar,
     FullCalendar
   }
 }
-
 </script>
-
 <style scoped>
-#homepage {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 0px;
-  margin-left: 0px;
-}
-img {
-  width: 200px;
-}
+
 </style>
