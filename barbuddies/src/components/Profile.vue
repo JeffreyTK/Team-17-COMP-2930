@@ -29,27 +29,27 @@ import { updateUser } from '../repository'
 import NavBar from './NavBar'
 export default {
   name: 'Profile',
-  
+
   components: {
     NavBar
   },
   data () {
-       return {
-        firstName: "",
-        lastName: "",
-        DOB: "",
-        gender: "",
-        weight: "",
-        height: "",
-        email: "",
-        password: "",
-        userID: "",
-        groupID: ""
+    return {
+      firstName: '',
+      lastName: '',
+      DOB: '',
+      gender: '',
+      weight: '',
+      height: '',
+      email: '',
+      password: '',
+      userID: '',
+      groupID: ''
     }
   },
   methods: {
     save: function () {
-      updateUserProfile(id).then((data)=>{
+      updateUserProfile(id).then((data) => {
         data.DOB = this.DOB,
         data.gender = this.Gender,
         data.weight = this.weight,
@@ -58,18 +58,18 @@ export default {
       })
     }
   },
-  mounted(){
+  mounted () {
     let id = '5cdb23cecb38bb9baed28ac2'
-    updateUser(id).then((data)=>{
-    this.firstName = data.firstName,
-    this.email = data.email,
-    this.DOB = data.DOB
-    this.Gender = data.gender,
-    this.weight = data.weight,
-    this.height = data.height,
-    this.email = data.email,
-    this.password = data.password
-              });
-            }
+    updateUser(id).then((data) => {
+      this.firstName = data.firstName,
+      this.email = data.email,
+      this.DOB = data.DOB
+      this.Gender = data.gender,
+      this.weight = data.weight,
+      this.height = data.height,
+      this.email = data.email,
+      this.password = data.password
+    })
+  }
 }
 </script>
