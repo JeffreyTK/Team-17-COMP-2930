@@ -39,7 +39,7 @@ export default new Router({
     },
     {
       path: '/profile/',
-      name: 'Profile',
+      name: 'profile',
       component: Profile
     },
     {
