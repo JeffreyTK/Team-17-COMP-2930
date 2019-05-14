@@ -53,8 +53,6 @@ body {
   padding: 0;
 }
 
-
-
 #main {
   padding: 0;
 }
