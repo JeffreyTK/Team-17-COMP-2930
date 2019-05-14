@@ -9,12 +9,12 @@
         <b-button v-b-modal.modal-1 size="lg" id="loginBtn">Login</b-button>
         <b-modal id="modal-1" title="Login" ok-title="Login" hide-footer>
             <br />
-            <input type="email" placeholder="Email" class="inputs">
+            <input type="email" :placeholder="Email" class="inputs">
             <br/>
-            <input type="password" placeholder="Password" class="inputs">
+            <input type="password" :placeholder="Password" class="inputs">
             <br />
             <br />
-            <router-link to="homepage">Login</router-link>
+            <router-link to="homepage"><a @click =  "onClick2" href = ''>Login</a></router-link>
         </b-modal>
         </div>
       <div id="signup" class="col">
