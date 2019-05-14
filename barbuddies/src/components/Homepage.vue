@@ -2,7 +2,7 @@
   <div id="homepage">
     <NavBar/>
     <br/>
-    <FullCalendar/>
+    <FullCalendar changeView="timeGridWeek"/>
   </div>
 </template>
 
@@ -20,6 +20,11 @@ export default {
   components: {
     NavBar,
     FullCalendar
+  },
+  data() {
+    return {
+      changeView: ''
+    }
   }
 }
 </script>

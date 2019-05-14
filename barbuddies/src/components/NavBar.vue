@@ -24,6 +24,7 @@
   </div>
 </template>
 <script>
+import changeView from './FullCalendar'
 /* eslint-disable */
     export default {
         name: "NavBar",
@@ -36,9 +37,8 @@
                 document.getElementById("mySidebar").style.width = "0";
                 document.getElementById("main").style.marginLeft= "0";
             }
-        }
     }         
-
+}
 </script>
 <style scoped>
 body {

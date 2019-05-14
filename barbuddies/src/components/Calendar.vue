@@ -1,7 +1,7 @@
 <template>
   <div id='Calendar'>
     <br/><br/><br/><br/>
-    <FullCalendar/>
+<FullCalendar changeView="dayGridMonth"/>    
   </div>
 </template>
 
@@ -28,8 +28,13 @@ export default {
         timeGridPlugin,
         interactionPlugin // needed for dateClick
       ],
+      changeView: ''
     }
-  }
+  }//,
+  //mounted: function() {
+    //this.changeView = "dayGridMonth"
+    //console.log("changed to daygridmonth")
+  //}
 }
 </script>
 
