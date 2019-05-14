@@ -30,11 +30,7 @@ export default {
       ],
       changeView: ''
     }
-  }//,
-  //mounted: function() {
-    //this.changeView = "dayGridMonth"
-    //console.log("changed to daygridmonth")
-  //}
+  }
 }
 </script>
 
