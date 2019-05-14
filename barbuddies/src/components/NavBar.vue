@@ -55,6 +55,10 @@ import { updateUser } from '../repository'
 
 </script>
 <style scoped>
+#profileImg{
+  width: 150px;
+  height: 150px;
+}
 body {
   font-family: "Lato", sans-serif;
 }
