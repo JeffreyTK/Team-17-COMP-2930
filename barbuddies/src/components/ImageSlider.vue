@@ -17,14 +17,16 @@
       <b-carousel-slide
         caption="Workout With Friends"
         text="Join a group and share each others' calendars"
-        img-src="https://images.pexels.com/photos/1855269/pexels-photo-1855269.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500">
-      ></b-carousel-slide>
+        img-src="https://images.pexels.com/photos/1855269/pexels-photo-1855269.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500%22%3E"
+      >
+      </b-carousel-slide>
 
       <!-- Slides with custom text -->
       <b-carousel-slide
         caption="Keep Track of Your Workouts"
         text="Record your workout and view your progress"
-        img-src="https://images.unsplash.com/photo-1520334363269-c1b342d17261?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80">
+        img-src="https://images.unsplash.com/photo-1520334363269-c1b342d17261?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80%22%3E"
+      >
       </b-carousel-slide>
     </b-carousel>
     </div>
