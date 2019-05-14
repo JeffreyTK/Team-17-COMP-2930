@@ -1,7 +1,7 @@
 <template>
   <div id="slider">
     <p>
-      <a @click="prev" href='#'>&#60;</a> || <a @click="next" href='#'>&#62;</a>
+       <a @click="prev" href='#'>&#60;</a> || <a @click="next" href='#'>&#62;</a>
     </p>
 
     <transition-group name='fade' tag='div'>
@@ -26,7 +26,6 @@ import image1 from '../assets/imageSlider1.jpeg'
 import image2 from '../assets/imageSlider2.jpeg'
 import image3 from '../assets/imageSlider3.jpeg'
 import image4 from '../assets/imageSlider4.jpeg'
-
 export default {
   name: 'ImageSlider',
   data () {
@@ -49,14 +48,15 @@ export default {
       this.timer = setInterval(this.next, 3000)
     },
     methods: {
-      onSlideStart(slide) {
+      onSlideStart (slide) {
         this.sliding = true
       },
-      onSlideEnd(slide) {
+      onSlideEnd (slide) {
         this.sliding = false
       }
     }
   }
+}
 </script>
 <style scoped>
 .jumbotron{

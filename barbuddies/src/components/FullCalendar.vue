@@ -31,6 +31,9 @@ import FullCalendar from '@fullcalendar/vue'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
+import '@fullcalendar/core/main.css'
+import '@fullcalendar/daygrid/main.css'
+import '@fullcalendar/timegrid/main.css'
 export default {
   components: {
     NavBar,
@@ -50,13 +53,6 @@ export default {
     }
   },
   methods: {
-    toggleWeekends () {
-      this.calendarWeekends = !this.calendarWeekends // update a property
-    },
-    gotoPast () {
-      let calendarApi = this.$refs.fullCalendar.getApi() // from the ref="..."
-      calendarApi.gotoDate('2000-01-01') // call a method on the Calendar object
-    },
     handleDateClick (arg) {
       if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
         this.calendarEvents.push({ // add new event data
@@ -67,6 +63,15 @@ export default {
       }
     }
   }
+  /* mounted: {
+    calendarView: function () {
+      if (Calendar._inactive) {
+        FullCalendar.defaultView = 'timeGridWeek'
+      } else {
+        FullCalendar.defaultView = 'dayGridMonth'
+      }
+    }
+  } */
 }
 </script>
 
@@ -77,9 +82,6 @@ export default {
 .demo-app {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   font-size: 12px;
-}
-.demo-app-top {
-  margin: 0 0 3em;
 }
 .demo-app-calendar {
   margin: 0 auto;

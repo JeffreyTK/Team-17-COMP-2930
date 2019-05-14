@@ -1,35 +1,22 @@
 <template>
-  <div class='demo-app'>
-    <br /><br /><br /><br /><br /><br /><br />
-    <div class='demo-app-top'>
-      <button @click="toggleWeekends">toggle weekends</button>
-      <button @click="gotoPast">go to a date in the past</button>
-      (also, click a date/time to add an event)
-    </div>
-    <FullCalendar
-      defaultView="dayGridMonth"
-      :header="{
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-      }"
-      />
+  <div id='Calendar'>
+    <br/><br/><br/><br/>
+    <FullCalendar/>
   </div>
 </template>
 
 <script>
 /* eslint-disable */
 import FullCalendar from './FullCalendar'
+import NavBar from './NavBar'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
-import NavBar from './NavBar'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-
 export default {
-  name: 'homepage',
+  name: 'Calendar',
   components: {
     NavBar,
     FullCalendar
@@ -39,8 +26,7 @@ export default {
       calendarPlugins: [ // plugins must be defined in the JS
         dayGridPlugin,
         timeGridPlugin,
-        interactionPlugin, // needed for dateClick
-        resourceTimelinePlugin
+        interactionPlugin // needed for dateClick
       ],
     }
   }
@@ -48,7 +34,7 @@ export default {
 </script>
 
 <style>
-#homepage {
+#Calendar {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
