@@ -32,3 +32,16 @@ export function createGroup (data) {
   })
     .catch(err => Promise.reject(err.message))
 }
+export function updateUser (id) {
+  return axios.get(`${BASE_URL}/api/users/${id}`).then(response => response.data)
+}
+
+export function login () {
+  return axios.post(`${BASE_URL}/api/login`, data).then((res) => {
+    console.log("logged in")
+  })
+  .catch((err) => {
+    console.log('could not log in')
+  })
+  loginAuth()
+}
