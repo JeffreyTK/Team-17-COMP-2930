@@ -2,14 +2,19 @@
   <div>
     <NavBar />
     <div class='demo-app'>
+      <div class='demo-app-top'>
+        <!-- <button @click="toggleWeekends">toggle weekends</button>
+        <button @click="gotoPast">go to a date in the past</button>
+        (also, click a date/time to add an event) -->
+      </div>
       <FullCalendar
         class='demo-app-calendar'
         ref="fullCalendar"
-        defaultView="dayGridMonth"
+        defaultView="timeGridWeek"
         :header="{
           left: 'prev,next',
           center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+          right: 'timeGridWeek,timeGridDay'
         }"
         :plugins="calendarPlugins"
         :weekends="calendarWeekends"
@@ -29,7 +34,6 @@ import interactionPlugin from '@fullcalendar/interaction'
 import '@fullcalendar/core/main.css'
 import '@fullcalendar/daygrid/main.css'
 import '@fullcalendar/timegrid/main.css'
-
 export default {
   components: {
     NavBar,
@@ -49,7 +53,7 @@ export default {
     }
   },
   methods: {
-    handleDateClick: function (arg) {
+    handleDateClick (arg) {
       if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
         this.calendarEvents.push({ // add new event data
           title: 'New Workout',
@@ -77,7 +81,7 @@ export default {
 @import '@fullcalendar/timegrid/main.css';
 .demo-app {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-  font-size: 10px;
+  font-size: 12px;
 }
 .demo-app-calendar {
   margin: 0 auto;
