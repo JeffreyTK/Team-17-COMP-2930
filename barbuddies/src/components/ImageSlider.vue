@@ -54,5 +54,8 @@ export default {
 #carousel-1{
   height: 62vh;
 }
+<<<<<<< develop
 
+=======
+>>>>>>> jethro
 </style>

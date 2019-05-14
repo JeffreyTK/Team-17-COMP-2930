@@ -1,6 +1,7 @@
 <template>
   <div>
     <NavBar />
+    <br/><br/><br/>
     <div class="profile">
       <br /><br /><br /><br /><br />
       <img id="avatar" src="../assets/coop.png">

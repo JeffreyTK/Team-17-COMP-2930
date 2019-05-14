@@ -16,12 +16,13 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 
 export default {
-  name: 'homepage',
+  name: 'Homepage',
   components: {
     NavBar,
     FullCalendar
   }
 }
+
 </script>
 
 <style scoped>
