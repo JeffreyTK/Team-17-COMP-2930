@@ -7,27 +7,31 @@
       <div id="login" class="row">
         <div class="col">
         <b-button v-b-modal.modal-1 size="lg" id="loginBtn">Login</b-button>
-        <b-modal id="modal-1" title="Bar Buddies" ok-title="Login" hide-footer>
-          <p class="my-4">Login</p>
-            <input  placeholder="Email">
-            <input type="password" placeholder="Password">
+        <b-modal id="modal-1" title="Login" ok-title="Login" hide-footer>
+            <br />
+            <input type="email" placeholder="Email" class="inputs">
+            <br/>
+            <input type="password" placeholder="Password" class="inputs">
+            <br />
+            <br />
             <router-link to="homepage">Login</router-link>
         </b-modal>
         </div>
-
       <div id="signup" class="col">
         <b-button v-b-modal.modal-2 size="lg" id="signupBtn">Signup</b-button>
-          <b-modal id="modal-2" title="Bar Buddies" hide-footer>
-          <p class="my-4">Sign-up</p>
-            <input v-model = "firstName" placeholder="First Name">
-            <input v-model = "lastName" placeholder="Last Name">
-            <input v-model = "email"  placeholder="Email">
-            <input v-model = "password"  placeholder="Password">
-            <input v-model = "DOB"  placeholder="Date Of Birth">
-            <input v-model = "gender"  placeholder="Gender">
-            <input v-model = "height"  placeholder="Height">
-            <input v-model = "weight"  placeholder="Weight">
-            <input type="password" placeholder="Confirm Password">
+          <b-modal id="modal-2" title="Signup" hide-footer>
+            <input v-model = "firstName" placeholder=" First Name" class="inputs">
+            <input v-model = "lastName" placeholder=" Last Name" class="inputs">
+            <input v-model = "email"  placeholder=" Email" class="inputs">
+            <input v-model = "password"  placeholder=" Password" class="inputs">
+            <input v-model = "DOB"  placeholder=" Date Of Birth" class="inputs"> 
+            <input v-model = "gender"  placeholder=" Gender" class="inputs">
+            <input v-model = "height"  placeholder=" Height" class="inputs">
+            <input v-model = "weight"  placeholder=" Weight" class="inputs">
+            <input v-model = "password" placeholder=" Confirm Password" class="inputs">
+            <br/>
+            <br/>
+            <router-link to="homepage">Signup</router-link>
         </b-modal>
         </div>
       </div>
@@ -100,5 +104,8 @@ export default {
   #logo {
     padding: 0;
     height: 150px;
+  }
+  .inputs {
+    margin: 2%;
   }
 </style>
