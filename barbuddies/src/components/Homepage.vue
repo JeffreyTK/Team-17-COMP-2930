@@ -19,6 +19,11 @@ export default {
   components: {
     NavBar,
     FullCalendar
+  },
+  data() {
+    return {
+      changeView: ''
+    }
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div id='Calendar'>
     <br/><br/><br/><br/>
-    <FullCalendar/>
+<FullCalendar changeView="dayGridMonth"/>    
   </div>
 </template>
 
@@ -20,6 +20,16 @@ export default {
   components: {
     NavBar,
     FullCalendar
+  },
+  data: function () {
+    return {
+      calendarPlugins: [ // plugins must be defined in the JS
+        dayGridPlugin,
+        timeGridPlugin,
+        interactionPlugin // needed for dateClick
+      ],
+      changeView: ''
+    }
   }
 }
 </script>
