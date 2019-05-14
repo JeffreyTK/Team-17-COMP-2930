@@ -34,4 +34,4 @@ export function createGroup (data) {
 }
 export function updateUser (id) {
   return axios.get(`${BASE_URL}/api/users/${id}`).then(response => response.data)
-  }
+}
