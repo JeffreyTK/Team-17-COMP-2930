@@ -8,7 +8,10 @@
       <br />
       <br />
       <div class="container">
-        <h1>MY GROUPS</h1>
+        <div>
+          <router-link to="Homepage"><img src="../assets/back.png" id="backIcon"></router-link>
+          <h1>GROUPS</h1>
+        </div>
         <br />
         <br />
         <div class="jumbotron" id="group1">
@@ -93,6 +96,12 @@ export default {
 
     .addBtn:hover {
       background: grey;
+    }
+
+    #backIcon {
+      width: 30px;
+      height: 30px;
+      float: left;
     }
 
 </style>
