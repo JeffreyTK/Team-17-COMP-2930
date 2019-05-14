@@ -1,4 +1,4 @@
-template>
+<template>
   <div class="container">
     <b-carousel
       id="carousel-1"
