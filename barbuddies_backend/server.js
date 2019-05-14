@@ -6,13 +6,15 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const path = require("path");
 //links the variable groups to require the file groups
 const Groups = require('./Groups');
 //links the variable user to rquire the file user
 const User = require('./User');
 //connection between the application and mongoose using the locahost
 mongoose.connect(
-    'mongodb://localhost:27017/barbuddies',
+  process.env.MONGODB_URI || 'mongodb://localhost/barbuddies17',
+    //'mongodb://localhost:27017/barbuddies',
     //checks the url and makes sure that it works
     { useNewUrlParser: true, useCreateIndex: true, }
 );
@@ -62,9 +64,11 @@ app.post('/api/user/create', (req, res) => {
     const user = await User.findById(req.params.id);
     res.json(user);
   });
-
+  
 //server port at 5000
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 //let the app listen for port 5000
 app.listen(PORT);
+
+module.exports = app;
 console.log('api running on port ' + PORT + ': ');

@@ -1,4 +1,3 @@
-
 <template>
   <div class="GroupMainPage">
       <NavBar/>
@@ -34,17 +33,19 @@
             </a>
             </div>
           </div>
-          <div>
+          <div id="add" class="col">
             <b-button v-b-modal.modal-1 class="addBtn">+</b-button>
-            <b-modal id="modal-1" title="New Group">
-              <form>
-                <input v-model = "name" placeholder="Group Name">
+            <b-modal id="modal-1" title="New Group" hide-footer>
+                <input type="text" placeholder="Group Name" class="inputs">
                 <br />
-                <input v-model = "email" placeholder="Email">
+                <input type="email" placeholder="Email" class="inputs">
                 <br />
-                <div id="form"></div>
+                <div id="form">
+                </div>
+                <br />
                 <b-button v-b-modal.modal-1 v-on:click="addEmail()">Add New Email</b-button>
-              </form>
+                <br /><br /><br />
+                <router-link to="groups">Submit</router-link>
             </b-modal>
           </div>
       </div>
@@ -60,7 +61,7 @@ export default {
   methods: {
     addEmail: function add () {
       var newInput = document.createElement('input')
-      newInput.setAttribute('v-model', 'email')
+      newInput.setAttribute('type', 'email')
       newInput.setAttribute('placeholder', 'Email')
       document.getElementById('form').appendChild(newInput)
       var break1 = document.createElement('br')
@@ -102,6 +103,10 @@ export default {
       width: 30px;
       height: 30px;
       float: left;
+    }
+
+    .inputs {
+      margin: 2%;
     }
 
 </style>

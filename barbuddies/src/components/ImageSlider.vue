@@ -54,5 +54,4 @@ export default {
 #carousel-1{
   height: 62vh;
 }
-
 </style>
