@@ -31,7 +31,6 @@ import '@fullcalendar/daygrid/main.css'
 import '@fullcalendar/timegrid/main.css'
 
 export default {
-  name: 'FullCalendar',
   components: {
     NavBar,
     FullCalendar // make the <FullCalendar> tag available
