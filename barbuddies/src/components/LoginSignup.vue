@@ -22,12 +22,12 @@
           <b-modal id="modal-2" title="Signup" hide-footer>
             <input v-model = "firstName" placeholder=" First Name" class="inputs">
             <input v-model = "lastName" placeholder=" Last Name" class="inputs">
-            <input v-model = "email"  placeholder=" Email" class="inputs">
-            <input v-model = "password"  placeholder=" Password" class="inputs">
-            <input v-model = "DOB"  placeholder=" Date Of Birth" class="inputs"> 
-            <input v-model = "gender"  placeholder=" Gender" class="inputs">
-            <input v-model = "height"  placeholder=" Height" class="inputs">
-            <input v-model = "weight"  placeholder=" Weight" class="inputs">
+            <input v-model = "email" placeholder=" Email" class="inputs">
+            <input v-model = "password" placeholder=" Password" class="inputs">
+            <input v-model = "DOB" placeholder=" Date Of Birth" class="inputs">
+            <input v-model = "gender" placeholder=" Gender" class="inputs">
+            <input v-model = "height" placeholder=" Height" class="inputs">
+            <input v-model = "weight" placeholder=" Weight" class="inputs">
             <input v-model = "password" placeholder=" Confirm Password" class="inputs">
             <br/>
             <br/>
