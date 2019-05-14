@@ -6,6 +6,7 @@ import Calendar from '@/components/Calendar'
 import Profile from '@/components/Profile'
 import FullCalendar from '@/components/FullCalendar'
 import Groups from '@/components/GroupMainPage'
+import AboutUs from '@/components/AboutUs'
 
 Vue.use(Router)
 
@@ -38,8 +39,13 @@ export default new Router({
     },
     {
       path: '/profile/',
-      name: 'Profile',
+      name: 'profile',
       component: Profile
+    },
+    {
+      path: '/AboutUs/',
+      name: 'AboutUs',
+      component: AboutUs
     }
   ]
 })
