@@ -29,13 +29,10 @@ export default {
   name: 'Profile',
   components: {
     NavBar
+  },
+  methods: {
+    save: function () {
+    }
   }
 }
 </script>
-
-<style scoped>
-  #avatar {
-    width: 90px;
-    height: 90px;
-  }
-</style>
