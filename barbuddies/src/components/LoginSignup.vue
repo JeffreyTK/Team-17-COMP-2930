@@ -20,20 +20,6 @@
         </div>
       <div id="signup" class="col">
         <b-button v-b-modal.modal-2 size="lg" id="signupBtn">Signup</b-button>
-<<<<<<< HEAD
-          <b-modal id="modal-2" title="Signup" hide-footer>
-            <input v-model = "firstName" placeholder=" First Name" class="inputs">
-            <input v-model = "lastName" placeholder=" Last Name" class="inputs">
-            <input v-model = "email" placeholder=" Email" class="inputs">
-            <input v-model = "password" placeholder=" Password" class="inputs">
-            <input v-model = "DOB" placeholder=" Date Of Birth" class="inputs">
-            <input v-model = "gender" placeholder=" Gender" class="inputs">
-            <input v-model = "height" placeholder=" Height" class="inputs">
-            <input v-model = "weight" placeholder=" Weight" class="inputs">
-            <input v-model = "password" placeholder=" Confirm Password" class="inputs">
-            <br/><br />
-            <router-link to="homepage">Signup</router-link>
-=======
           <b-modal id="modal-2" title="Bar Buddies" hide-footer>
           <p class="my-4">Sign-up</p>
             <input v-model = "firstName" placeholder="First Name">
@@ -46,7 +32,6 @@
             <input v-model = "weight"  placeholder="Weight">
             <input type="password" placeholder="Confirm Password">
             <router-link to = "homepage"><a @click = "onClick" href = ''>Signup</a></router-link>
->>>>>>> dbff45827d033823e1af945305f64c546ce33606
         </b-modal>
         </div>
       </div>
