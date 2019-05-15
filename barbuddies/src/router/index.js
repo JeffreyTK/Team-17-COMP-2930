@@ -4,8 +4,8 @@ import LoginSignup from '@/components/LoginSignup'
 import homepage from '@/components/Homepage'
 import Calendar from '@/components/Calendar'
 import Profile from '@/components/Profile'
-import FullCalendar from '@/components/FullCalendar'
 import Groups from '@/components/GroupMainPage'
+import FullCalendar from '@/components/FullCalendar'
 import AboutUs from '@/components/AboutUs'
 
 Vue.use(Router)
