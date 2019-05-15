@@ -47,7 +47,7 @@ export default {
     }
   },
   methods: {
-    save: function () {
+    /* save: function () {
       updateUserProfile(id).then((data) => {
         data.DOB = this.DOB
         data.gender = this.Gender
@@ -55,7 +55,7 @@ export default {
         data.height = this.height
         data.password = this.password
       })
-    }
+    } */
   },
   mounted () {
     let id = '5cdb23cecb38bb9baed28ac2'
@@ -71,4 +71,5 @@ export default {
     })
   }
 }
+
 </script>
