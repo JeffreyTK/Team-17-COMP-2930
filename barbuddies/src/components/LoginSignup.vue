@@ -1,5 +1,6 @@
 <template>
   <div>
+    <NavBar/>
     <img src="../assets/bb_logo.png" id="logo">
     <ImageSlider />
     <br /><br />
@@ -9,16 +10,17 @@
         <b-button v-b-modal.modal-1 size="lg" id="loginBtn">Login</b-button>
         <b-modal id="modal-1" title="Login" ok-title="Login" hide-footer>
             <br />
-            <input type="email" placeholder="Email" class="inputs">
+            <input type="email" :placeholder="Email" class="inputs">
             <br/>
-            <input type="password" placeholder="Password" class="inputs">
+            <input type="password" :placeholder="Password" class="inputs">
             <br />
             <br />
-            <router-link to="homepage">Login</router-link>
+            <router-link to="homepage"><a @click =  "onClick2" href = ''>Login</a></router-link>
         </b-modal>
         </div>
       <div id="signup" class="col">
         <b-button v-b-modal.modal-2 size="lg" id="signupBtn">Signup</b-button>
+<<<<<<< HEAD
           <b-modal id="modal-2" title="Signup" hide-footer>
             <input v-model = "firstName" placeholder=" First Name" class="inputs">
             <input v-model = "lastName" placeholder=" Last Name" class="inputs">
@@ -31,6 +33,20 @@
             <input v-model = "password" placeholder=" Confirm Password" class="inputs">
             <br/><br />
             <router-link to="homepage">Signup</router-link>
+=======
+          <b-modal id="modal-2" title="Bar Buddies" hide-footer>
+          <p class="my-4">Sign-up</p>
+            <input v-model = "firstName" placeholder="First Name">
+            <input v-model = "lastName" placeholder="Last Name">
+            <input v-model = "email"  placeholder="Email">
+            <input v-model = "password"  placeholder="Password">
+            <input v-model = "DOB"  placeholder="Date Of Birth">
+            <input v-model = "gender"  placeholder="Gender">
+            <input v-model = "height"  placeholder="Height">
+            <input v-model = "weight"  placeholder="Weight">
+            <input type="password" placeholder="Confirm Password">
+            <router-link to = "homepage"><a @click = "onClick" href = ''>Signup</a></router-link>
+>>>>>>> dbff45827d033823e1af945305f64c546ce33606
         </b-modal>
         </div>
       </div>

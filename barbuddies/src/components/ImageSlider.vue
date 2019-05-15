@@ -30,6 +30,7 @@
       >
       </b-carousel-slide>
     </b-carousel>
+<<<<<<< HEAD
     <b-carousel
       class="d-none d-md-block d-lg-none d-none d-lg-block d-xl-none d-none d-xl-block"
       id="carousel-2"
@@ -62,6 +63,8 @@
       >
       </b-carousel-slide>
     </b-carousel>
+=======
+>>>>>>> dbff45827d033823e1af945305f64c546ce33606
   </div>
 </template>
 

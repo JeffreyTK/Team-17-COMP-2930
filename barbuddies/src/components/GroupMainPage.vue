@@ -36,9 +36,9 @@
           <div id="add" class="col">
             <b-button v-b-modal.modal-1 class="addBtn">+</b-button>
             <b-modal id="modal-1" title="New Group" hide-footer>
-                <input type="text" placeholder="Group Name" class="inputs">
+                <input type="text" :placeholder = "GroupName" class="inputs">
                 <br />
-                <input type="email" placeholder="Email" class="inputs">
+                <input type="email" :placeholder = "Email" class="inputs">
                 <br />
                 <div id="form">
                 </div>

@@ -7,11 +7,14 @@ import BootstrapVue from 'bootstrap-vue'
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
-
+// Vue.prototype.$calendarHome = true
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  data: {
+    calendarHome: true
+  }
 })
