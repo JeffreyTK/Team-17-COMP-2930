@@ -2,7 +2,7 @@
   <div>
     <img src="../assets/bb_logo.png" id="logo">
     <ImageSlider />
-    <br /><br /><br />
+    <br /><br />
     <div id="LoginSignup" class="container">
       <div id="login" class="row">
         <div class="col">
@@ -29,8 +29,7 @@
             <input v-model = "height" placeholder=" Height" class="inputs">
             <input v-model = "weight" placeholder=" Weight" class="inputs">
             <input v-model = "password" placeholder=" Confirm Password" class="inputs">
-            <br/>
-            <br/>
+            <br/><br />
             <router-link to="homepage">Signup</router-link>
         </b-modal>
         </div>
@@ -108,4 +107,5 @@ export default {
   .inputs {
     margin: 2%;
   }
+
 </style>
