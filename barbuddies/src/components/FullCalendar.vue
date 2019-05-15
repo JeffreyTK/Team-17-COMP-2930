@@ -18,25 +18,91 @@
         :plugins="calendarPlugins"
         :weekends="calendarWeekends"
         :events="calendarEvents"
-        @dateClick="handleDateClick"
-        />
+        @dateClick="handleSelect"
+        @select="handleSelect"
+        :selectable="true"
+        :selectHelper="true"
+        :schedulerLicenseKey="GPL-My-Project-Is-Open-Source"
+        :editable="true"
+        :eventLimit="true"
+      />
     </div>
+    <b-modal
+      id="my-modal"
+      ref="modal"
+      title="Create a Workout"
+      ok-title="Submit"
+    >
+      <form ref="form" @submit.stop.prevent="handleSubmit">
+        <b-form-group
+        label="Workout Name"
+        label-for="workout"
+        >
+        <b-form-input
+        id="workout"
+        v-model="workout"
+        required
+        >
+          </b-form-input>
+          <b-form-group
+          label="Starts at"
+          label-for="start"
+          >
+            <date-picker
+              id="start"
+              v-model="date"
+              :config="options"
+              required
+            >
+            </date-picker>
+              </b-form-group>
+              <b-form-group
+              label="Ends at"
+              label-for="end"
+            >
+            <date-picker
+              id="end"
+              v-model="date1"
+              :config="options">
+            </date-picker>
+          </b-form-group>
+        </b-form-group>
+      </form>
+    </b-modal>
   </div>
 </template>
 
 <script>
+import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css'
+import datePicker from 'vue-bootstrap-datetimepicker'
 import NavBar from './NavBar'
 import FullCalendar from '@fullcalendar/vue'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
-import '@fullcalendar/core/main.css'
-import '@fullcalendar/daygrid/main.css'
-import '@fullcalendar/timegrid/main.css'
+import $ from 'jquery'
+
+/* eslint-disable */
+
+$.extend(true, $.fn.datetimepicker.defaults, {
+    icons: {
+      time: 'far fa-clock',
+      date: 'far fa-calendar',
+      up: 'fas fa-arrow-up',
+      down: 'fas fa-arrow-down',
+      previous: 'fas fa-chevron-left',
+      next: 'fas fa-chevron-right',
+      today: 'fas fa-calendar-check',
+      clear: 'far fa-trash-alt',
+      close: 'far fa-times-circle'
+    }
+});
+
 export default {
   components: {
     NavBar,
-    FullCalendar // make the <FullCalendar> tag available
+    FullCalendar, // make the <FullCalendar> tag available
+    datePicker
   },
   data: function () {
     return {
@@ -49,6 +115,11 @@ export default {
       calendarEvents: [ // initial event data
         { title: 'Event Now', start: new Date() }
       ],
+      date: new Date(),
+      options: {
+        format: 'DD/MM/YYYY h:mm',
+        useCurrent: true
+      }
     }
   },
   methods: {
@@ -60,6 +131,9 @@ export default {
           allDay: arg.allDay
         })
       }
+    },
+    handleSelect (arg) {
+      this.$bvModal.show('my-modal')
     }
   },
   props: ["changeView"]
@@ -70,6 +144,7 @@ export default {
 </script>
 
 <style lang='scss'>
+//@import '@fortawesome/fontawesomefree';
 @import '@fullcalendar/core/main.css';
 @import '@fullcalendar/daygrid/main.css';
 @import '@fullcalendar/timegrid/main.css';
