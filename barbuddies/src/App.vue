@@ -26,6 +26,9 @@ export default {
     // creates the method createUser that actually creates a brand new user
     createUser (user) {
       this.user = [user, ...this.user]
+    },
+    createGroup (group){
+      this.group = [group, ...this.group]
     }
   }
 }
@@ -46,8 +49,8 @@ img {
 }
 footer {
   font-size: 5px;
-  position: absolute;
-  bottom: 5px;
+  float: bottom;
+  margin-top: 5px;
 }
 #btn {
   font-size: 10px;

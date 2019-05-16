@@ -27,33 +27,52 @@
 </template>
 <script>
 import { updateUser } from '../repository'
+import changeView from './FullCalendar'
+import axios from 'axios'
 /* eslint-disable */
-export default {
-  name: "NavBar",
-  data () {
-    return {
-      firstName : '',
-      lastName : ''
+    export default {
+        name: "NavBar",
+        data () {
+       return {
+        firstName : '',
+        lastName : '',
+        user: {
+          name: "Jeff"
+        }
     }
   },
-  methods: {
-    openNav: function() {
-      document.getElementById("mySidebar").style.width = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
-    },
-    closeNav: function() {
-      document.getElementById("mySidebar").style.width = "0";
-      document.getElementById("main").style.marginLeft= "0";
-    },
-    mounted(){
-      let id = '5cdb23cecb38bb9baed28ac2'
-      updateUser(id).then((data)=>{
-        this.firstName = data.firstName,
-        this.lastName = data.lastName
-      });
-    }
-  }  
-}    
+        methods: {
+          getUserData: function () {
+            let self = this
+            axios.get("/api/User").then((response) => {
+              console.log(response)
+              self.$set(this, "user", response.data.user )
+            })
+            .catch((error) => {
+              console.log(errors)
+              router.push("/")
+            })
+          },
+            openNav: function() {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            },
+            closeNav: function() {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";
+            }
+            },
+            mounted(){
+              let id = '5cddc0f97c8f64b1612d9d1e'
+              updateUser(id).then((data)=>{
+                this.firstName = data.firstName,
+                this.lastName = data.lastName
+              });
+              //this.getUserData()
+            }
+        }      
+
+
 </script>
 
 <style scoped>

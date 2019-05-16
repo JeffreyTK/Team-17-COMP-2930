@@ -8,7 +8,7 @@ require('vue-flash-message/dist/vue-flash-message.min.css');
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
-// Vue.prototype.$calendarHome = true
+Vue.prototype.$calendarHome = true
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
