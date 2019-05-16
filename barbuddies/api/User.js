@@ -8,8 +8,8 @@ const UserSchema = new Schema(
         gender: String,
         weight: Number,
         height: String,
-        email: {String, required: true},
-        password: {String, required: true},
+        email: String,
+        password: String,
         groupID: Array
     }
 );
