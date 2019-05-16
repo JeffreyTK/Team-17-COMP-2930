@@ -3,7 +3,7 @@
     <NavBar/>
     <br/><br/><br/>
     <div class="profile">
-      <br /><br /><br /><br /><br />
+      <br />
       <img id="avatar" src="https://dummyimage.com/200x200/000/fff" class="rounded-circle">
       <h2>{{firstName}}</h2>
       <h3>{{email}}</h3>
@@ -11,14 +11,14 @@
       <br/>
       <form>
         <div class="form-group row">
-          <label for="dob" class="col-sm-5 col-form-label">Date of Birth</label>
-          <div class="col-sm-5">
+          <label for="dob" class="col-sm-2 col-form-label">Date of Birth</label>
+          <div class="col-sm-2">
             <input type="date" class="form-control" id="dob" placeholder="Date of Birth">
           </div>
         </div>
         <div class="form-group row">
-          <label for="gender" class="col-sm-5 col-form-label">Gender</label>
-          <div class="col-sm-5">
+          <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+          <div class="col-sm-2">
             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
               <option selected>Choose</option>
               <option value="1">Female</option>
@@ -29,25 +29,25 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="weight" class="col-sm-5 col-form-label">Weight (lbs)</label>
-          <div class="col-sm-5">
+          <label for="weight" class="col-sm-2 col-form-label">Weight (lbs)</label>
+          <div class="col-sm-2">
             <input type="number" class="form-control" id="weight" placeholder="Weight" min="0" max="1000">
           </div>
         </div>
         <div class="form-group row">
-          <label for="height" class="col-sm-5 col-form-label">Height</label>
-          <div class="col-sm-5">
+          <label for="height" class="col-sm-2 col-form-label">Height</label>
+          <div class="col-sm-2">
             <input type="number" class="form-control" id="height" placeholder="Height" min="0" max="1000">
           </div>
         </div>
         <div class="form-group row">
-          <label for="password" class="col-sm-5 col-form-label">Password</label>
-          <div class="col-sm-5">
+          <label for="password" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-2">
             <input type="password" class="form-control" id="dob" placeholder="Change Password">
           </div>
         </div>
         <br />
-        <button v-on:click="save">Save</button>
+        <b-button variant="outline-dark" v-on:click="save">Save</b-button>
       </form>
     </div>
   </div>
