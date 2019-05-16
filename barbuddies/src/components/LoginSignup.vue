@@ -4,35 +4,87 @@
     <flash-message class="customClass"></flash-message>
     <img src="../assets/bb_logo.png" id="logo">
     <ImageSlider />
-    <br /><br /><br />
+    <br /><br />
     <div id="LoginSignup" class="container">
       <div id="login" class="row">
         <div class="col">
         <b-button v-b-modal.modal-1 size="lg" id="loginBtn">Login</b-button>
         <b-modal id="modal-1" title="Login" ok-title="Login" hide-footer>
             <br />
-            <input type="email" :placeholder="Email" class="inputs">
+            <input type="email" placeholder="Email" class="inputs">
             <br/>
-            <input type="password" :placeholder="Password" class="inputs">
+            <input type="password" placeholder="Password" class="inputs">
             <br />
             <br />
-            <router-link to="homepage"><a @click =  "onClick2" href = ''>Login</a></router-link>
+            <router-link to="homepage"><a @click = "onClick2" href = ''>Login</a></router-link>
         </b-modal>
         </div>
       <div id="signup" class="col">
         <b-button v-b-modal.modal-2 size="lg" id="signupBtn">Signup</b-button>
-          <b-modal id="modal-2" title="Bar Buddies" hide-footer>
-          <p class="my-4">Sign-up</p>
-            <input v-model = "firstName" placeholder="First Name">
-            <input v-model = "lastName" placeholder="Last Name">
-            <input v-model = "email"  placeholder="Email">
-            <input v-model = "password"  placeholder="Password">
-            <input v-model = "DOB"  placeholder="Date Of Birth">
-            <input v-model = "gender"  placeholder="Gender">
-            <input v-model = "height"  placeholder="Height">
-            <input v-model = "weight"  placeholder="Weight">
-            <input type="password" placeholder="Confirm Password">
-            <router-link to = "homepage"><a @click = "onClick" href = ''>Signup</a></router-link>
+          <b-modal id="modal-2" title="Sign Up" hide-footer>
+            <form>
+              <div class="form-group row">
+                <label for="firstName" class="col-sm-5 col-xs-5 col-form-label">First Name</label>
+                <div class="col-sm-5 col-xs-5">
+                  <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="lastName" class="col-sm-5 col-xs-5 col-form-label">Last Name</label>
+                <div class="col-sm-5 col-xs-5">
+                  <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="email" class="col-sm-5 col-xs-5 col-form-label">Email</label>
+                <div class="col-sm-5 col-xs-5">
+                  <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
+                <div class="col-sm-5 col-xs-5">
+                  <input type="password" class="form-control" id="firstName" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="dob" class="col-sm-5 col-xs-5 col-form-label">Date of Birth</label>
+                <div class="col-sm-5 col-xs-5">
+                  <input type="date" class="form-control" id="dob" placeholder="Date Of Birth">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="gender" class="col-sm-5 col-form-label">Gender</label>
+                <div class="col-sm-5">
+                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                    <option selected>Choose</option>
+                    <option value="1">Female</option>
+                    <option value="2">Male</option>
+                    <option value="3">Non-Binary</option>
+                    <option value="4">Prefer Not to Disclose</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="weight" class="col-sm-5 col-form-label">Weight (lbs)</label>
+                <div class="col-sm-5">
+                  <input type="number" class="form-control" id="weight" placeholder="Weight" min="0" max="1000">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="height" class="col-sm-5 col-form-label">Height</label>
+                <div class="col-sm-5">
+                  <input type="number" class="form-control" id="height" placeholder="Height" min="0" max="1000">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="password" class="col-sm-5 col-form-label">Password</label>
+                <div class="col-sm-5">
+                <input type="password" class="form-control" id="dob" placeholder="Change Password">
+                </div>
+              </div>
+              <router-link to = "homepage"><a @click = "onClick" href = ''>Signup</a></router-link>
+            </form>
         </b-modal>
         </div>
       </div>
@@ -110,4 +162,5 @@ export default {
   .inputs {
     margin: 2%;
   }
+
 </style>
