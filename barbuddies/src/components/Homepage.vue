@@ -2,7 +2,9 @@
   <div id="homepage">
     <NavBar/>
     <br/><br/><br/><br/><br/>
-    <FullCalendar changeView="timeGridWeek"/>
+    <div class="container">
+      <FullCalendar changeView="timeGridWeek"/>
+    </div>
   </div>
 </template>
 <script>
