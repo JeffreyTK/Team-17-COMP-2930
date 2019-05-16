@@ -6,11 +6,13 @@ const Schema = mongoose.Schema;
 const GroupsSchema =  new Schema(
     {
         //declaring what types of properties
+        groupName: String,
         GroupID: String,
-        UserID: Array
+        UserID: Array,
+        numberOfUsers: Number
     }
 );
 //linking the groupschema to a variable
-const Groups = mongoose.model("Groups", GroupsSchema);
+const Group = mongoose.model("Group", GroupsSchema);
 //exporting groups to be used in other files
-module.exports = Groups;
+module.exports = Group;
