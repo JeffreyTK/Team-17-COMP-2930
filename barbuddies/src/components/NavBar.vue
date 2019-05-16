@@ -10,14 +10,15 @@
             </router-link>
           <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
-              <br />
-              <router-link to="Profile"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></router-link>
-              <br />
-              <router-link to="Profile"><h1 id="userFirst">{{firstName}}</h1><h1 id="userLast">{{lastName}}</h1></router-link>
+            <br />
+            <router-link to="Profile"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></router-link>
+            <br />
+            <router-link to="Profile"><h1 id="userFirst">{{firstName}}</h1><h1 id="userLast">{{lastName}}</h1></router-link>
             <br />
             <router-link to="calendar">CALENDAR</router-link>
             <router-link to="groups">GROUPS</router-link>
             <router-link to="aboutUs">ABOUT US</router-link>
+            <router-link to="logout">LOGOUT</router-link>
           </div>
         </div>
         <div class="col text-center"></div>
@@ -26,6 +27,7 @@
 </template>
 <script>
 import { updateUser } from '../repository'
+import axios from 'axios'
 /* eslint-disable */
     export default {
         name: "NavBar",
@@ -33,9 +35,23 @@ import { updateUser } from '../repository'
        return {
         firstName : '',
         lastName : '',
+        user: {
+          name: "Jeff"
+        }
     }
   },
         methods: {
+          getUserData: function () {
+            let self = this
+            axios.get("/api/User").then((response) => {
+              console.log(response)
+              self.$set(this, "user", response.data.user )
+            })
+            .catch((error) => {
+              console.log(errors)
+              router.push("/")
+            })
+          },
             openNav: function() {
                 document.getElementById("mySidebar").style.width = "250px";
                 document.getElementById("main").style.marginLeft = "250px";
@@ -46,15 +62,18 @@ import { updateUser } from '../repository'
             }
             },
             mounted(){
-              let id = '5cdb23cecb38bb9baed28ac2'
+              let id = '5cddc0f97c8f64b1612d9d1e'
               updateUser(id).then((data)=>{
                 this.firstName = data.firstName,
                 this.lastName = data.lastName
               });
+              //this.getUserData()
             }
         }      
 
+
 </script>
+
 <style scoped>
 #profileImg{
   width: 150px;
