@@ -54,6 +54,7 @@
 
 </template>
 <script>
+/* eslint-disable */
 import { updateUser } from '../repository'
 import NavBar from './NavBar'
 export default {
@@ -88,7 +89,7 @@ export default {
     } */
   },
   mounted () {
-    let id = '5cdb23cecb38bb9baed28ac2'
+    let id = '5cddc1f37c8f64b1612d9d20'
     updateUser(id).then((data) => {
       this.firstName = data.firstName
       this.email = data.email
