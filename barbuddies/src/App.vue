@@ -49,8 +49,8 @@ img {
 }
 footer {
   font-size: 5px;
-  position: absolute;
-  bottom: 5px;
+  float: bottom;
+  margin-top: 5px;
 }
 #btn {
   font-size: 10px;
