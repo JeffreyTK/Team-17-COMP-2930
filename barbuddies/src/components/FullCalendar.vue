@@ -1,6 +1,5 @@
 <template>
   <div>
-    <NavBar />
     <div class='demo-app'>
       <div class='demo-app-top'>
         <!-- <button @click="toggleWeekends">toggle weekends</button>
@@ -149,9 +148,9 @@ export default {
       })
     }
   },
-  props: ["changeView"]
-} 
-        
+  props: ['changeView']
+}
+
 // homepage "timeGridWeek"
 // calendar "dayGridMonth"
 </script>

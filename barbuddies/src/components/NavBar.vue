@@ -5,19 +5,20 @@
           <button class="openbtn float-left" v-on:click="openNav()">☰</button>
         </div>
         <div class="col-6 text-center">
-          <a class="navbar-brand" href="#">
-            <img src="../assets/logoBlack.png" alt="Logo" id="logo">
-          </a>
+            <router-link to="calendar">
+              <img src="../assets/logoBlack.png" alt="Logo" id="logo">
+            </router-link>
           <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
-              <br />
-              <router-link to="Profile"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></router-link>
-              <br />
-              <router-link to="Profile"><h1 id="userFirst">{{firstName}}</h1><h1 id="userLast">{{lastName}}</h1></router-link>
+            <br />
+            <router-link to="Profile"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></router-link>
+            <br />
+            <router-link to="Profile"><h1 id="userFirst">{{firstName}}</h1><h1 id="userLast">{{lastName}}</h1></router-link>
             <br />
             <router-link to="calendar">CALENDAR</router-link>
             <router-link to="groups">GROUPS</router-link>
             <router-link to="aboutUs">ABOUT US</router-link>
+            <router-link to="logout">LOGOUT</router-link>
           </div>
         </div>
         <div class="col text-center"></div>
@@ -27,49 +28,41 @@
 <script>
 import { updateUser } from '../repository'
 /* eslint-disable */
-    export default {
-        name: "NavBar",
-        data () {
-       return {
-        firstName : '',
-        lastName : '',
+export default {
+  name: "NavBar",
+  data () {
+    return {
+      firstName : '',
+      lastName : ''
     }
   },
-        methods: {
-            openNav: function() {
-                document.getElementById("mySidebar").style.width = "250px";
-                document.getElementById("main").style.marginLeft = "250px";
-            },
-            closeNav: function() {
-                document.getElementById("mySidebar").style.width = "0";
-                document.getElementById("main").style.marginLeft= "0";
-            }
-            },
-            mounted(){
-              let id = '5cdb23cecb38bb9baed28ac2'
-              updateUser(id).then((data)=>{
-                this.firstName = data.firstName,
-                this.lastName = data.lastName
-              });
-            }
-        }      
-
+  methods: {
+    openNav: function() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    },
+    closeNav: function() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+    },
+    mounted(){
+      let id = '5cdb23cecb38bb9baed28ac2'
+      updateUser(id).then((data)=>{
+        this.firstName = data.firstName,
+        this.lastName = data.lastName
+      });
+    }
+  }  
+}    
 </script>
+
 <style scoped>
 #profileImg{
   width: 150px;
-  height: 150px;
+  height: auto;
 }
 body {
   font-family: "Lato", sans-serif;
-}
-
-.navbar-brand{
-  height: 10vh;
-}
-
-.navbar {
-  padding: 0;
 }
 
 #main {
@@ -77,10 +70,8 @@ body {
 }
 
 #logo {
-  margin: 0;
-  height: 120px;
-  width: 120px;
-  padding-bottom: 40px;
+  width: 100px;
+  height: 100px;
 }
 
 .sidebar {
