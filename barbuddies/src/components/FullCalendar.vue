@@ -25,51 +25,53 @@
         schedulerLicenseKey="GPL-My-Project-Is-Open-Source"
         :editable="true"
         :eventLimit="true"
-        :eventClick="click"
+        :eventClick="handleEventClick"
       />
     </div>
     <b-modal
       id="my-modal"
       ref="modal"
       title="Create a Workout"
-      ok-title="Submit"
-      @ok="saveDate"
+      hide-footer
     >
       <form ref="form">
         <b-form-group
         label="Workout Name"
         label-for="workout"
         >
-        <b-form-input
-        id="workout"
-        v-model="workout"
+          <b-form-input
+          id="workout"
+          v-model="workout"
+          ></b-form-input>
+        </b-form-group>
+
+        <b-form-group
+        label="Starts at"
+        label-for="start"
         >
-          </b-form-input>
-          <b-form-group
-          label="Starts at"
-          label-for="start"
-          >
-            <date-picker
-              ref="start-date"
-              :config="options"
-              v-model="date2"
-            >
-            </date-picker>
-              </b-form-group>
-              <b-form-group
-              label="Ends at"
-              label-for="end"
-            >
-            <date-picker
-              ref="end-date"
-              :config="options"
-              :minDate="date2"
-              v-model="date1"
-            >
-            </date-picker>
-          </b-form-group>
+          <date-picker
+            ref="start-date"
+            :config="options"
+            v-model="date2"
+          ></date-picker>
+        </b-form-group>
+
+        <b-form-group
+          label="Ends at"
+          label-for="end"
+        >
+          <date-picker
+            ref="end-date"
+            :config="options"
+            :minDate="date2"
+            v-model="date1"
+          ></date-picker>
         </b-form-group>
       </form>
+       <div class="modal-footer">
+                <b-button data-dismiss="modal" @click="hideModal" variant="secondary">Close</b-button>
+                <b-button @click="saveDate" variant="primary">Save changes</b-button>
+      </div>
     </b-modal>
   </div>
 </template>
@@ -110,6 +112,7 @@ export default {
   },
   data: function () {
     return {
+      workout: '',
       date2: new Date(),
       date1: new Date(),
       calendarPlugins: [ // plugins must be defined in the JS
@@ -141,12 +144,16 @@ export default {
       this.$bvModal.show('my-modal')
     },
     saveDate (arg) {
+      this.$bvModal.hide('my-modal'),
       this.calendarEvents.push({
         title: this.workout,
         start: this.date2,
         end: this.date1,
       })
-    }
+    },
+    hideModal() {
+        this.$bvModal.hide('my-modal')	
+    },
   },
   props: ['changeView']
 }
