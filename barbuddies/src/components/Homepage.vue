@@ -17,7 +17,7 @@ export default {
     NavBar,
     FullCalendar
   },
-  data() {
+  data () {
     return {
       changeView: ''
     }

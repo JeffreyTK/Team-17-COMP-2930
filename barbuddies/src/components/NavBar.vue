@@ -27,6 +27,7 @@
 <script>
 import { updateUser } from '../repository'
 import changeView from './FullCalendar'
+import axios from 'axios'
 /* eslint-disable */
     export default {
         name: "NavBar",
@@ -34,9 +35,23 @@ import changeView from './FullCalendar'
        return {
         firstName : '',
         lastName : '',
+        user: {
+          name: "Jeff"
+        }
     }
   },
         methods: {
+          getUserData: function () {
+            let self = this
+            axios.get("/api/User").then((response) => {
+              console.log(response)
+              self.$set(this, "user", response.data.user )
+            })
+            .catch((error) => {
+              console.log(errors)
+              router.push("/")
+            })
+          },
             openNav: function() {
                 document.getElementById("mySidebar").style.width = "250px";
                 document.getElementById("main").style.marginLeft = "250px";
@@ -47,11 +62,12 @@ import changeView from './FullCalendar'
             }
             },
             mounted(){
-              let id = '5cdb23cecb38bb9baed28ac2'
+              let id = '5cddc0f97c8f64b1612d9d1e'
               updateUser(id).then((data)=>{
                 this.firstName = data.firstName,
                 this.lastName = data.lastName
               });
+              //this.getUserData()
             }
         }      
 

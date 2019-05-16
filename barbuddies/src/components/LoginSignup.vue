@@ -1,6 +1,5 @@
 <template>
   <div>
-    <NavBar/>
     <img src="../assets/bb_logo.png" id="logo">
     <ImageSlider />
     <br /><br /><br />
@@ -10,12 +9,12 @@
         <b-button v-b-modal.modal-1 size="lg" id="loginBtn">Login</b-button>
         <b-modal id="modal-1" title="Login" ok-title="Login" hide-footer>
             <br />
-            <input type="email" :placeholder="Email" class="inputs">
+            <input type="email" placeholder = "Email" class="inputs">
             <br/>
-            <input type="password" :placeholder="Password" class="inputs">
+            <input type="password" placeholder = "Password" class="inputs">
             <br />
             <br />
-            <router-link to="homepage"><a @click =  "onClick2" href = ''>Login</a></router-link>
+            <router-link to="homepage"><a href = ''>Login</a></router-link>
         </b-modal>
         </div>
       <div id="signup" class="col">
@@ -40,6 +39,8 @@
 </template>
 <script>
 // importing the createuser function from repository into this file
+//import router from "../router"
+//import axios from "axios"
 import { createUser } from '../repository'
 import ImageSlider from './ImageSlider'
 console.log('starting script')
@@ -78,16 +79,36 @@ export default {
         userID: 0,
         groupID: 0
       }
-      console.log('created user')
       // pasting the data created user into the create user function which create an object
       createUser(data)
         .then(data => {
           console.log('data is sent')
           // pushes the change up to the parent from child
           this.$emit('createUser', data.user)
+          console.log('created user')
         })
         .catch(err => alert(err.message))
     }
+    
+    /*login: (e) => {
+      e.preventDefault()
+      let email = "user@email.com"
+      let password = "password"
+      let login = () => {
+        let data = {
+          email : email,
+          password : password
+        }
+        axios.post("/api/loginSignup", data).then((response) => {
+          console.log("logged in")
+          router.push("/homepage")
+        })
+        .catch((err) => {
+          console.log("could not log in")
+        })
+      }
+      login()
+    } */
   }
 }
 </script>
