@@ -3,27 +3,58 @@
     <NavBar/>
     <br/><br/><br/>
     <div class="profile">
-      <br /><br /><br /><br /><br />
-      <img id="avatar" src="../assets/coop.png">
+      <br />
+      <img id="avatar" src="https://dummyimage.com/200x200/000/fff" class="rounded-circle">
       <h2>{{firstName}}</h2>
       <h3>{{email}}</h3>
       <br/>
       <br/>
-      <label>DOB: </label><input style="text"  :value= 'DOB'>
-      <br/>
-      <label>Gender: </label><input style="text" :value = 'Gender'>
-      <br/>
-      <label>Weight: </label><input style="number" :value = 'weight'>
-      <br/>
-      <label>Height: </label><input style="number" :value = 'height'>
-      <br/>
-      <label>Password: </label><input type="password" :value = 'password'>
-      <br/>
-      <button v-on:click="save">Save</button>
+      <form>
+        <div class="form-group row">
+          <label for="dob" class="col-sm-2 col-form-label">Date of Birth</label>
+          <div class="col-sm-2">
+            <input type="date" class="form-control" id="dob" placeholder="Date of Birth">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+          <div class="col-sm-2">
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <option selected>Choose</option>
+              <option value="1">Female</option>
+              <option value="2">Male</option>
+              <option value="3">Non-Binary</option>
+              <option value="4">Prefer Not to Disclose</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="weight" class="col-sm-2 col-form-label">Weight (lbs)</label>
+          <div class="col-sm-2">
+            <input type="number" class="form-control" id="weight" placeholder="Weight" min="0" max="1000">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="height" class="col-sm-2 col-form-label">Height</label>
+          <div class="col-sm-2">
+            <input type="number" class="form-control" id="height" placeholder="Height" min="0" max="1000">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="password" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-2">
+            <input type="password" class="form-control" id="dob" placeholder="Change Password">
+          </div>
+        </div>
+        <br />
+        <b-button variant="outline-dark" v-on:click="save">Save</b-button>
+      </form>
     </div>
   </div>
+
 </template>
 <script>
+/* eslint-disable */
 import { updateUser } from '../repository'
 import NavBar from './NavBar'
 export default {
@@ -47,7 +78,7 @@ export default {
     }
   },
   methods: {
-    save: function () {
+    /* save: function () {
       updateUserProfile(id).then((data) => {
         data.DOB = this.DOB
         data.gender = this.Gender
@@ -55,10 +86,10 @@ export default {
         data.height = this.height
         data.password = this.password
       })
-    }
+    } */
   },
   mounted () {
-    let id = '5cdb23cecb38bb9baed28ac2'
+    let id = '5cddc1f37c8f64b1612d9d20'
     updateUser(id).then((data) => {
       this.firstName = data.firstName
       this.email = data.email
@@ -71,4 +102,5 @@ export default {
     })
   }
 }
+
 </script>
