@@ -66,7 +66,6 @@ export default {
       document.getElementById('form').appendChild(newInput)
       var break1 = document.createElement('br')
       document.getElementById('form').appendChild(break1)
-      
     }
   }
 }
