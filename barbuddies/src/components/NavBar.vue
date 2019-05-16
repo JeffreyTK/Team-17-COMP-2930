@@ -5,9 +5,9 @@
           <button class="openbtn float-left" v-on:click="openNav()">☰</button>
         </div>
         <div class="col-6 text-center">
-          <a class="navbar-brand" href="#">
-            <img src="../assets/logoBlack.png" alt="Logo" id="logo">
-          </a>
+            <router-link to="calendar">
+              <img src="../assets/logoBlack.png" alt="Logo" id="logo">
+            </router-link>
           <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
               <br />
@@ -58,18 +58,10 @@ import { updateUser } from '../repository'
 <style scoped>
 #profileImg{
   width: 150px;
-  height: 150px;
+  height: auto;
 }
 body {
   font-family: "Lato", sans-serif;
-}
-
-.navbar-brand{
-  height: 10vh;
-}
-
-.navbar {
-  padding: 0;
 }
 
 #main {
@@ -77,10 +69,8 @@ body {
 }
 
 #logo {
-  margin: 0;
-  height: 120px;
-  width: 120px;
-  padding-bottom: 40px;
+  width: 100px;
+  height: 100px;
 }
 
 .sidebar {
