@@ -2,6 +2,9 @@
   <div id="homepage">
     <NavBar/>
     <br/><br/><br/><br/><br/>
+    <div>
+      <h1>HOMEPAGE</h1>
+    </div>
     <FullCalendar changeView="timeGridWeek"/>
   </div>
 </template>
@@ -25,5 +28,4 @@ export default {
 }
 </script>
 <style scoped>
-
 </style>

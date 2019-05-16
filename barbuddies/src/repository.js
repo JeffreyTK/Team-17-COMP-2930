@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import axios from 'axios'
 // the base url is the localhost at which the database is stored
 const BASE_URL = 'http://localhost:5000'
