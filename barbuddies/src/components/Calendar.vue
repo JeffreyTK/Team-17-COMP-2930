@@ -1,8 +1,14 @@
 <template>
   <div id='Calendar'>
     <NavBar />
-    <br/><br/><br/><br/>
-<FullCalendar changeView="dayGridMonth"/>
+    <br /><br /><br /><br /><br/>
+    <div class="container">
+      <div>
+        <router-link to="Homepage"><img src="../assets/back.png" id="backIcon"></router-link>
+        <h1>CALENDAR</h1>
+      </div>
+    </div>
+    <FullCalendar changeView="dayGridMonth"/>
   </div>
 </template>
 
@@ -36,16 +42,21 @@ export default {
 </script>
 
 <style>
-#Calendar {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 0px;
-  margin-left: 0px;
-}
-img {
-  width: 200px;
-}
+  #Calendar {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+  img {
+    width: 200px;
+  }
+  #backIcon {
+        width: 30px;
+        height: 30px;
+        float: left;
+  }
 </style>
