@@ -14,7 +14,7 @@
         :header="{
           left: 'prev,next',
           center: 'title',
-          right: 'timeGridWeek,timeGridDay'
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
         }"
         :plugins="calendarPlugins"
         :weekends="calendarWeekends"
@@ -23,9 +23,10 @@
         @select="handleSelect"
         :selectable="true"
         :selectHelper="true"
-        :schedulerLicenseKey="GPL-My-Project-Is-Open-Source"
+        schedulerLicenseKey="GPL-My-Project-Is-Open-Source"
         :editable="true"
         :eventLimit="true"
+        :eventClick="click"
       />
     </div>
     <b-modal
@@ -33,8 +34,9 @@
       ref="modal"
       title="Create a Workout"
       ok-title="Submit"
+      @ok="saveDate"
     >
-      <form ref="form" @submit.stop.prevent="handleSubmit">
+      <form ref="form">
         <b-form-group
         label="Workout Name"
         label-for="workout"
@@ -42,7 +44,6 @@
         <b-form-input
         id="workout"
         v-model="workout"
-        required
         >
           </b-form-input>
           <b-form-group
@@ -50,10 +51,9 @@
           label-for="start"
           >
             <date-picker
-              id="start"
-              v-model="date"
+              ref="start-date"
               :config="options"
-              required
+              v-model="date2"
             >
             </date-picker>
               </b-form-group>
@@ -62,9 +62,11 @@
               label-for="end"
             >
             <date-picker
-              id="end"
+              ref="end-date"
+              :config="options"
+              :minDate="date2"
               v-model="date1"
-              :config="options">
+            >
             </date-picker>
           </b-form-group>
         </b-form-group>
@@ -74,7 +76,10 @@
 </template>
 
 <script>
+import momentPlugin from '@fullcalendar/moment'
+import '@fortawesome/fontawesome-free/css/all.css'
 import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css'
+import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.min.css'
 import datePicker from 'vue-bootstrap-datetimepicker'
 import NavBar from './NavBar'
 import FullCalendar from '@fullcalendar/vue'
@@ -82,7 +87,6 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import $ from 'jquery'
-
 /* eslint-disable */
 
 $.extend(true, $.fn.datetimepicker.defaults, {
@@ -107,19 +111,20 @@ export default {
   },
   data: function () {
     return {
+      date2: new Date(),
+      date1: new Date(),
       calendarPlugins: [ // plugins must be defined in the JS
         dayGridPlugin,
         timeGridPlugin,
-        interactionPlugin // needed for dateClick
+        interactionPlugin, // needed for dateClick
+        momentPlugin
       ],
       calendarWeekends: true,
       calendarEvents: [ // initial event data
-        { title: 'Event Now', start: new Date() }
+        { title: '', start: Date(), end: Date() }
       ],
-      date: new Date(),
       options: {
-        format: 'DD/MM/YYYY h:mm',
-        useCurrent: true
+        useCurrent: false,
       }
     }
   },
@@ -135,6 +140,13 @@ export default {
     },
     handleSelect (arg) {
       this.$bvModal.show('my-modal')
+    },
+    saveDate (arg) {
+      this.calendarEvents.push({
+        title: this.workout,
+        start: this.date2,
+        end: this.date1,
+      })
     }
   },
   props: ["changeView"]
@@ -145,7 +157,6 @@ export default {
 </script>
 
 <style lang='scss'>
-//@import '@fortawesome/fontawesomefree';
 @import '@fullcalendar/core/main.css';
 @import '@fullcalendar/daygrid/main.css';
 @import '@fullcalendar/timegrid/main.css';
