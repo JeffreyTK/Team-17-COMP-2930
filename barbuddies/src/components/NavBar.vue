@@ -10,10 +10,10 @@
           </a>
           <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
-              <br />
-              <router-link to="Profile"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></router-link>
-              <br />
-              <router-link to="Profile"><h1 id="userFirst">{{firstName}}</h1><h1 id="userLast">{{lastName}}</h1></router-link>
+            <br />
+            <router-link to="Profile"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></router-link>
+            <br />
+            <router-link to="Profile"><h1 id="userFirst">{{firstName}}</h1><h1 id="userLast">{{lastName}}</h1></router-link>
             <br />
             <router-link to="calendar">CALENDAR</router-link>
             <router-link to="groups">GROUPS</router-link>
@@ -29,35 +29,34 @@
 import { updateUser } from '../repository'
 import changeView from './FullCalendar'
 /* eslint-disable */
-    export default {
-        name: "NavBar",
-        data () {
-       return {
-        firstName : '',
-        lastName : ''
+export default {
+  name: "NavBar",
+  data () {
+    return {
+      firstName : '',
+      lastName : ''
     }
   },
-        methods: {
-            openNav: function() {
-                document.getElementById("mySidebar").style.width = "250px";
-                document.getElementById("main").style.marginLeft = "250px";
-            },
-            closeNav: function() {
-                document.getElementById("mySidebar").style.width = "0";
-                document.getElementById("main").style.marginLeft= "0";
-            
-            },
-            mounted(){
-              let id = '5cdb23cecb38bb9baed28ac2'
-              updateUser(id).then((data)=>{
-                this.firstName = data.firstName,
-                this.lastName = data.lastName
-              });
-            }
-        }  
-    }    
-
+  methods: {
+    openNav: function() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    },
+    closeNav: function() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+    },
+    mounted(){
+      let id = '5cdb23cecb38bb9baed28ac2'
+      updateUser(id).then((data)=>{
+        this.firstName = data.firstName,
+        this.lastName = data.lastName
+      });
+    }
+  }  
+}    
 </script>
+
 <style scoped>
 #profileImg{
   width: 150px;

@@ -8,6 +8,7 @@ import FullCalendar from '@/components/FullCalendar'
 import Groups from '@/components/GroupMainPage'
 import AboutUs from '@/components/AboutUs'
 import Logout from '@/components/Logout'
+import Error404 from '@/components/Error404'
 import VueFlashMessage from 'vue-flash-message';
 Vue.use(VueFlashMessage);
 
@@ -54,6 +55,14 @@ export default new Router({
       path: '/logout/',
       name: 'Logout',
       component: Logout
-    }
+    },
+    { 
+      path: '/Error404', 
+      component: Error404 
+    },  
+    { 
+      path: '*', 
+      redirect: '/Error404' 
+    } 
   ]
 })
