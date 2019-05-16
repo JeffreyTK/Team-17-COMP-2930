@@ -10,11 +10,20 @@
         <div class="col">
         <b-button v-b-modal.modal-1 size="lg" id="loginBtn">Login</b-button>
         <b-modal id="modal-1" title="Login" ok-title="Login" hide-footer>
-            <br />
-            <input type="email" placeholder = "Email" class="inputs">
-            <br/>
-            <input type="password" placeholder = "Password" class="inputs">
-            <br />
+            <form>
+              <div class="form-group row">
+                <label for="email" class="col-sm-5 col-xs-5 col-form-label">Email</label>
+                <div class="col-sm-5 col-xs-5">
+                  <input type="text" class="form-control" id="email" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Email</label>
+                <div class="col-sm-5 col-xs-5">
+                  <input type="text" class="form-control" id="passsword" placeholder="Password">
+                </div>
+              </div>
+            </form>
             <br />
             <router-link to="homepage"><a href = ''>Login</a></router-link>
 
@@ -84,6 +93,7 @@
                 <input type="password" class="form-control" id="dob" placeholder="Change Password">
                 </div>
               </div>
+              <br />
               <router-link to = "homepage"><a @click = "onClick" href = ''>Signup</a></router-link>
             </form>
         </b-modal>

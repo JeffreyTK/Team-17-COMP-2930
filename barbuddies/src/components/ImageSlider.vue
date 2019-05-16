@@ -18,6 +18,7 @@
       <b-carousel-slide
         caption="Workout With Friends"
         text="Join a group and share each others' calendars"
+        id="img1"
         img-src="https://images.pexels.com/photos/1855269/pexels-photo-1855269.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500%22%3E"
       >
       </b-carousel-slide>
@@ -26,6 +27,7 @@
       <b-carousel-slide
         caption="Keep Track of Your Workouts"
         text="Record your workout and view your progress"
+        id="img2"
         img-src="https://images.unsplash.com/photo-1520334363269-c1b342d17261?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80%22%3E"
       >
       </b-carousel-slide>
@@ -39,7 +41,7 @@
       indicators
       background="#ababab"
       img-width="1024"
-      img-height="480"
+      img-height="500"
       style="text-shadow: 1px 1px 2px #333;"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
@@ -84,14 +86,20 @@ export default {
 }
 </script>
 <style scoped>
+
+#img2 {
+  object-fit: contain;
+}
+
 @media only screen and (min-width: 1194px) {
-  .sliderImg{
+  .sliderImg {
     height: 62vh;
   }
 }
 @media only screen and (max-width: 1193px) {
-  .sliderImg{
+  .sliderImg {
     height: 50vh;
   }
 }
+
 </style>
