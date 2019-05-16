@@ -1,6 +1,7 @@
 <template>
   <div>
     <NavBar/>
+    <flash-message class="customClass"></flash-message>
     <img src="../assets/bb_logo.png" id="logo">
     <ImageSlider />
     <br /><br />
@@ -58,7 +59,8 @@ export default {
       weight: '',
       height: '',
       email: '',
-      password: ''
+      password: '',
+      showAlert: false
     }
   },
   methods: {

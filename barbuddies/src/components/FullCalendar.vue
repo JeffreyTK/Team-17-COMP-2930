@@ -136,9 +136,9 @@ export default {
       this.$bvModal.show('my-modal')
     }
   },
-  props: ["changeView"]
-} 
-        
+  props: ['changeView']
+}
+
 // homepage "timeGridWeek"
 // calendar "dayGridMonth"
 </script>

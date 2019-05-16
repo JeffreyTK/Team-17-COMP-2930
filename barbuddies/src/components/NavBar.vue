@@ -18,6 +18,7 @@
             <router-link to="calendar">CALENDAR</router-link>
             <router-link to="groups">GROUPS</router-link>
             <router-link to="aboutUs">ABOUT US</router-link>
+            <router-link to="logout">LOGOUT</router-link>
           </div>
         </div>
         <div class="col text-center"></div>
@@ -32,7 +33,7 @@ import { updateUser } from '../repository'
         data () {
        return {
         firstName : '',
-        lastName : '',
+        lastName : ''
     }
   },
         methods: {
@@ -43,7 +44,7 @@ import { updateUser } from '../repository'
             closeNav: function() {
                 document.getElementById("mySidebar").style.width = "0";
                 document.getElementById("main").style.marginLeft= "0";
-            }
+            
             },
             mounted(){
               let id = '5cdb23cecb38bb9baed28ac2'
@@ -52,7 +53,8 @@ import { updateUser } from '../repository'
                 this.lastName = data.lastName
               });
             }
-        }      
+        }  
+    }    
 
 </script>
 <style scoped>

@@ -7,6 +7,9 @@ import Profile from '@/components/Profile'
 import Groups from '@/components/GroupMainPage'
 import FullCalendar from '@/components/FullCalendar'
 import AboutUs from '@/components/AboutUs'
+import Logout from '@/components/Logout'
+import VueFlashMessage from 'vue-flash-message';
+Vue.use(VueFlashMessage);
 
 Vue.use(Router)
 
@@ -46,6 +49,11 @@ export default new Router({
       path: '/AboutUs/',
       name: 'AboutUs',
       component: AboutUs
+    },
+    {
+      path: '/logout/',
+      name: 'Logout',
+      component: Logout
     }
   ]
 })
