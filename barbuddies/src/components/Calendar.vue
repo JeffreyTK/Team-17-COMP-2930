@@ -1,11 +1,12 @@
 <template>
   <div id='Calendar'>
     <NavBar />
-    <br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br /><br />
     <div>
       <router-link to="Homepage"><img src="../assets/back.png" id="backIcon"></router-link>
       <h1>CALENDAR</h1>
     </div>
+    <br />
 <FullCalendar changeView="dayGridMonth"/>
   </div>
 </template>
