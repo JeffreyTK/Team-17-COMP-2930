@@ -17,8 +17,8 @@
 </script>
 
 <style scoped>
-a {
-text-decoration: none;
-color: darkslategray
-}
+  a {
+    text-decoration: none;
+    color: darkslategray
+  }
 </style>

@@ -15,6 +15,7 @@ const MongoClient = require('mongodb').MongoClient;
 
 //error checking in case of failed connection it'll let us know in the terminal
 mongoose.connection.on('error', console.error.bind(console, 'connection error: '));
+mongoose.set('useFindAndModify', false);
 //uses the bodyparser for json
 app.use(bodyParser.json());
 //body parses the url
@@ -24,7 +25,8 @@ app.use(cors());
 //first creating the url for the website to submit a req/res to
 var client;
 //const uri = "mongodb://localhost:27017/barbuddies"
-const uri = 'mongodb://garbageuser:garbage1@ds031328.mlab.com:31328/garbage';
+//const uri = 'mongodb://garbageuser:garbage1@ds031328.mlab.com:31328/garbage';
+const uri = 'mongodb://admin:WCUDXfYazacbMAto@SG-barbuddies-21203.servers.mongodirector.com:27017/admin';
 const mongoClient = new MongoClient(uri, { useNewUrlParser: true });
 mongoClient.connect((err, db) => { // returns db connection
   if (err != null) {
@@ -59,6 +61,14 @@ app.get('/users/email', async (req, res) =>{
   const user = await User.findById(req.params.email);
   res.json(user);
 })
+
+app.post('/api/user/update/:id', (req, res) => {
+  console.log('successful connect')
+  User.findByIdAndUpdate(req.params.id, req.body.data , { new: true }, (err, user) => {
+    if (err) return res.status(404).send({message: err.message});
+    return res.send({ message: 'user updated!', user });
+  });
+});
 
 app.post('/api/user/create', (req, res) => {
   console.log('successful connect')

@@ -246,13 +246,14 @@ export default {
 @import '@fullcalendar/core/main.css';
 @import '@fullcalendar/daygrid/main.css';
 @import '@fullcalendar/timegrid/main.css';
+
 .demo-app {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   font-size: 12px;
 }
 .demo-app-calendar {
   margin: 0 auto;
-  max-width: 900px;
-  height: 200px;
+  max-width: 90vw;
+  height: 70vh;
 }
 </style>
