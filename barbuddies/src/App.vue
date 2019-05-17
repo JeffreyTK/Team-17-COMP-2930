@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <br />
     <footer>
       <b-button id="btn" v-b-modal.modal-100 size="sm" variant="light">BarBuddies is unoffically owned by Team 17, Team Moto Moto</b-button>
       <b-modal id="modal-100" title="Bar Buddies" ok-title="Login" hide-footer>
@@ -27,7 +28,7 @@ export default {
     createUser (user) {
       this.user = [user, ...this.user]
     },
-    createGroup (group){
+    createGroup (group) {
       this.group = [group, ...this.group]
     }
   }

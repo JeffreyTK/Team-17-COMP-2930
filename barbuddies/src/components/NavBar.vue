@@ -5,8 +5,8 @@
           <button class="openbtn float-left" v-on:click="openNav()">☰</button>
         </div>
         <div class="col-6 text-center">
-            <router-link to="calendar">
-              <img src="../assets/logoBlack.png" alt="Logo" id="logo">
+            <router-link to="homepage">
+              <img src="../assets/logoBlackCropped.png" alt="Logo" id="logo">
             </router-link>
           <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
@@ -27,7 +27,6 @@
 </template>
 <script>
 import { updateUser } from '../repository'
-import changeView from './FullCalendar'
 import axios from 'axios'
 /* eslint-disable */
     export default {
@@ -53,26 +52,24 @@ import axios from 'axios'
               router.push("/")
             })
           },
-            openNav: function() {
-                document.getElementById("mySidebar").style.width = "250px";
-                document.getElementById("main").style.marginLeft = "250px";
-            },
-            closeNav: function() {
-                document.getElementById("mySidebar").style.width = "0";
-                document.getElementById("main").style.marginLeft= "0";
-            }
-            },
-            mounted(){
-              let id = '5cddc0f97c8f64b1612d9d1e'
-              updateUser(id).then((data)=>{
-                this.firstName = data.firstName,
-                this.lastName = data.lastName
-              });
-              //this.getUserData()
-            }
-        }      
-
-
+          openNav: function() {
+              document.getElementById("mySidebar").style.width = "250px";
+              document.getElementById("main").style.marginLeft = "250px";
+          },
+          closeNav: function() {
+              document.getElementById("mySidebar").style.width = "0";
+              document.getElementById("main").style.marginLeft= "0";
+          }
+          },
+          mounted(){
+            let id = '5cde004a4d7387b70a99c6b9'
+            updateUser(id).then((data)=>{
+              this.firstName = data.firstName,
+              this.lastName = data.lastName
+            });
+            //this.getUserData()
+          }
+        }
 </script>
 
 <style scoped>
@@ -89,7 +86,11 @@ body {
 }
 
 #logo {
-  width: 100px;
+  width: 140.5px;
+  height: 50px;
+}
+
+.navbar {
   height: 100px;
 }
 

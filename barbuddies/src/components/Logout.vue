@@ -13,7 +13,6 @@
 
 <script>
 import NavBar from './NavBar'
-import Router from 'vue-router'
 import { setTimeout } from 'timers'
 export default {
   components: {
@@ -26,11 +25,6 @@ export default {
       })
       this.$router.push({path: '/'})
     }, 2000)
-  },
-  data () {
-    return {
-      variants
-    }
   }
 }
 </script>
