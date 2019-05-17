@@ -160,25 +160,6 @@ export default {
         })
         .catch(err => alert(err.message))
     }
-    /* login: (e) => {
-      e.preventDefault()
-      let email = "user@email.com"
-      let password = "password"
-      let login = () => {
-        let data = {
-          email : email,
-          password : password
-        }
-        axios.post("/api/loginSignup", data).then((response) => {
-          console.log("logged in")
-          router.push("/homepage")
-        })
-        .catch((err) => {
-          console.log("could not log in")
-        })
-      }
-      login()
-    } */
   }
 }
 </script>
