@@ -17,7 +17,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Email</label>
+                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
                 <div class="col-sm-5 col-xs-5">
                   <input type="text" class="form-control" id="passsword" placeholder="Password">
                 </div>
@@ -25,7 +25,6 @@
             </form>
             <br />
             <router-link to="homepage"><a href = ''>Login</a></router-link>
-
         </b-modal>
         </div>
       <div id="signup" class="col">
@@ -87,7 +86,13 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="password" class="col-sm-5 col-form-label">Password</label>
+                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
+                <div class="col-sm-5 col-xs-5">
+                  <input type="password" class="form-control" id="firstName" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="password" class="col-sm-5 col-form-label">Confirm Password</label>
                 <div class="col-sm-5">
                 <input type="password" class="form-control" v-model = "password" id="dob" placeholder="Password">
                 </div>
@@ -103,8 +108,8 @@
 </template>
 <script>
 // importing the createuser function from repository into this file
-//import router from "../router"
-//import axios from "axios"
+// import router from "../router"
+// import axios from "axios"
 import { createUser } from '../repository'
 import ImageSlider from './ImageSlider'
 console.log('starting script')
@@ -154,26 +159,6 @@ export default {
         })
         .catch(err => alert(err.message))
     }
-    
-    /*login: (e) => {
-      e.preventDefault()
-      let email = "user@email.com"
-      let password = "password"
-      let login = () => {
-        let data = {
-          email : email,
-          password : password
-        }
-        axios.post("/api/loginSignup", data).then((response) => {
-          console.log("logged in")
-          router.push("/homepage")
-        })
-        .catch((err) => {
-          console.log("could not log in")
-        })
-      }
-      login()
-    } */
   }
 }
 </script>
