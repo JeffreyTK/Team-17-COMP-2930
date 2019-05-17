@@ -52,26 +52,24 @@ import axios from 'axios'
               router.push("/")
             })
           },
-            openNav: function() {
-                document.getElementById("mySidebar").style.width = "250px";
-                document.getElementById("main").style.marginLeft = "250px";
-            },
-            closeNav: function() {
-                document.getElementById("mySidebar").style.width = "0";
-                document.getElementById("main").style.marginLeft= "0";
-            }
-            },
-            mounted(){
-              let id = '5cde004a4d7387b70a99c6b9'
-              updateUser(id).then((data)=>{
-                this.firstName = data.firstName,
-                this.lastName = data.lastName
-              });
-              //this.getUserData()
-            }
-        }      
-
-
+          openNav: function() {
+              document.getElementById("mySidebar").style.width = "250px";
+              document.getElementById("main").style.marginLeft = "250px";
+          },
+          closeNav: function() {
+              document.getElementById("mySidebar").style.width = "0";
+              document.getElementById("main").style.marginLeft= "0";
+          }
+          },
+          mounted(){
+            let id = '5cde004a4d7387b70a99c6b9'
+            updateUser(id).then((data)=>{
+              this.firstName = data.firstName,
+              this.lastName = data.lastName
+            });
+            //this.getUserData()
+          }
+        }
 </script>
 
 <style scoped>
@@ -88,7 +86,8 @@ body {
 }
 
 #logo {
-
+  width: 140.5px;
+  height: 50px;
 }
 
 .navbar {
