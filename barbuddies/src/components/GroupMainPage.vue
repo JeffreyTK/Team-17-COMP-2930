@@ -162,4 +162,12 @@ export default {
       background-image: none;
     }
 
+    .selectGroup {
+      border: none;
+    }
+
+    .selectGroup:hover {
+      color: none;
+    }
+
 </style>

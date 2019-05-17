@@ -87,10 +87,6 @@ export default {
 </script>
 <style scoped>
 
-#img2 {
-  object-fit: contain;
-}
-
 @media only screen and (min-width: 1194px) {
   .sliderImg {
     height: 62vh;
