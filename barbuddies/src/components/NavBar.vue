@@ -27,7 +27,6 @@
 </template>
 <script>
 import { updateUser } from '../repository'
-import changeView from './FullCalendar'
 import axios from 'axios'
 /* eslint-disable */
     export default {
@@ -63,7 +62,7 @@ import axios from 'axios'
             }
             },
             mounted(){
-              let id = '5cddc0f97c8f64b1612d9d1e'
+              let id = '5cde004a4d7387b70a99c6b9'
               updateUser(id).then((data)=>{
                 this.firstName = data.firstName,
                 this.lastName = data.lastName

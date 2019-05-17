@@ -102,7 +102,7 @@ export default {
       console.log('function started')
       // setting the data so that it pulls the information from the sign up sheet
       let data = {
-        groupName : this.groupName,
+        groupName: this.groupName,
         GroupID: this.GroupID
       }
       console.log(data)
@@ -160,6 +160,14 @@ export default {
 
     #modal-2 {
       background-image: none;
+    }
+
+    .selectGroup {
+      border: none;
+    }
+
+    .selectGroup:hover {
+      color: none;
     }
 
 </style>

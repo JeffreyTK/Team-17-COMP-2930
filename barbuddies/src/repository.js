@@ -36,6 +36,15 @@ export function createGroup (data) {
     .catch(err => Promise.reject(err.message))
 }
 
+export function updateUser1(data, id) {
+	return axios.post(`${BASE_URL}/api/user/update/${id}`, { data
+  }).then(response => {
+    console.log('data pushed')
+
+			return response.data
+		})
+		.catch(err => Promise.reject(err.message));
+}
 export function updateUser (id) {
   return axios.get(`${BASE_URL}/users/${id}`).then(response => response.data)
 }
