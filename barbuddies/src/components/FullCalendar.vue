@@ -173,6 +173,6 @@ export default {
 .demo-app-calendar {
   margin: 0 auto;
   max-width: 900px;
-  height: 200px;
+  height: 75vh;
 }
 </style>

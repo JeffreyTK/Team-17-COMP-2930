@@ -28,4 +28,7 @@ export default {
 }
 </script>
 <style scoped>
+.demo-app-calendar {
+  height: 100vh;
+}
 </style>
