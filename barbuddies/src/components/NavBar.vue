@@ -5,8 +5,8 @@
           <button class="openbtn float-left" v-on:click="openNav()">☰</button>
         </div>
         <div class="col-6 text-center">
-            <router-link to="calendar">
-              <img src="../assets/logoBlack.png" alt="Logo" id="logo">
+            <router-link to="homepage">
+              <img src="../assets/logoBlackCropped.png" alt="Logo" id="logo">
             </router-link>
           <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
@@ -88,7 +88,10 @@ body {
 }
 
 #logo {
-  width: 100px;
+
+}
+
+.navbar {
   height: 100px;
 }
 

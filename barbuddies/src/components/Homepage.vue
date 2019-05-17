@@ -1,7 +1,7 @@
 <template>
   <div id="homepage">
     <NavBar/>
-    <br/><br/><br/><br/><br/><br />
+    <br/><br/><br/><br/><br/><br /><br />
     <div>
       <h1>HOMEPAGE</h1>
     </div>
@@ -29,4 +29,7 @@ export default {
 }
 </script>
 <style scoped>
+#homepage {
+  font-family: "Lato", sans-serif;
+}
 </style>
