@@ -27,7 +27,7 @@ export default {
     createUser (user) {
       this.user = [user, ...this.user]
     },
-    createGroup (group){
+    createGroup (group) {
       this.group = [group, ...this.group]
     }
   }

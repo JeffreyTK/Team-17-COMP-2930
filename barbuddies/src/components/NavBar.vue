@@ -27,7 +27,6 @@
 </template>
 <script>
 import { updateUser } from '../repository'
-import changeView from './FullCalendar'
 import axios from 'axios'
 /* eslint-disable */
     export default {
