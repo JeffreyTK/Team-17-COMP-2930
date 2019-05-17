@@ -12,7 +12,6 @@ const Groups = require('./Groups');
 const User = require('./User');
 //connection between the application and mongoose using the locahost
 const MongoClient = require('mongodb').MongoClient;
-const port = process.env.PORT || 5000
 //error checking in case of failed connection it'll let us know in the terminal
 mongoose.connection.on('error', console.error.bind(console, 'connection error: '));
 mongoose.set('useFindAndModify', false);
@@ -108,6 +107,5 @@ app.post('/api/group/create', (req, res) => {
 });
 
 mongoose.connect(uri, {useNewUrlParser: true}).then(() => {
-  console.log('running api on ' + port);
-  app.listen(port);
+  app.listen(5000);
 });
