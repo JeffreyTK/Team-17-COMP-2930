@@ -18,15 +18,19 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Email</label>
+                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
                 <div class="col-sm-5 col-xs-5">
                   <input type="text" class="form-control" v-model = 'loginPass' id="passsword" placeholder="Password">
                 </div>
               </div>
             </form>
             <br />
+<<<<<<< HEAD
             <router-link to="homepage"><a @click = 'onClick2' href = ''>Login</a></router-link>
 
+=======
+            <router-link to="homepage"><a href = ''>Login</a></router-link>
+>>>>>>> e201e48c38591000d30f7741d5491e2cc49e9067
         </b-modal>
         </div>
       <div id="signup" class="col">
@@ -88,7 +92,13 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="password" class="col-sm-5 col-form-label">Password</label>
+                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
+                <div class="col-sm-5 col-xs-5">
+                  <input type="password" class="form-control" id="firstName" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="password" class="col-sm-5 col-form-label">Confirm Password</label>
                 <div class="col-sm-5">
                 <input type="password" class="form-control" v-model = "password" id="dob" placeholder="Password">
                 </div>
@@ -104,9 +114,15 @@
 </template>
 <script>
 // importing the createuser function from repository into this file
+<<<<<<< HEAD
 //import router from "../router"
 //import axios from "axios"
 import { createUser, authUser } from '../repository'
+=======
+// import router from "../router"
+// import axios from "axios"
+import { createUser } from '../repository'
+>>>>>>> e201e48c38591000d30f7741d5491e2cc49e9067
 import ImageSlider from './ImageSlider'
 console.log('starting script')
 export default {
