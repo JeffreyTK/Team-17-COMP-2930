@@ -12,7 +12,6 @@ const Groups = require('./Groups');
 const User = require('./User');
 //connection between the application and mongoose using the locahost
 const MongoClient = require('mongodb').MongoClient;
-
 //error checking in case of failed connection it'll let us know in the terminal
 mongoose.connection.on('error', console.error.bind(console, 'connection error: '));
 mongoose.set('useFindAndModify', false);
@@ -24,7 +23,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 //first creating the url for the website to submit a req/res to
 var client;
-//const uri = "mongodb://localhost:27017/barbuddies"
 //const uri = 'mongodb://garbageuser:garbage1@ds031328.mlab.com:31328/garbage';
 const uri = 'mongodb://admin:WCUDXfYazacbMAto@SG-barbuddies-21203.servers.mongodirector.com:27017/admin';
 const mongoClient = new MongoClient(uri, { useNewUrlParser: true });
