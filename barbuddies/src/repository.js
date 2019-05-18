@@ -51,3 +51,16 @@ export function updateUser (id) {
 export function findUser(email){
   return axios.get('${BASE_URL}/users/',).then(response => response.data)
 }
+
+//this is probably not working because needs to query for objectID
+export function authUser (data){
+  console.log('started authentication')
+  return axios.get(`${BASE_URL}/api/user/auth/${id}`,).then(response => {
+    //this condition is probably wrong which is why it isn't send it over to server.js
+    if(email === this.email && password === this.loginPass){
+      console.log('user authenticated 100%')
+      return response.data
+    }
+  })
+  .catch(err => Promise.reject(err.message));
+}

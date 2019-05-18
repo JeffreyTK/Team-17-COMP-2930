@@ -62,6 +62,15 @@ app.get('/users/email', async (req, res) =>{
   res.json(user);
 })
 
+//the repository doesnt even get to this funciton but this hsould be right
+
+app.get('/api/user/auth/:id', async (req, res) => {
+  console.log('successful connect')
+  let user = await User.findById(req.params.id, req.params.email, req.params.password);
+  let id = ObjectId(req.params.id).str;
+  res.json(id);
+})
+
 app.post('/api/user/update/:id', (req, res) => {
   console.log('successful connect')
   User.findByIdAndUpdate(req.params.id, req.body.data , { new: true }, (err, user) => {

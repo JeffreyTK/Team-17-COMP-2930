@@ -14,18 +14,18 @@
               <div class="form-group row">
                 <label for="email" class="col-sm-5 col-xs-5 col-form-label">Email</label>
                 <div class="col-sm-5 col-xs-5">
-                  <input type="text" class="form-control" id="email" placeholder="Email">
+                  <input type="text" class="form-control" v-model = 'email' id="email" placeholder="Email">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="password" class="col-sm-5 col-xs-5 col-form-label">Email</label>
                 <div class="col-sm-5 col-xs-5">
-                  <input type="text" class="form-control" id="passsword" placeholder="Password">
+                  <input type="text" class="form-control" v-model = 'loginPass' id="passsword" placeholder="Password">
                 </div>
               </div>
             </form>
             <br />
-            <router-link to="homepage"><a href = ''>Login</a></router-link>
+            <router-link to="homepage"><a @click = 'onClick2' href = ''>Login</a></router-link>
 
         </b-modal>
         </div>
@@ -106,7 +106,7 @@
 // importing the createuser function from repository into this file
 //import router from "../router"
 //import axios from "axios"
-import { createUser } from '../repository'
+import { createUser, authUser } from '../repository'
 import ImageSlider from './ImageSlider'
 console.log('starting script')
 export default {
@@ -124,6 +124,7 @@ export default {
       weight: '',
       height: '',
       email: '',
+      loginPass: '',
       password: '',
       showAlert: false
     }
@@ -154,6 +155,17 @@ export default {
           console.log('created user')
         })
         .catch(err => alert(err.message))
+    },
+    onClick2: function () {
+      console.log('function started')
+      let data = {
+        email: this.email,
+        password: this.loginPass
+      }
+      console.log(data)
+      authUser(data).then(data =>{
+        console.log('authentication started')
+      })
     }
   }
 }
