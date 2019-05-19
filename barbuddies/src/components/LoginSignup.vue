@@ -13,23 +13,18 @@
               <div class="form-group row">
                 <label for="email" class="col-sm-5 col-xs-5 col-form-label">Email</label>
                 <div class="col-sm-5 col-xs-5">
-                  <input type="text" class="form-control" v-model = 'email' id="email" placeholder="Email">
+                  <input type="email" class="form-control" v-model = 'email' id="email" placeholder="Email">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
                 <div class="col-sm-5 col-xs-5">
-                  <input type="text" class="form-control" v-model = 'loginPass' id="passsword" placeholder="Password">
+                  <input type="password" class="form-control" v-model = 'loginPass' id="passsword" placeholder="Password">
                 </div>
               </div>
             </form>
             <br />
-<<<<<<< HEAD
-            <router-link to="homepage"><a @click = 'onClick2' href = ''>Login</a></router-link>
-
-=======
-            <router-link to="homepage"><a href = ''>Login</a></router-link>
->>>>>>> e201e48c38591000d30f7741d5491e2cc49e9067
+            <a @click="onClick2" href = ''>Login</a>
         </b-modal>
         </div>
       <div id="signup" class="col">
@@ -113,15 +108,9 @@
 </template>
 <script>
 // importing the createuser function from repository into this file
-<<<<<<< HEAD
 //import router from "../router"
 //import axios from "axios"
 import { createUser, authUser } from '../repository'
-=======
-// import router from "../router"
-// import axios from "axios"
-import { createUser } from '../repository'
->>>>>>> e201e48c38591000d30f7741d5491e2cc49e9067
 import ImageSlider from './ImageSlider'
 console.log('starting script')
 export default {
@@ -171,8 +160,17 @@ export default {
         })
         .catch(err => alert(err.message))
     },
-    onClick2: function () {
+    onClick2: function (event) {
+      // luke
+      event.preventDefault()
       console.log('function started')
+      if (this.email != "" && this.loginPass != "") {
+        this.$router.push({name: 'homepage'})
+      } else {
+        alert("Email and Password cannot be empty")
+      }
+      // luke end
+      /*
       let data = {
         email: this.email,
         password: this.loginPass
@@ -181,6 +179,8 @@ export default {
       authUser(data).then(data =>{
         console.log('authentication started')
       })
+      }
+      */
     }
   }
 }
