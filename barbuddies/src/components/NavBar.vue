@@ -86,12 +86,12 @@ body {
 }
 
 #logo {
-  width: 140.5px;
-  height: 50px;
+  width: 112.4px;
+  height: 40px;
 }
 
 .navbar {
-  height: 100px;
+  padding: 0;
 }
 
 .sidebar {
@@ -129,12 +129,13 @@ body {
 }
 
 .openbtn {
-  font-size: 20px;
+  font-size: 12pt;
   cursor: pointer;
   background-color: #111;
   color: white;
-  padding: 10px 15px;
+  padding: 7px 11px;
   border: none;
+
 }
 
 .openbtn:hover {

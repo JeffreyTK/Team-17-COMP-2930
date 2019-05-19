@@ -50,12 +50,6 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
-                <div class="col-sm-5 col-xs-5">
-                  <input type="password" class="form-control" v-model = "password" id="firstName" placeholder="Password">
-                </div>
-              </div>
-              <div class="form-group row">
                 <label for="dob" class="col-sm-5 col-xs-5 col-form-label">Date of Birth</label>
                 <div class="col-sm-5 col-xs-5">
                   <input type="date" class="form-control" v-model = "DOB" placeholder="Date Of Birth">
