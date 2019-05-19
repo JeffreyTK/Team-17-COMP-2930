@@ -1,5 +1,5 @@
 <template>
-  <div v-on:load="size()">
+  <div>
     <div class='demo-app'>
       <div class='demo-app-top'>
         <!-- <button @click="toggleWeekends">toggle weekends</button>
@@ -9,6 +9,7 @@
       <FullCalendar
         class='demo-app-calendar'
         ref="fullCalendar"
+        id="fullCalendar"
         :defaultView="changeView"
         :header="{
           left: 'prev',
@@ -20,19 +21,21 @@
         :events="calendarEvents"
         @dateClick="handleSelect"
         @select="handleSelect"
+        @eventClick="handleEventClick"
+        @eventDrop="handleEventDrop"
         :selectable="true"
         :selectHelper="true"
         schedulerLicenseKey="GPL-My-Project-Is-Open-Source"
         :editable="true"
         :eventLimit="true"
-        :eventClick="handleEventClick"
       />
     </div>
     <b-modal
       id="my-modal"
       ref="modal"
-      title="Create a Workout"
+      title="New Workout"
       hide-footer
+      hide-header-close
     >
       <form ref="form">
         <b-form-group
@@ -47,30 +50,81 @@
 
         <b-form-group
         label="Starts at"
-        label-for="start"
+        label-for="start-date"
         >
           <date-picker
-            ref="start-date"
+            id="startDate"
             :config="options"
-            v-model="date2"
+            v-model="date1"
           ></date-picker>
         </b-form-group>
 
         <b-form-group
           label="Ends at"
-          label-for="end"
+          label-for="end-date"
         >
           <date-picker
-            ref="end-date"
+            id="endDate"
             :config="options"
-            :minDate="date2"
-            v-model="date1"
+            :minDate="date1"
+            v-model="date2"
           ></date-picker>
+        </b-form-group>
+
+        <b-form-group
+          label="Workout Information"
+          label-for="textarea"
+        >
+          <b-form-textarea
+            id="textarea"
+            v-model="text"
+            placeholder="Enter a workout..."
+            rows="3"
+            max-rows="6"
+          ></b-form-textarea>
         </b-form-group>
       </form>
        <div class="modal-footer">
           <b-button data-dismiss="modal" @click="hideModal" variant="secondary">Close</b-button>
-          <b-button @click="saveDate" variant="primary">Save changes</b-button>
+          <b-button @click="saveDate" variant="primary">Create workout</b-button>
+      </div>
+    </b-modal>
+
+    <b-modal
+      id="my-modal2"
+      ref="modal2"
+      title="Workout Details"
+      hide-footer
+      hide-header-close
+    >
+      <form ref="form">
+        <b-form-group
+        label="Workout Name"
+        label-for="workout"
+        >
+          <b-form-input
+          id="workout"
+          v-model="workout"
+          ></b-form-input>
+        </b-form-group>
+
+        <b-form-group
+          label="Workout Information"
+          label-for="textarea"
+        >
+          <b-form-textarea
+            id="textarea"
+            v-model="text"
+            placeholder="Enter a workout..."
+            rows="3"
+            max-rows="6"
+          ></b-form-textarea>
+        </b-form-group>
+      </form>
+       <div class="modal-footer">
+                <b-button @click="deleteEvent" class='text-left' id="delete" variant="danger">Delete</b-button>
+                <b-button data-dismiss="modal" @click="hideModal" variant="secondary">Close</b-button>
+                <b-button @click="update" variant="primary">Save changes</b-button>
       </div>
     </b-modal>
   </div>
@@ -112,9 +166,10 @@ export default {
   },
   data: function () {
     return {
+      text: '',
       workout: '',
-      date2: new Date(),
       date1: new Date(),
+      date2: new Date(),
       calendarPlugins: [ // plugins must be defined in the JS
         dayGridPlugin,
         timeGridPlugin,
@@ -123,7 +178,7 @@ export default {
       ],
       calendarWeekends: true,
       calendarEvents: [ // initial event data
-        { title: '', start: Date(), end: Date() }
+        { title: '', start: Date(), end: Date(), id: '' }
       ],
       options: {
         useCurrent: false,
@@ -140,25 +195,43 @@ export default {
         })
       }
     },
+    handleEventDrop (arg) {
+      this.date1 = arg.event.start
+      this.date2 = arg.event.end
+    },
     handleSelect (arg) {
-      this.$bvModal.show('my-modal')
+      this.$bvModal.show('my-modal'),
+      this.date1 = arg.start,
+      this.date2 = arg.end
+    },
+    handleEventClick (arg) {
+      this.$bvModal.show('my-modal2'),
+      this.workout = arg.event.title,
+      this.date1 = arg.event.start,
+      this.date2 = arg.event.end,
+      this.text = arg.event.id
+    }, 
+    deleteEvent (arg) {
+      this.$bvModal.hide('my-modal2'),
+      this.event.remove()
     },
     saveDate (arg) {
       this.$bvModal.hide('my-modal'),
       this.calendarEvents.push({
         title: this.workout,
-        start: this.date2,
-        end: this.date1,
+        start: this.date1,
+        end: this.date2,
+        id: this.text
       })
     },
     hideModal() {
-        this.$bvModal.hide('my-modal')	
+      this.$bvModal.hide('my-modal'),	
+      this.$bvModal.hide('my-modal2'),
+      this.workout = ''
+      this.text = ''
     },
-    size() {
-      var calendarEl = document.getElementById('calendar')
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        height: auto
-      })
+    update (arg) {
+      this.$bvModal.hide('my-modal')
     }
   },
   props: ['changeView'],
