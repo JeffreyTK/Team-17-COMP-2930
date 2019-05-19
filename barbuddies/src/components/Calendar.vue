@@ -1,13 +1,14 @@
 <template>
   <div id='Calendar'>
     <NavBar />
-    <br/><br/><br/><br/><br/><br /><br />
-    <div>
+    <br/><br/><br/><br />
+    <div class="container">
       <router-link to="Homepage"><img src="../assets/back.png" id="backIcon"></router-link>
       <h1>CALENDAR</h1>
+      <br />
+      <FullCalendar changeView="dayGridMonth"/>
     </div>
     <br />
-<FullCalendar changeView="dayGridMonth"/>
   </div>
 </template>
 
@@ -54,8 +55,8 @@ img {
   width: 200px;
 }
 #backIcon {
-      width: 30px;
-      height: 30px;
-      float: left;
-    }
+  width: 30px;
+  height: 30px;
+  float: left;
+}
 </style>

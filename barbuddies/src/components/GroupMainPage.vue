@@ -1,7 +1,7 @@
 <template>
   <div class="GroupMainPage">
       <NavBar/>
-      <br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br />
       <div class="container">
         <div>
           <router-link to="Homepage"><img src="../assets/back.png" id="backIcon"></router-link>
@@ -165,9 +165,4 @@ export default {
     .selectGroup {
       border: none;
     }
-
-    .selectGroup:hover {
-      color: none;
-    }
-
 </style>

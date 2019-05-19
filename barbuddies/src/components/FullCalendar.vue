@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-on:load="size()">
     <div class='demo-app'>
       <div class='demo-app-top'>
         <!-- <button @click="toggleWeekends">toggle weekends</button>
@@ -11,9 +11,9 @@
         ref="fullCalendar"
         :defaultView="changeView"
         :header="{
-          left: 'prev,next',
-          center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+          left: 'prev',
+          center: '',
+          right: 'next'
         }"
         :plugins="calendarPlugins"
         :weekends="calendarWeekends"
@@ -69,8 +69,8 @@
         </b-form-group>
       </form>
        <div class="modal-footer">
-                <b-button data-dismiss="modal" @click="hideModal" variant="secondary">Close</b-button>
-                <b-button @click="saveDate" variant="primary">Save changes</b-button>
+          <b-button data-dismiss="modal" @click="hideModal" variant="secondary">Close</b-button>
+          <b-button @click="saveDate" variant="primary">Save changes</b-button>
       </div>
     </b-modal>
   </div>
@@ -100,7 +100,7 @@ $.extend(true, $.fn.datetimepicker.defaults, {
       next: 'fas fa-chevron-right',
       today: 'fas fa-calendar-check',
       clear: 'far fa-trash-alt',
-      close: 'far fa-times-circle'
+      close: 'far fa-times-circle',
     }
 });
 
@@ -154,8 +154,15 @@ export default {
     hideModal() {
         this.$bvModal.hide('my-modal')	
     },
+    size() {
+      var calendarEl = document.getElementById('calendar')
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        height: auto
+      })
+    }
   },
-  props: ['changeView']
+  props: ['changeView'],
+  
 }
 
 // homepage "timeGridWeek"
@@ -167,6 +174,48 @@ export default {
 @import '@fullcalendar/daygrid/main.css';
 @import '@fullcalendar/timegrid/main.css';
 
+.fc-prev-button {
+  background: none;
+  color: black;
+  border: none;
+  font-size: 15pt;
+}
+
+.fc-prev-button:focus {
+  background: none;
+  color: black;
+  border: none;
+  font-size: 15pt;
+}
+
+.fc-prev-button:hover{
+  background: none;
+  color: grey;
+}
+
+.fc-next-button {
+  background: none;
+  color: black;
+  border: none;
+  font-size: 15pt;
+}
+.fc-next-button:focus {
+  background: none;
+  color: black;
+  border: none;
+  font-size: 15pt;
+}
+
+.fc-next-button:hover{
+  background: none;
+  color: grey;
+}
+
+.fc-next-button:active{
+  background: none;
+  border: none;
+}
+
 .demo-app {
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   font-size: 12px;
@@ -174,6 +223,13 @@ export default {
 .demo-app-calendar {
   margin: 0 auto;
   max-width: 90vw;
-  height: 70vh;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media only screen and (min-width: 375px) {
+  .demo-app-calendar {
+    width: 90vw;
+  }
 }
 </style>

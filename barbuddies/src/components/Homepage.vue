@@ -1,11 +1,10 @@
 <template>
   <div id="homepage">
     <NavBar/>
-    <br/><br/><br/><br/><br/><br /><br />
+    <br/><br/><br/><br/>
     <div>
-      <h1>HOMEPAGE</h1>
+      <h2>THIS WEEK</h2>
     </div>
-    <br />
     <FullCalendar changeView="timeGridWeek"/>
   </div>
 </template>
