@@ -10,6 +10,8 @@ import AboutUs from '@/components/AboutUs'
 import Logout from '@/components/Logout'
 import Error404 from '@/components/Error404'
 import VueFlashMessage from 'vue-flash-message'
+import VueSession from 'vue-session'
+Vue.use(VueSession)
 Vue.use(VueFlashMessage)
 
 Vue.use(Router)
