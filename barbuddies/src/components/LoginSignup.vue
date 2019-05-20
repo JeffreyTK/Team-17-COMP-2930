@@ -1,7 +1,7 @@
 <template>
   <div>
     <flash-message class="customClass"></flash-message>
-    <img src="../assets/bb_logo.png" id="logo">
+    <img src="../assets/logoBlackCropped.png" id="logo">
     <ImageSlider />
     <br /><br />
     <div id="LoginSignup" class="container">
@@ -167,8 +167,8 @@ export default {
     width: 100%;
   }
   #logo {
-    padding: 0;
-    height: 150px;
+    margin: 25px;
+    margin-top: 35px;
   }
   .inputs {
     margin: 2%;
