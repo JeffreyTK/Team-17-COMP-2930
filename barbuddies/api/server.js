@@ -6,6 +6,15 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken")
+const allowCrossDomain = function (req, res, next){
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', '*');
+  res.header('Access-Control-Allow-Headers', '*');
+  next();
+}
+app.use(allowCrossDomain);
 //links the variable groups to require the file groups
 const Groups = require('./Groups');
 //links the variable user to rquire the file user
@@ -89,11 +98,17 @@ app.post('/api/user/create', (req, res) => {
         weight:req.body.weight,
         height:req.body.height,
         email:req.body.email,
-        password:req.body.password,
+        password: bcrypt.hashSync(req.body.password, 8),
         userID:req.body.userID,
         groupID:req.body.groupID
     });
-
+      if(err) return res.status(500).send('There is a problem registering the user.')
+      db.selectByEmail(req.body.email, (err, user) => {
+        if(err) return res.status(500).send('There is a problem finding a user')
+        let token = jwt.sign({id: user.id}, config.secret, {expiresIn: 86400});
+        res.status(200).send({ auth: true, token: token, user:user})
+      });
+      
     //saves the user and on error display error message
     user.save( (err) => {
       if (err) return res.status(404).send({message: err.message});
