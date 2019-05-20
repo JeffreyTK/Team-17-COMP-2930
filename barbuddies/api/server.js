@@ -6,6 +6,7 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+<<<<<<< HEAD
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken")
 const allowCrossDomain = function (req, res, next){
@@ -15,6 +16,11 @@ const allowCrossDomain = function (req, res, next){
   next();
 }
 app.use(allowCrossDomain);
+=======
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+>>>>>>> 33ef08562cf028547f9422697687f0c29ff00837
 //links the variable groups to require the file groups
 const Groups = require('./Groups');
 //links the variable user to rquire the file user
@@ -43,6 +49,14 @@ mongoClient.connect((err, db) => { // returns db connection
   client = db
 });
 
+
+// CORS middleware
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 const logRequestStart = (req, res, next) => {
   console.info(`${req.method} ${req.originalUrl} | ${res.statusCode}`);
   next();
@@ -69,13 +83,20 @@ app.get('/users/email', async (req, res) =>{
   res.json(user);
 })
 
-//the repository doesnt even get to this funciton but this hsould be right
+app.post('/api/user/auth/', async (req, res) => {
+  console.log('succesful connect in auth')
+  let db = client.db('admin')
+  let users = db.collection('users')
+  users.find({email: req.body.email, password: req.body.password}).toArray((err, userDetails) => {
+    console.log(userDetails)
+    // need to send a session data back to login component to carry throughout the site
+  })
+  // console.log(loginUser)
 
-app.get('/api/user/auth/:id', async (req, res) => {
-  console.log('successful connect')
-  let user = await User.findById(req.params.id, req.params.email, req.params.password);
-  let id = ObjectId(req.params.id).str;
-  res.json(id);
+
+  //let user = await User.findById(req.params.id, req.params.email, req.params.password);
+  //let id = ObjectId(req.params.id).str;
+  //res.json(id);
 })
 
 app.post('/api/user/update/:id', (req, res) => {
@@ -98,6 +119,7 @@ app.post('/api/user/create', (req, res) => {
         weight:req.body.weight,
         height:req.body.height,
         email:req.body.email,
+<<<<<<< HEAD
         password: bcrypt.hashSync(req.body.password, 8),
         userID:req.body.userID,
         groupID:req.body.groupID
@@ -109,6 +131,21 @@ app.post('/api/user/create', (req, res) => {
         res.status(200).send({ auth: true, token: token, user:user})
       });
       
+=======
+        //password: bcrypt.hashSync(req.body.password, 8),
+        password:req.body.password,
+        userID:req.body.userID,
+        groupID:req.body.groupID
+    });
+    /*
+      if(err) return res.status(500).status.send('There is a problem registering the user.')
+      db.selectByEmail(req.body.email, (err, user) => {
+        if(err) return res.status(500).send('There is a problem finding a user')
+        let token = jwt.sign({id: user.id}, config.secret, {expiresIn: 86400});
+        res.status(200).send({ auth: true, token, user: user})
+      })
+    */
+>>>>>>> 33ef08562cf028547f9422697687f0c29ff00837
     //saves the user and on error display error message
     user.save( (err) => {
       if (err) return res.status(404).send({message: err.message});

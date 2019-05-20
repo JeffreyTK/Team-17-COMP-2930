@@ -14,7 +14,7 @@
               <div class="form-group row">
                 <label for="email" class="col-sm-5 col-xs-5 col-form-label">Email</label>
                 <div class="col-sm-5 col-xs-5">
-                  <input type="email" class="form-control" v-model = 'email' id="email" placeholder="Email">
+                  <input type="email" class="form-control" v-model = 'loginEmail' id="email" placeholder="Email">
                 </div>
               </div>
               <div class="form-group row">
@@ -124,6 +124,7 @@ export default {
       weight: '',
       height: '',
       email: '',
+      loginEmail: '',
       loginPass: '',
       password: '',
       showAlert: false
@@ -131,7 +132,7 @@ export default {
   },
   methods: {
     onClick: function () {
-      console.log('function started')
+      console.log('started onClick function')
       // setting the data so that it pulls the information from the sign up sheet
       let data = {
         // this.firstName the this means that the firstname on THIS page
@@ -157,27 +158,19 @@ export default {
         .catch(err => alert(err.message))
     },
     onClick2: function (event) {
-      // luke
       event.preventDefault()
-      console.log('function started')
-      if (this.email != "" && this.loginPass != "") {
-        this.$router.push({name: 'homepage'})
-      } else {
-        alert("Email and Password cannot be empty")
-      }
-      // luke end
-      /*
+      console.log('started onClick2 function')
       let data = {
-        email: this.email,
+        email: this.loginEmail,
         password: this.loginPass
       }
-      
-      console.log(data)
-      authUser(data).then(data =>{
-        console.log('authentication started')
+      authUser(data)
+      .then(data => {
+        console.log("data object" + data)
+        this.$emit('authUser', data)
       })
-      }
-      */
+      .catch(err =>alert(err.message))
+      this.$router.push({name: 'homepage'})
     }
   }
 }
