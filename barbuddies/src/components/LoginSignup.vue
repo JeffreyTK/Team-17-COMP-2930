@@ -110,7 +110,7 @@
 // importing the createuser function from repository into this file
 //import router from "../router"
 //import axios from "axios"
-import { createUser, authUser } from '../repository'
+import { createUser, authUser, findUser } from '../repository'
 import ImageSlider from './ImageSlider'
 console.log('starting script')
 export default {
@@ -168,13 +168,18 @@ export default {
         email: this.loginEmail,
         password: this.loginPass
       }
-      authUser(data)
+     
+      authUser(data) 
       .then(data => {
+        //console.log(userId)
         console.log("data object" + data)
         this.$emit('authUser', data)
       })
-      .catch(err =>alert(err.message))
+      .catch(err => alert(err.message))
+      this.$session.start()
+      this.$session.set('user', data)
       this.$router.push({name: 'homepage'})
+      console.log(auth)
     }
   }
 }

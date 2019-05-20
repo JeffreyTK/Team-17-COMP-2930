@@ -77,15 +77,38 @@ app.post('/api/user/auth/', async (req, res) => {
   let users = db.collection('users')
   users.find({email: req.body.email, password: req.body.password}).toArray((err, userDetails) => {
     console.log(userDetails)
-    // need to send a session data back to login component to carry throughout the site
+    return res.json(userDetails)
   })
-  // console.log(loginUser)
 
 
+
+
+
+
+
+
+
+  
   //let user = await User.findById(req.params.id, req.params.email, req.params.password);
   //let id = ObjectId(req.params.id).str;
   //res.json(id);
 })
+
+app.get('/users/find,', async (req, res) => {
+  let db = client.db('admin')
+  let users = db.collection('users')
+  users.find({email: req.body.email, password: req.body.password}).toArray((err, user) => {
+    console.log(user)
+    userId = user._id.toString()
+    console.log("userId is " + userId)
+    mondule.exports = userId
+  })
+  const user = await User.findById(req.params.id);
+  res.json(user);
+})
+
+
+
 
 app.post('/api/user/update/:id', (req, res) => {
   console.log('successful connect')
