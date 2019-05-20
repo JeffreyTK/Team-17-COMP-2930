@@ -62,11 +62,13 @@ import axios from 'axios'
           }
           },
           mounted(){
-            let id = '5cde004a4d7387b70a99c6b9'
-            updateUser(id).then((data)=>{
-              this.firstName = data.firstName,
-              this.lastName = data.lastName
-            });
+            //let id = this.$session.get('user')
+            //updateUser(id).then((data)=>{
+              console.log(this.$session.get('firstName'))
+              console.log(this.$session.get('lastName'))
+              this.firstName = this.$session.get('firstName')
+              this.lastName = this.$session.get('lastName')
+            //});
             //this.getUserData()
           }
         }

@@ -79,7 +79,6 @@ export function authUser (data){
   }).then(response => {
     return response.data
   })
-  console.log("big oofs")
 }
     //this condition is probably wrong which is why it isn't send it over to server.js
 

@@ -90,7 +90,8 @@ export default {
         password: this.password
       }
       console.log(data)
-      let id = '5cde004a4d7387b70a99c6b9'
+      let id = this.$session.get('id')
+      console.log(id)
       updateUser1(data, id)
         .then(data => {
           this.$emit('updateUser1', data.user);
@@ -100,17 +101,14 @@ export default {
     },
   },
   mounted () {
-    let id = '5cde004a4d7387b70a99c6b9'
-    updateUser(id).then((data) => {
-      this.firstName = data.firstName
-      this.email = data.email
-      this.DOB = data.DOB
-      this.Gender = data.gender
-      this.weight = data.weight
-      this.height = data.height
-      this.email = data.email
-      this.password = data.password
-    })
+      this.firstName = this.$session.get('firstName')
+      this.email = this.$session.get('email')
+      this.DOB = this.$session.get('DOB')
+      this.Gender = this.$session.get('gender')
+      this.weight = this.$session.get('weight')
+      this.height = this.$session.get('height')
+      this.email = this.$session.get('email')
+      this.password = this.$session.get('password')
   }
 }
 </script>

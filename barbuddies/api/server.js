@@ -76,8 +76,9 @@ app.post('/api/user/auth/', async (req, res) => {
   let db = client.db('admin')
   let users = db.collection('users')
   users.find({email: req.body.email, password: req.body.password}).toArray((err, userDetails) => {
-    console.log(userDetails)
-    return res.json(userDetails)
+    console.log(userDetails[0])
+    res.send({user : userDetails[0]})
+    return res.data
   })
 
 
@@ -88,7 +89,7 @@ app.post('/api/user/auth/', async (req, res) => {
 
 
 
-  
+
   //let user = await User.findById(req.params.id, req.params.email, req.params.password);
   //let id = ObjectId(req.params.id).str;
   //res.json(id);

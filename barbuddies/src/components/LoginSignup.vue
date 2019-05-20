@@ -131,6 +131,7 @@ export default {
       loginEmail: '',
       loginPass: '',
       password: '',
+      id: '',
       showAlert: false
     }
   },
@@ -168,18 +169,34 @@ export default {
         email: this.loginEmail,
         password: this.loginPass
       }
-     
+
       authUser(data) 
       .then(data => {
         //console.log(userId)
         console.log("data object" + data)
         this.$emit('authUser', data)
+        let info = {
+          user : data.user
+        }
+        console.log(info)
+        console.log(info.user.email)
+        console.log(info.user.firstName)
+        console.log(info.user.lastName)
+      this.$session.start()
+      this.$session.set('lastName', info.user.lastName)
+      this.$session.set('firstName', info.user.firstName)
+      this.$session.set('DOB', info.user.DOB)
+      this.$session.set('gender', info.user.gender)
+      this.$session.set('weight', info.user.weight)
+      this.$session.set('height', info.user.height)
+      this.$session.set('email', info.user.email)
+      this.$session.set('password', info.user.password)
+      this.$session.set('id', info.user._id)
+
+
       })
       .catch(err => alert(err.message))
-      this.$session.start()
-      this.$session.set('user', data)
       this.$router.push({name: 'homepage'})
-      console.log(auth)
     }
   }
 }
