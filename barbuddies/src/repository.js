@@ -52,9 +52,9 @@ export function updateUser1(data, id) {
 export function updateUser (id) {
   return axios.get(`${BASE_URL}/users/${id}`).then(response => response.data)
 }
-export function findUser(email){
-  return axios.get('${BASE_URL}/users/',).then(response => response.data)
-}
+//export function findUser(email){
+//  return axios.get('${BASE_URL}/users/',).then(response => response.data)
+//}
 
 //this is probably not working because needs to query for objectID
 /*
@@ -79,7 +79,6 @@ export function authUser (data){
   }).then(response => {
     return response.data
   })
-  console.log("big oofs")
 }
     //this condition is probably wrong which is why it isn't send it over to server.js
 
@@ -87,7 +86,9 @@ export function authUser (data){
       //console.log('user authenticated 100%')
       //return response.data
 
-
+export function findUser(email) {
+  return axios.get(`${BASE_URL}/users/find`).then(response => response.data)
+}
 
 
 

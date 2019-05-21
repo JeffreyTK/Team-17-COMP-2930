@@ -6,21 +6,8 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-<<<<<<< HEAD
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken")
-const allowCrossDomain = function (req, res, next){
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', '*');
-  res.header('Access-Control-Allow-Headers', '*');
-  next();
-}
-app.use(allowCrossDomain);
-=======
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
->>>>>>> 33ef08562cf028547f9422697687f0c29ff00837
 //links the variable groups to require the file groups
 const Groups = require('./Groups');
 //links the variable user to rquire the file user
@@ -38,7 +25,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 //first creating the url for the website to submit a req/res to
 var client;
-//const uri = 'mongodb://garbageuser:garbage1@ds031328.mlab.com:31328/garbage';
 const uri = 'mongodb://admin:WCUDXfYazacbMAto@SG-barbuddies-21203.servers.mongodirector.com:27017/admin';
 const mongoClient = new MongoClient(uri, { useNewUrlParser: true });
 mongoClient.connect((err, db) => { // returns db connection
@@ -83,21 +69,52 @@ app.get('/users/email', async (req, res) =>{
   res.json(user);
 })
 
-app.post('/api/user/auth/', async (req, res) => {
+app.post('/api/user/auth/', async (request, response) => {
   console.log('succesful connect in auth')
   let db = client.db('admin')
   let users = db.collection('users')
-  users.find({email: req.body.email, password: req.body.password}).toArray((err, userDetails) => {
-    console.log(userDetails)
-    // need to send a session data back to login component to carry throughout the site
+  let userEmail = request.body.email
+  let userPassword = request.body.password
+    users.find({email: userEmail}).toArray((err, userDetails) => {
+      console.log("user pw: " + userPassword)
+      console.log("user details: " + userDetails[0].password)
+      bcrypt.compare(userPassword, userDetails[0].password, function(err, res) {        
+        if (res) {
+          console.log("matched")
+          response.send({user : userDetails[0]})
+          return response.data
+        } else {
+          console.log("did not match")
+        }
+    }) 
   })
-  // console.log(loginUser)
-
-
-  //let user = await User.findById(req.params.id, req.params.email, req.params.password);
-  //let id = ObjectId(req.params.id).str;
-  //res.json(id);
 })
+
+
+/* THE SACRED TEXTS OF K N O W L E D G E
+users.find({email: req.body.email, password: req.body.password}).toArray((err, userDetails) => {
+    console.log(userDetails[0])
+    res.send({user : userDetails[0]})
+    return res.data
+  })
+})
+*/
+
+app.get('/users/find,', async (req, res) => {
+  let db = client.db('admin')
+  let users = db.collection('users')
+  users.find({email: req.body.email, password: req.body.password}).toArray((err, user) => {
+    console.log(user)
+    userId = user._id.toString()
+    console.log("userId is " + userId)
+    mondule.exports = userId
+  })
+  const user = await User.findById(req.params.id);
+  res.json(user);
+})
+
+
+
 
 app.post('/api/user/update/:id', (req, res) => {
   console.log('successful connect')
@@ -119,21 +136,8 @@ app.post('/api/user/create', (req, res) => {
         weight:req.body.weight,
         height:req.body.height,
         email:req.body.email,
-<<<<<<< HEAD
-        password: bcrypt.hashSync(req.body.password, 8),
-        userID:req.body.userID,
-        groupID:req.body.groupID
-    });
-      if(err) return res.status(500).send('There is a problem registering the user.')
-      db.selectByEmail(req.body.email, (err, user) => {
-        if(err) return res.status(500).send('There is a problem finding a user')
-        let token = jwt.sign({id: user.id}, config.secret, {expiresIn: 86400});
-        res.status(200).send({ auth: true, token: token, user:user})
-      });
-      
-=======
-        //password: bcrypt.hashSync(req.body.password, 8),
-        password:req.body.password,
+        password: bcrypt.hashSync(req.body.password, 10),
+        //password:req.body.password,
         userID:req.body.userID,
         groupID:req.body.groupID
     });
@@ -145,7 +149,6 @@ app.post('/api/user/create', (req, res) => {
         res.status(200).send({ auth: true, token, user: user})
       })
     */
->>>>>>> 33ef08562cf028547f9422697687f0c29ff00837
     //saves the user and on error display error message
     user.save( (err) => {
       if (err) return res.status(404).send({message: err.message});

@@ -1,12 +1,12 @@
 <template>
  <div class="NavBar">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-sm-start fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-custom justify-content-sm-start fixed-top">
         <div class="col" id="main">
-          <button class="openbtn float-left" v-on:click="openNav()">☰</button>
+          <button class="openbtn float-left rounded-circle" v-on:click="openNav()">☰</button>
         </div>
         <div class="col-6 text-center">
             <router-link to="homepage">
-              <img src="../assets/logoBlackCropped.png" alt="Logo" id="logo">
+              <img src="../assets/logoUnfilled.png" alt="Logo" id="logo">
             </router-link>
           <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
@@ -53,22 +53,29 @@ import axios from 'axios'
             })
           },
           openNav: function() {
-              document.getElementById("mySidebar").style.width = "250px";
-              document.getElementById("main").style.marginLeft = "250px";
+            console.log(this.$session.get('firstName'))
+            console.log(this.$session.get('lastName'))
+            this.firstName = this.$session.get('firstName')
+            this.lastName = this.$session.get('lastName')
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
           },
           closeNav: function() {
-              document.getElementById("mySidebar").style.width = "0";
-              document.getElementById("main").style.marginLeft= "0";
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
           }
-          },
+        }/*,
+          // IMPORTANT does not load yet on mount
           mounted(){
-            let id = '5cde004a4d7387b70a99c6b9'
-            updateUser(id).then((data)=>{
-              this.firstName = data.firstName,
-              this.lastName = data.lastName
-            });
+            //let id = this.$session.get('user')
+            //updateUser(id).then((data)=>{
+              console.log(this.$session.get('firstName'))
+              console.log(this.$session.get('lastName'))
+              this.firstName = this.$session.get('firstName')
+              this.lastName = this.$session.get('lastName')
+            //});
             //this.getUserData()
-          }
+          } */
         }
 </script>
 
@@ -77,8 +84,9 @@ import axios from 'axios'
   width: 150px;
   height: auto;
 }
-body {
-  font-family: "Lato", sans-serif;
+.navbar {
+  font-family: "Montserrat", sans-serif;
+  background-color: white;
 }
 
 #main {
@@ -86,12 +94,9 @@ body {
 }
 
 #logo {
-  width: 140.5px;
-  height: 50px;
-}
+  width: 112.4px;
+  height: 40px;
 
-.navbar {
-  height: 100px;
 }
 
 .sidebar {
@@ -101,7 +106,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #C23A3A;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -111,7 +116,7 @@ body {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: white;
   display: block;
   transition: 0.3s;
 }
@@ -129,16 +134,20 @@ body {
 }
 
 .openbtn {
-  font-size: 20px;
+  font-size: 12pt;
   cursor: pointer;
-  background-color: #111;
+  background-color: #C23A3A;
   color: white;
-  padding: 10px 15px;
+  padding: 7px 11px;
   border: none;
 }
 
+.navbar-default {
+  background-color: none;
+}
+
 .openbtn:hover {
-  background-color: #444;
+  background-color: #C23A3A;
 }
 
 #main {
@@ -150,6 +159,10 @@ body {
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
+}
+
+.form-group-row {
+  width: 100%;
 }
 
 </style>

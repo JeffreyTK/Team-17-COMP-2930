@@ -96,18 +96,21 @@ export default {
 </script>
 
 <style scoped>
-    #backIcon {
-      width: 30px;
-      height: 30px;
-      float: left;
-    }
-    .group {
-        width: 116px;
-        height: 80px;
-    }
-    /*
-    .headshot {
-        height: 250px;
-        width: 150px;
-    } */
+  .container {
+    font-family: "Montserrat", sans-serif
+  }
+  #backIcon {
+    width: 30px;
+    height: 30px;
+    float: left;
+  }
+  .group {
+      width: 116px;
+      height: 80px;
+  }
+  /*
+  .headshot {
+      height: 250px;
+      width: 150px;
+  } */
 </style>
