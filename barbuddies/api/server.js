@@ -71,21 +71,36 @@ app.get('/users/email', async (req, res) =>{
   res.json(user);
 })
 
-app.post('/api/user/auth/', async (req, res) => {
+app.post('/api/user/auth/', async (request, response) => {
   console.log('succesful connect in auth')
   let db = client.db('admin')
   let users = db.collection('users')
-  users.find({email: req.body.email, password: req.body.password}).toArray((err, userDetails) => {
+  let userEmail = request.body.email
+  let userPassword = request.body.password
+    users.find({email: userEmail}).toArray((err, userDetails) => {
+      console.log("user pw: " + userPassword)
+      console.log("user details: " + userDetails[0].password)
+      bcrypt.compare(userPassword, userDetails[0].password, function(err, res) {        
+        if (res) {
+          console.log("matched")
+          response.send({user : userDetails[0]})
+          return response.data
+        } else {
+          console.log("did not match")
+        }
+    }) 
+  })
+})
+
+
+/* THE SACRED TEXTS OF K N O W L E D G E
+users.find({email: req.body.email, password: req.body.password}).toArray((err, userDetails) => {
     console.log(userDetails[0])
     res.send({user : userDetails[0]})
     return res.data
   })
-
-
-  //let user = await User.findById(req.params.id, req.params.email, req.params.password);
-  //let id = ObjectId(req.params.id).str;
-  //res.json(id);
 })
+*/
 
 app.get('/users/find,', async (req, res) => {
   let db = client.db('admin')
@@ -123,8 +138,8 @@ app.post('/api/user/create', (req, res) => {
         weight:req.body.weight,
         height:req.body.height,
         email:req.body.email,
-        //password: bcrypt.hashSync(req.body.password, 8),
-        password:req.body.password,
+        password: bcrypt.hashSync(req.body.password, 10),
+        //password:req.body.password,
         userID:req.body.userID,
         groupID:req.body.groupID
     });
