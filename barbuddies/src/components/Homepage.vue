@@ -1,9 +1,9 @@
 <template>
   <div id="homepage">
     <NavBar/>
-    <br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/>
     <div>
-      <h1>HOMEPAGE</h1>
+      <h2>THIS WEEK</h2>
     </div>
     <FullCalendar changeView="timeGridWeek"/>
   </div>
@@ -28,4 +28,7 @@ export default {
 }
 </script>
 <style scoped>
+#homepage {
+  font-family: "Montserrat", sans-serif;
+}
 </style>

@@ -4,8 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import BootstrapVue from 'bootstrap-vue'
-require('vue-flash-message/dist/vue-flash-message.min.css');
+import VueSession from 'vue-session'
+require('vue-flash-message/dist/vue-flash-message.min.css')
 
+Vue.use(VueSession)
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.prototype.$calendarHome = true

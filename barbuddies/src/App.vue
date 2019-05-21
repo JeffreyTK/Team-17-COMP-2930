@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <br />
     <footer>
-      <b-button id="btn" v-b-modal.modal-100 size="sm" variant="light">BarBuddies is unoffically owned by Team 17, Team Moto Moto</b-button>
+      <b-button id="btn" v-b-modal.modal-100 size="sm" variant="custom">BarBuddies is unoffically owned by Team 17, Team Moto Moto</b-button>
       <b-modal id="modal-100" title="Bar Buddies" ok-title="Login" hide-footer>
         <iframe src="https://vlipsy.com/embed/NVUkq5IE" width="100%" height="100%" frameborder="0"></iframe>
       </b-modal>
@@ -27,7 +28,7 @@ export default {
     createUser (user) {
       this.user = [user, ...this.user]
     },
-    createGroup (group){
+    createGroup (group) {
       this.group = [group, ...this.group]
     }
   }
@@ -47,11 +48,14 @@ export default {
 img {
   width: 200px;
 }
-footer {
-  font-size: 5px;
-  float: bottom;
-  margin-top: 5px;
+@media only screen and (max-width: 768px) {
+  footer {
+    font-size: 5px;
+    float: bottom;
+    margin-top: 10%;
+  }
 }
+
 #btn {
   font-size: 10px;
 }

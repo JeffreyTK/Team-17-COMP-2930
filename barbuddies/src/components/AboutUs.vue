@@ -66,11 +66,11 @@
             <b-modal id="modal-6" title="Group App Story" hide-footer>
               <p class="my-4"><b>"Awe man, Jeff bailed again!"</b><br/><br/>Has this ever happened to you?<br/>
               You want to workout with a friend, but it's too difficult trying to find a schedule that works for everyone.
-              When you do schedule a workout session, your partner cancels last minute and leaves you partner-less - 
+              When you do schedule a workout session, your partner cancels last minute and leaves you partner-less -
               making you less motivated to go to the gym.<br/><br/>
-              With Bar Buddies, you can share your workout calendar with your friend groups. 
-              See exactly who is working out when, and what they plan on doing! 
-              Have different circle of friends? Not to worry, you can join multiple groups on Bar Buddies 
+              With Bar Buddies, you can share your workout calendar with your friend groups.
+              See exactly who is working out when, and what they plan on doing!
+              Have different circle of friends? Not to worry, you can join multiple groups on Bar Buddies
               and toggle between group calendars.<br/><br/>
               Our team here at Bar Buddies want to help you create your fitness community and increase your motivation to get active!</p>
               <b-button v-b-modal.modal-multi-2>BarBuddies Pitch</b-button>
@@ -96,18 +96,21 @@ export default {
 </script>
 
 <style scoped>
-    #backIcon {
-      width: 30px;
-      height: 30px;
-      float: left;
-    }
-    .group {
-        width: 116px;
-        height: 80px;
-    }
-    /*
-    .headshot {
-        height: 250px;
-        width: 150px;
-    } */
+  .container {
+    font-family: "Montserrat", sans-serif
+  }
+  #backIcon {
+    width: 30px;
+    height: 30px;
+    float: left;
+  }
+  .group {
+      width: 116px;
+      height: 80px;
+  }
+  /*
+  .headshot {
+      height: 250px;
+      width: 150px;
+  } */
 </style>
