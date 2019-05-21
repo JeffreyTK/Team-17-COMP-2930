@@ -1,13 +1,14 @@
 <template>
   <div>
     <flash-message class="customClass"></flash-message>
-    <img src="../assets/bb_logo.png" id="logo">
+    <img src="../assets/logoUnfilled.png" id="logo">
+    <div id="border">
     <ImageSlider />
     <br /><br />
     <div id="LoginSignup" class="container">
       <div id="login" class="row">
         <div class="col">
-        <b-button v-b-modal.modal-1 size="lg" id="loginBtn">Login</b-button>
+        <b-button v-b-modal.modal-1 size="lg" id="loginBtn" variant="custom">Login</b-button>
         <b-modal id="modal-1" title="Login" ok-title="Login" hide-footer>
             <form>
               <div class="form-group row">
@@ -29,7 +30,7 @@
         </b-modal>
         </div>
       <div id="signup" class="col">
-        <b-button v-b-modal.modal-2 size="lg" id="signupBtn">Signup</b-button>
+        <b-button v-b-modal.modal-2 size="lg" variant="custom" id="signupBtn">Signup</b-button>
           <b-modal id="modal-2" title="Sign Up" hide-footer>
             <form>
               <div class="form-group row">
@@ -48,12 +49,6 @@
                 <label for="email" class="col-sm-5 col-xs-5 col-form-label">Email</label>
                 <div class="col-sm-5 col-xs-5">
                   <input type="email" class="form-control" v-model = "email" id="email" placeholder="Email">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
-                <div class="col-sm-5 col-xs-5">
-                  <input type="password" class="form-control" v-model = "password" id="firstName" placeholder="Password">
                 </div>
               </div>
               <div class="form-group row">
@@ -98,6 +93,7 @@
         </b-modal>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -207,11 +203,19 @@ export default {
     width: 100%;
   }
   #logo {
-    padding: 0;
-    height: 150px;
+    margin: 25px;
+    margin-top: 35px;
+    height: 80px;
   }
   .inputs {
     margin: 2%;
   }
-
+  #loginBtn {
+    border: 1px solid #C23A3A;
+    color: #C23A3A;
+  }
+  #signupBtn {
+    background-color: #C23A3A;
+    color: white;
+  }
 </style>

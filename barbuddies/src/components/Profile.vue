@@ -4,7 +4,8 @@
     <br/><br/><br/>
     <div class="profile">
       <br />
-      <img id="avatar" src="https://dummyimage.com/200x200/000/fff" class="rounded-circle">
+      <img id="avatar" src="../assets/profileImg.png" class="rounded-circle">
+      <br /><br />
       <h2>{{firstName}}</h2>
       <h3>{{email}}</h3>
       <br/>
