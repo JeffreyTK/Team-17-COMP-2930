@@ -1,5 +1,6 @@
 <template>
   <div>
+    <NavBar/>
     <flash-message class="customClass"></flash-message>
     <img src="../assets/bb_logo.png" id="logo">
     <ImageSlider />
@@ -17,14 +18,15 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
+                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Email</label>
                 <div class="col-sm-5 col-xs-5">
                   <input type="password" class="form-control" v-model = 'loginPass' id="passsword" placeholder="Password">
                 </div>
               </div>
             </form>
             <br />
-            <a @click="onClick2" href = ''>Login</a>
+            <router-link to="homepage"><a @click = 'onClick2' href = ''>Login</a></router-link>
+
         </b-modal>
         </div>
       <div id="signup" class="col">
@@ -86,13 +88,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
-                <div class="col-sm-5 col-xs-5">
-                  <input type="password" class="form-control" id="firstName" placeholder="Password">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="password" class="col-sm-5 col-form-label">Confirm Password</label>
+                <label for="password" class="col-sm-5 col-form-label">Password</label>
                 <div class="col-sm-5">
                 <input type="password" class="form-control" v-model = "password" id="dob" placeholder="Password">
                 </div>
