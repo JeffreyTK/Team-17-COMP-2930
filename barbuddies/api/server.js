@@ -26,7 +26,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 //first creating the url for the website to submit a req/res to
 var client;
-//const uri = 'mongodb://garbageuser:garbage1@ds031328.mlab.com:31328/garbage';
 const uri = 'mongodb://admin:WCUDXfYazacbMAto@SG-barbuddies-21203.servers.mongodirector.com:27017/admin';
 const mongoClient = new MongoClient(uri, { useNewUrlParser: true });
 mongoClient.connect((err, db) => { // returns db connection
