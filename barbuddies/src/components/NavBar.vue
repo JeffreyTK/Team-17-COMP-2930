@@ -161,4 +161,8 @@ import axios from 'axios'
   .sidebar a {font-size: 18px;}
 }
 
+.form-group-row {
+  width: 100%;
+}
+
 </style>
