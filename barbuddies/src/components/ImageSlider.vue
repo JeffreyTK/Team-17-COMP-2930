@@ -101,7 +101,7 @@ export default {
 
 @media only screen and (max-width: 1440px) {
   .sliderImg {
-    height: 50vh;
+    height: 60vh;
   }
 }
 
