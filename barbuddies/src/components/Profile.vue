@@ -36,7 +36,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="height" class="col-sm-2 col-form-label">Height</label>
+          <label for="height" class="col-sm-2 col-form-label">Height (cm)</label>
           <div class="col-sm-2">
             <input type="number" class="form-control" v-model = 'height' id="height" placeholder="Height" min="0" max="1000">
           </div>
@@ -113,3 +113,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  #backIcon {
+      width: 30px;
+      height: 30px;
+      float: left;
+    }
+</style>
