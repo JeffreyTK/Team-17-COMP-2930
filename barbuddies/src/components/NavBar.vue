@@ -78,7 +78,8 @@ import axios from 'axios'
   height: auto;
 }
 .navbar {
-  font-family: "Montserrat", sans-serif;;
+  font-family: "Montserrat", sans-serif;
+  background-color: white;
 }
 
 #main {
