@@ -89,9 +89,6 @@ export default {
 
 @media only screen and (max-width: 768px) {
   .sliderImgMobile {
-    height: 58vh;
-  }
-  #carousel-1 {
     object-fit: contain;
   }
 }
