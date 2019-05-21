@@ -121,10 +121,10 @@
           ></b-form-textarea>
         </b-form-group>
       </form>
-       <div class="modal-footer">
-                <b-button @click="deleteEvent" class='text-left' id="delete" variant="danger">Delete</b-button>
-                <b-button data-dismiss="modal" @click="hideModal" variant="secondary">Close</b-button>
-                <b-button @click="update" variant="primary">Save changes</b-button>
+      <div class="modal-footer">
+        <b-button @click="deleteEvent" class='text-left' id="delete" variant="danger">Delete</b-button>
+        <b-button data-dismiss="modal" @click="hideModal" variant="secondary">Close</b-button>
+        <b-button @click="update" variant="primary">Save changes</b-button>
       </div>
     </b-modal>
   </div>
@@ -235,7 +235,6 @@ export default {
     }
   },
   props: ['changeView'],
-  
 }
 
 // homepage "timeGridWeek"
@@ -249,14 +248,14 @@ export default {
 
 .fc-prev-button {
   background: none;
-  color: black;
+  color: #C23A3A;
   border: none;
   font-size: 15pt;
 }
 
 .fc-prev-button:focus {
   background: none;
-  color: black;
+  color:#C23A3A;
   border: none;
   font-size: 15pt;
 }
@@ -268,13 +267,13 @@ export default {
 
 .fc-next-button {
   background: none;
-  color: black;
+  color:#C23A3A;
   border: none;
   font-size: 15pt;
 }
 .fc-next-button:focus {
   background: none;
-  color: black;
+  color: #C23A3A;
   border: none;
   font-size: 15pt;
 }
@@ -290,14 +289,13 @@ export default {
 }
 
 .demo-app {
-  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 12px;
 }
 .demo-app-calendar {
   margin: 0 auto;
   max-width: 90vw;
-
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 @media only screen and (min-width: 375px) {

@@ -18,49 +18,35 @@
             <div id="addMember" class="col">
             <b-button v-b-modal.modal-5 class="addBtn">+</b-button>
             <b-modal id="modal-5" title="New Group" hide-footer>
-                <input type="email" placeholder = "Email" class="inputs">
-                <br /><br /><br />
-                <router-link to="groups">Add</router-link>
+              <input type="email" placeholder = "Email" class="inputs">
+              <br /><br /><br />
+              <router-link to="groups">Add</router-link>
             </b-modal>
             </div>
           </b-modal>
-            <div>
-              <a href="#" class="float-right">
-                <h3 id="numOfPpl">3
-                  <img src="../assets/groupicon.png" class="groupicon" alt="group icon">
-                </h3>
-              </a>
-            </div>
           </div>
           <div class="jumbotron" id="group2">
-              <b-button v-b-modal.modal-2 class="selectGroup" variant="outline-secondary"><h1>Moto Moto</h1></b-button>
-              <b-modal id="modal-2" title="Group Name" hide-footer>
-                <p class="member1">Jeffrey Kuo</p>
-                <p class="member2">Irene Hsieh</p>
-                <p class="you">Gina Kim</p>
-                <div id="addMember" class="col">
-                <b-button v-b-modal.modal-6 class="addBtn">+</b-button>
-                <b-modal id="modal-6" title="New Group" hide-footer>
-                  <input type="email" placeholder = "Email" class="inputs">
-                  <br /><br /><br />
-                  <router-link to="groups">Add</router-link>
-                </b-modal>
-                </div>
-             </b-modal>
-            <div>
-            <a href="#" class="float-right">
-              <h3 id="numOfPpl">3
-                <img src="../assets/groupicon.png" class="groupicon" alt="group icon">
-              </h3>
-            </a>
-            </div>
+            <b-button v-b-modal.modal-2 class="selectGroup" variant="outline-secondary"><h1>Moto Moto</h1></b-button>
+            <b-modal id="modal-2" title="Group Name" hide-footer>
+              <p class="member1">Jeffrey Kuo</p>
+              <p class="member2">Irene Hsieh</p>
+              <p class="you">Gina Kim</p>
+              <div id="addMember" class="col">
+              <b-button v-b-modal.modal-6 class="addBtn">+</b-button>
+              <b-modal id="modal-6" title="New Group" hide-footer>
+                <input type="email" placeholder = "Email" class="inputs">
+                <br /><br /><br />
+                <router-link to="groups">Add</router-link>
+              </b-modal>
+              </div>
+            </b-modal>
           </div>
           <div id="add" class="col">
-            <b-button v-b-modal.modal-1 class="addBtn">+</b-button>
-            <b-modal id="modal-1" title="New Group" hide-footer>
-                <input type="text" v-model = "groupName" class="inputs">
+            <b-button v-b-modal.modal-7 class="addBtn">+</b-button>
+            <b-modal id="modal-7" title="New Group" hide-footer>
+                <input type="text" v-model="groupName" class="inputs" placeholder="Group Name">
                 <br />
-                <input type="email" v-model = "GroupID" class="inputs">
+                <input type="email" v-model="GroupID" class="inputs" placeholder="Email">
 
                 <br />
                 <div id="form">
@@ -94,6 +80,7 @@ export default {
       var newInput = document.createElement('input')
       newInput.setAttribute('type', 'email')
       newInput.setAttribute('v-model', 'Email')
+      newInput.setAttribute('placeholder', 'Email')
       document.getElementById('form').appendChild(newInput)
       var break1 = document.createElement('br')
       document.getElementById('form').appendChild(break1)
@@ -120,49 +107,56 @@ export default {
 }
 </script>
 <style scoped>
+  .container {
+    font-family: "Montserrat", sans-serif;
+  }
+  a h1 {
+    color: black;
+  }
+  a h1:hover {
+    color: gray;
+  }
+  a:hover {
+    text-decoration: none;
+  }
 
-    a h1 {
-        color: black;
-    }
-    a h1:hover {
-        color: gray;
-    }
-    a:hover {
-        text-decoration: none;
-    }
+  .groupicon {
+    height: 30px;
+    width: 40px;
+    margin-left: 10px;
+  }
 
-    .groupicon {
-        height: 30px;
-        width: 40px;
-        margin-left: 10px;
-    }
+  .jumbotron {
+    background-color: white;
+    border: 3px solid #C23A3A;
+  }
 
-    .addBtn {
-      border-radius: 50%;
-      background: #e8e8e8;
-      border-color: #e8e8e8;
-      color: black;
-    }
+  .addBtn {
+    border-radius: 50%;
+    background: #e8e8e8;
+    border-color: #e8e8e8;
+    color: black;
+  }
 
-    .addBtn:hover {
-      background: grey;
-    }
+  .addBtn:hover {
+    background: grey;
+  }
 
-    #backIcon {
-      width: 30px;
-      height: 30px;
-      float: left;
-    }
+  #backIcon {
+    width: 30px;
+    height: 30px;
+    float: left;
+  }
 
-    .inputs {
-      margin: 2%;
-    }
+  .inputs {
+    margin: 2%;
+  }
 
-    #modal-2 {
-      background-image: none;
-    }
+  #modal-2 {
+    background-image: none;
+  }
 
-    .selectGroup {
-      border: none;
-    }
+  .selectGroup {
+    border: none;
+  }
 </style>

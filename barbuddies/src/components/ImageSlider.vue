@@ -1,33 +1,33 @@
 <template>
   <div class="container">
     <b-carousel
-      class="d-block d-sm-none d-none d-sm-block d-md-none"
+      class="d-block d-sm-none d-none d-sm-block d-md-none rounded"
       id="carousel-1"
       v-model="slide"
       :interval="4000"
       controls
       indicators
-      background="#ababab"
-      img-width="1024"
-      img-height="480"
-      style="text-shadow: 1px 1px 2px #333;"
+      background="white"
+      img-width="320"
+      img-height="700"
+      style="text-shadow: 1px 1px 2px #333"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
       <!-- Text slides with image -->
       <b-carousel-slide
+        class="sliderImgMobile"
         caption="Workout With Friends"
         text="Join a group and share each others' calendars"
-        id="img1"
         img-src="https://images.pexels.com/photos/1855269/pexels-photo-1855269.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500%22%3E"
       >
       </b-carousel-slide>
 
       <!-- Slides with custom text -->
       <b-carousel-slide
+        class="sliderImgMobile"
         caption="Keep Track of Your Workouts"
         text="Record your workout and view your progress"
-        id="img2"
         img-src="https://images.unsplash.com/photo-1520334363269-c1b342d17261?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80%22%3E"
       >
       </b-carousel-slide>
@@ -87,12 +87,22 @@ export default {
 </script>
 <style scoped>
 
-@media only screen and (min-width: 1194px) {
-  .sliderImg {
-    height: 62vh;
+@media only screen and (max-width: 768px) {
+  .sliderImgMobile {
+    height: 58vh;
+  }
+  #carousel-1 {
+    object-fit: contain;
   }
 }
+
 @media only screen and (max-width: 1193px) {
+  .sliderImg {
+    height: 50vh;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
   .sliderImg {
     height: 50vh;
   }
