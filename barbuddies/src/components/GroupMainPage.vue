@@ -133,9 +133,9 @@ export default {
 
   .addBtn {
     border-radius: 50%;
-    background: #e8e8e8;
-    border-color: #e8e8e8;
-    color: black;
+    background: #C23A3A;
+    border-color: white;
+    color: white;
   }
 
   .addBtn:hover {

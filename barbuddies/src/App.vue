@@ -48,11 +48,14 @@ export default {
 img {
   width: 200px;
 }
-footer {
-  font-size: 5px;
-  float: bottom;
-  margin-top: 10%;
+@media only screen and (max-width: 768px) {
+  footer {
+    font-size: 5px;
+    float: bottom;
+    margin-top: 10%;
+  }
 }
+
 #btn {
   font-size: 10px;
 }
