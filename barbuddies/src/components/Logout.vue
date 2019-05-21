@@ -12,22 +12,23 @@
 </template>
 
 <script>
-  import NavBar from './NavBar'
-  import Router from 'vue-router'
-  import { setTimeout } from 'timers';
-  export default {
-    components: {
-      NavBar
-    },
-    mounted () {
-      setTimeout( () => {
-        this.flash('Logout Successful!', 'success', {
-          timeout: 1500
-        });
-        this.$router.push({ path: '/'});
-      }, 10000);
-    }
+import NavBar from './NavBar'
+import { setTimeout } from 'timers'
+export default {
+  components: {
+    NavBar
+  },
+  mounted () {
+    this.$session.destroy()
+    console.log("logged out")
+    setTimeout(() => {
+      this.flash('Logout Successful!', 'success', {
+        timeout: 1500
+      })
+      this.$router.push({path: '/'})
+    }, 2000)
   }
+}
 </script>
 
 <style scoped>

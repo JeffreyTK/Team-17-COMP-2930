@@ -3,14 +3,9 @@
     <NavBar/>
     <br/><br/><br/>
     <div class="profile">
-      <br /><br/>
-      <div class="container">
-        <div>
-          <router-link to="Homepage"><img src="../assets/back.png" id="backIcon"></router-link>
-          <h1>Profile</h1>
-        </div>
-      </div>
-      <img id="avatar" src="https://dummyimage.com/200x200/000/fff" class="rounded-circle">
+      <br />
+      <img id="avatar" src="../assets/profileImg.png" class="rounded-circle">
+      <br /><br />
       <h2>{{firstName}}</h2>
       <h3>{{email}}</h3>
       <br/>
@@ -19,13 +14,13 @@
         <div class="form-group row">
           <label for="dob" class="col-sm-2 col-form-label">Date of Birth</label>
           <div class="col-sm-2">
-            <input type="date" class="form-control" id="dob" placeholder="Date of Birth">
+            <input type="date" class="form-control" v-model = "DOB" id="dob" placeholder="Date of Birth">
           </div>
         </div>
         <div class="form-group row">
           <label for="gender" class="col-sm-2 col-form-label">Gender</label>
           <div class="col-sm-2">
-            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <select class="custom-select mr-sm-2" v-model = 'gender' id="inlineFormCustomSelect">
               <option selected>Choose</option>
               <option value="1">Female</option>
               <option value="2">Male</option>
@@ -37,19 +32,19 @@
         <div class="form-group row">
           <label for="weight" class="col-sm-2 col-form-label">Weight (lbs)</label>
           <div class="col-sm-2">
-            <input type="number" class="form-control" id="weight" placeholder="Weight" min="0" max="1000">
+            <input type="number" class="form-control" v-model = 'weight' id="weight" placeholder="Weight" min="0" max="1000">
           </div>
         </div>
         <div class="form-group row">
           <label for="height" class="col-sm-2 col-form-label">Height (cm)</label>
           <div class="col-sm-2">
-            <input type="number" class="form-control" id="height" placeholder="Height" min="0" max="1000">
+            <input type="number" class="form-control" v-model = 'height' id="height" placeholder="Height" min="0" max="1000">
           </div>
         </div>
         <div class="form-group row">
           <label for="password" class="col-sm-2 col-form-label">Password</label>
           <div class="col-sm-2">
-            <input type="password" class="form-control" id="dob" placeholder="Change Password">
+            <input type="password" class="form-control" v-model = 'password' id="password" placeholder="Change Password">
           </div>
         </div>
         <br />
@@ -62,6 +57,7 @@
 <script>
 /* eslint-disable */
 import { updateUser } from '../repository'
+import { updateUser1 } from '../repository'
 import NavBar from './NavBar'
 export default {
   name: 'Profile',
@@ -83,32 +79,39 @@ export default {
       groupID: ''
     }
   },
+  props: ['user'],
   methods: {
-    /* save: function () {
-      updateUserProfile(id).then((data) => {
-        data.DOB = this.DOB
-        data.gender = this.Gender
-        data.weight = this.weight
-        data.height = this.height
-        data.password = this.password
-      })
-    } */
+    save(){
+      let data = {
+        DOB: this.DOB,
+        gender: this.gender,
+        weight: this.weight,
+        height: this.height,
+        email: this.email,
+        password: this.password
+      }
+      console.log(data)
+      let id = this.$session.get('id')
+      console.log(id)
+      updateUser1(data, id)
+        .then(data => {
+          this.$emit('updateUser1', data.user);
+          console.log('updated user');
+        })
+        .catch(err => alert(err.message));
+    },
   },
   mounted () {
-    let id = '5cddc1f37c8f64b1612d9d20'
-    updateUser(id).then((data) => {
-      this.firstName = data.firstName
-      this.email = data.email
-      this.DOB = data.DOB
-      this.Gender = data.gender
-      this.weight = data.weight
-      this.height = data.height
-      this.email = data.email
-      this.password = data.password
-    })
+      this.firstName = this.$session.get('firstName')
+      this.email = this.$session.get('email')
+      this.DOB = this.$session.get('DOB')
+      this.Gender = this.$session.get('gender')
+      this.weight = this.$session.get('weight')
+      this.height = this.$session.get('height')
+      this.email = this.$session.get('email')
+      this.password = this.$session.get('password')
   }
 }
-
 </script>
 
 <style scoped>
