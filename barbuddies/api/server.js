@@ -82,14 +82,6 @@ app.post('/api/user/auth/', async (req, res) => {
   })
 
 
-
-
-
-
-
-
-
-
   //let user = await User.findById(req.params.id, req.params.email, req.params.password);
   //let id = ObjectId(req.params.id).str;
   //res.json(id);

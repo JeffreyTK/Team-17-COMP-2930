@@ -53,14 +53,19 @@ import axios from 'axios'
             })
           },
           openNav: function() {
-              document.getElementById("mySidebar").style.width = "250px";
-              document.getElementById("main").style.marginLeft = "250px";
+            console.log(this.$session.get('firstName'))
+            console.log(this.$session.get('lastName'))
+            this.firstName = this.$session.get('firstName')
+            this.lastName = this.$session.get('lastName')
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
           },
           closeNav: function() {
-              document.getElementById("mySidebar").style.width = "0";
-              document.getElementById("main").style.marginLeft= "0";
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
           }
-          },
+        }/*,
+          // IMPORTANT does not load yet on mount
           mounted(){
             //let id = this.$session.get('user')
             //updateUser(id).then((data)=>{
@@ -70,7 +75,7 @@ import axios from 'axios'
               this.lastName = this.$session.get('lastName')
             //});
             //this.getUserData()
-          }
+          } */
         }
 </script>
 

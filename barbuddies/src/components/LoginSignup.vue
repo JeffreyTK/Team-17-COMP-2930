@@ -191,7 +191,7 @@ export default {
       this.$session.set('height', info.user.height)
       this.$session.set('email', info.user.email)
       this.$session.set('password', info.user.password)
-      this.$session.set('id', info.user._id)
+      this.$session.set('id', info.user._i)
 
 
       })
