@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <b-carousel
-      class="d-block d-sm-none d-none d-sm-block d-md-none"
+      class="d-block d-sm-none d-none d-sm-block d-md-none rounded"
       id="carousel-1"
       v-model="slide"
       :interval="4000"
       controls
       indicators
-      background="#ababab"
+      background="white"
       img-width="320"
       img-height="700"
       style="text-shadow: 1px 1px 2px #333"

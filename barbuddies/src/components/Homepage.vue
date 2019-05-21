@@ -29,6 +29,6 @@ export default {
 </script>
 <style scoped>
 #homepage {
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 </style>
