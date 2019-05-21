@@ -6,7 +6,7 @@
       <div class="container">
         <br /><br /><br />
           <router-link to="Homepage"><img src="../assets/back.png" id="backIcon"></router-link>
-          <h1>GROUPS</h1>
+          <h1>PROFILE</h1>
         </div>
       <br />
       <img id="avatar" src="../assets/profileImg.png" class="rounded-circle">

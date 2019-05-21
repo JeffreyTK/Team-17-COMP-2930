@@ -18,7 +18,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Email</label>
+                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
                 <div class="col-sm-5 col-xs-5">
                   <input type="password" class="form-control" v-model = 'loginPass' id="passsword" placeholder="Password">
                 </div>

@@ -30,5 +30,6 @@ export default {
 <style scoped>
 #homepage {
   font-family: "Montserrat", sans-serif;
+  margin-bottom: 220px;
 }
 </style>
