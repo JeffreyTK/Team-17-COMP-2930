@@ -8,7 +8,6 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
 //links the variable groups to require the file groups
 const Groups = require('./Groups');
 //links the variable user to rquire the file user
