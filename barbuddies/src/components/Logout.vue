@@ -25,12 +25,7 @@
           timeout: 1500
         });
         this.$router.push({ path: '/'});
-      }, 2000);
-    },
-    data () {
-      return {
-        variants
-      }
+      }, 10000);
     }
   }
 </script>
