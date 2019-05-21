@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id='calendar'>
     <div class='demo-app'>
       <div class='demo-app-top'>
         <!-- <button @click="toggleWeekends">toggle weekends</button>
@@ -19,7 +19,8 @@
         :plugins="calendarPlugins"
         :weekends="calendarWeekends"
         :events="calendarEvents"
-        @dateClick="handleSelect"
+        :addEventSource="calendarEvents"
+        @dateClick="handleDateClick"
         @select="handleSelect"
         @eventClick="handleEventClick"
         @eventDrop="handleEventDrop"
@@ -167,6 +168,7 @@ export default {
   },
   data: function () {
     return {
+      index: '',
       text: '',
       workout: '',
       date1: new Date(),
@@ -179,7 +181,6 @@ export default {
       ],
       calendarWeekends: true,
       calendarEvents: [ // initial event data
-        { title: '', start: Date(), end: Date(), id: '' }
       ],
       options: {
         useCurrent: false,
@@ -187,6 +188,9 @@ export default {
     }
   },
   methods: {
+    remove (index) {
+      this.$delete(this.calendarEvents, index)
+    },
     handleDateClick (arg) {
       if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
         this.calendarEvents.push({ // add new event data
@@ -213,8 +217,10 @@ export default {
       this.text = arg.event.id
     }, 
     deleteEvent (arg) {
-      this.$bvModal.hide('my-modal2'),
-      this.event.remove()
+      this.$bvModal.hide('my-modal2');
+      let calendarApi = this.$refs.fullCalendar.getApi();   
+      let event = calendarApi.getEventById(this.text);
+      event.remove();
     },
     saveDate (arg) {
       this.$bvModal.hide('my-modal'),
@@ -226,13 +232,20 @@ export default {
       })
     },
     hideModal() {
-      this.$bvModal.hide('my-modal'),	
-      this.$bvModal.hide('my-modal2'),
-      this.workout = ''
-      this.text = ''
+      this.$bvModal.hide('my-modal');
+      this.$bvModal.hide('my-modal2');
+      let calendarApi = this.$refs.fullCalendar.getApi();   
+      this.workout = '';
+      this.text = '';
+      console.log(this.calendarEvents);
     },
     update (arg) {
-      this.$bvModal.hide('my-modal')
+      this.$bvModal.hide('my-modal2');
+      let calendarApi = this.$refs.fullCalendar.getApi();  
+      let event = calendarApi.getEventById(this.text);
+      event.setProp('title', this.workout);
+      event.setStart(this.date1);
+      event.setEnd(this.date2);
     }
   },
   props: ['changeView']
