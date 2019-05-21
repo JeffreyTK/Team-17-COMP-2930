@@ -51,7 +51,7 @@ img {
 footer {
   font-size: 5px;
   float: bottom;
-  margin-top: 5px;
+  margin-top: 10%;
 }
 #btn {
   font-size: 10px;
