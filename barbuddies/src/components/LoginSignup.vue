@@ -14,18 +14,19 @@
               <div class="form-group row">
                 <label for="email" class="col-sm-5 col-xs-5 col-form-label">Email</label>
                 <div class="col-sm-5 col-xs-5">
-                  <input type="text" class="form-control" id="email" placeholder="Email">
+                  <input type="email" class="form-control" v-model = 'loginEmail' id="email" placeholder="Email">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
+                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Email</label>
                 <div class="col-sm-5 col-xs-5">
-                  <input type="text" class="form-control" id="passsword" placeholder="Password">
+                  <input type="password" class="form-control" v-model = 'loginPass' id="passsword" placeholder="Password">
                 </div>
               </div>
             </form>
             <br />
-            <router-link to="homepage"><a href = ''>Login</a></router-link>
+            <router-link to="homepage"><a @click = 'onClick2' href = ''>Login</a></router-link>
+
         </b-modal>
         </div>
       <div id="signup" class="col">
@@ -81,13 +82,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
-                <div class="col-sm-5 col-xs-5">
-                  <input type="password" class="form-control" id="firstName" placeholder="Password">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="password" class="col-sm-5 col-form-label">Confirm Password</label>
+                <label for="password" class="col-sm-5 col-form-label">Password</label>
                 <div class="col-sm-5">
                 <input type="password" class="form-control" v-model = "password" id="dob" placeholder="Password">
                 </div>
@@ -104,9 +99,9 @@
 </template>
 <script>
 // importing the createuser function from repository into this file
-// import router from "../router"
-// import axios from "axios"
-import { createUser } from '../repository'
+//import router from "../router"
+//import axios from "axios"
+import { createUser, authUser, findUser } from '../repository'
 import ImageSlider from './ImageSlider'
 console.log('starting script')
 export default {
@@ -124,13 +119,16 @@ export default {
       weight: '',
       height: '',
       email: '',
+      loginEmail: '',
+      loginPass: '',
       password: '',
+      id: '',
       showAlert: false
     }
   },
   methods: {
     onClick: function () {
-      console.log('function started')
+      console.log('started onClick function')
       // setting the data so that it pulls the information from the sign up sheet
       let data = {
         // this.firstName the this means that the firstname on THIS page
@@ -154,6 +152,42 @@ export default {
           console.log('created user')
         })
         .catch(err => alert(err.message))
+    },
+    onClick2: function (event) {
+      event.preventDefault()
+      console.log('started onClick2 function')
+      let data = {
+        email: this.loginEmail,
+        password: this.loginPass
+      }
+
+      authUser(data) 
+      .then(data => {
+        //console.log(userId)
+        console.log("data object" + data)
+        this.$emit('authUser', data)
+        let info = {
+          user : data.user
+        }
+        console.log(info)
+        console.log(info.user.email)
+        console.log(info.user.firstName)
+        console.log(info.user.lastName)
+      this.$session.start()
+      this.$session.set('lastName', info.user.lastName)
+      this.$session.set('firstName', info.user.firstName)
+      this.$session.set('DOB', info.user.DOB)
+      this.$session.set('gender', info.user.gender)
+      this.$session.set('weight', info.user.weight)
+      this.$session.set('height', info.user.height)
+      this.$session.set('email', info.user.email)
+      this.$session.set('password', info.user.password)
+      this.$session.set('id', info.user._i)
+
+
+      })
+      .catch(err => alert(err.message))
+      this.$router.push({name: 'homepage'})
     }
   }
 }
