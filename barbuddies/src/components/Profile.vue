@@ -126,5 +126,6 @@ export default {
   }
   .profile {
     font-family: "Montserrat", sans-serif;
+    margin: 10px;
   }
 </style>
