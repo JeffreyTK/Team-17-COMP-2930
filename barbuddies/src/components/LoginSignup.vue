@@ -126,7 +126,8 @@ export default {
     }
   },
   methods: {
-    onClick: function () {
+    onClick: function (event) {
+event.preventDefault()
       console.log('started onClick function')
       // setting the data so that it pulls the information from the sign up sheet
       let data = {
