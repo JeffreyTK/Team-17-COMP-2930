@@ -1,18 +1,17 @@
 <template>
   <div id='calendar'>
 
+
+    <!-- 
+    Future dropdown feature to be implemented 
     <div>
       <b-dropdown variant="danger" id="groupDropdown" ref="groupDropdown" :text= ddTitle class="m-md-2">
         <b-dropdown-item @click="title" v-for="(groups, index) in groups" :key="groups.id">{{group.name}}</b-dropdown-item>
       </b-dropdown>
-    </div>
+    </div> -->
 
+    <!-- FullCalendar div -->
     <div class='demo-app'>
-      <div class='demo-app-top'>
-        <!-- <button @click="toggleWeekends">toggle weekends</button>
-        <button @click="gotoPast">go to a date in the past</button>
-        (also, click a date/time to add an event) -->
-      </div>
       <FullCalendar
         class='demo-app-calendar'
         ref="fullCalendar"
@@ -37,6 +36,8 @@
         :eventLimit="true"
       />
     </div>
+
+    <!-- Bootstrap modal pop-up on click of FullCalendar -->
     <b-modal
       id="my-modal"
       ref="modal"
@@ -91,12 +92,14 @@
           ></b-form-textarea>
         </b-form-group>
       </form>
+      <!-- Buttons that hide and create event  -->
        <div class="modal-footer">
           <b-button data-dismiss="modal" @click="hideModal" variant="secondary">Close</b-button>
           <b-button @click="saveDate" variant="primary">Create workout</b-button>
       </div>
     </b-modal>
 
+    <!-- Bootstrap modal pop-up on click of FullCalendar event -->
     <b-modal
       id="my-modal2"
       ref="modal2"
@@ -152,6 +155,7 @@
         </b-form-group>
       </form>
       <div class="modal-footer">
+        <!-- Buttons that hide a modal, and create or delete events -->
         <b-button @click="deleteEvent" class='text-left' id="delete" variant="danger">Delete</b-button>
         <b-button data-dismiss="modal" @click="hideModal" variant="secondary">Close</b-button>
         <b-button @click="update" variant="primary">Save changes</b-button>
@@ -174,6 +178,7 @@ import interactionPlugin from '@fullcalendar/interaction'
 import $ from 'jquery'
 /* eslint-disable */
 
+// sets Datetimepicker component icons with fontawesome css
 $.extend(true, $.fn.datetimepicker.defaults, {
     icons: {
       time: 'far fa-clock',
@@ -191,17 +196,18 @@ $.extend(true, $.fn.datetimepicker.defaults, {
 export default {
   components: {
     NavBar,
-    FullCalendar, // make the <FullCalendar> tag available
+    FullCalendar,
     datePicker
   },
   data: function () {
     return {
-      ddTitle: 'My Groups',
-      groups: [
-        {id:'1', name: 'The Bros.' },
-        {id:'2', name: 'Mean Girls'},
-        {id:'3', name: 'Team 17'}
-      ],
+      // Future dropdown menu implementation
+      // ddTitle: 'My Groups',
+      // groups: [
+      //   {id:'1', name: 'The Bros.' },
+      //   {id:'2', name: 'Mean Girls'},
+      //   {id:'3', name: 'Team 17'}
+      // ],
       index: '',
       text: '',
       workout: '',
@@ -223,31 +229,39 @@ export default {
     }
   },
   methods: {
-    title (arg) {
-      this.ddTitle = this.groups.name;
-      console.log(this.ddTitle);
-    },
+    // Future dropdown implementation 
+    // title (arg) {
+    //   this.ddTitle = this.groups.name;
+    //   console.log(this.ddTitle);
+    // },
     handleDateClick (arg) {
       this.$bvModal.show('my-modal'),
       this.date1 = arg.date,
       this.date2 = arg.date
     },
-    handleEventDrop (arg) {
-      this.date1 = arg.event.start
-      this.date2 = arg.event.end
-    },
+    // Future calendar implementation
+    // handleEventDrop (arg) {
+    //   this.date1 = arg.event.start
+    //   this.date2 = arg.event.end
+    // },
+
+    //Calendar select function to pop-up and set up event modal
     handleSelect (arg) {
       this.$bvModal.show('my-modal'),
       this.date1 = arg.start,
       this.date2 = arg.end
     },
+
+    // Handles calendar event on click and populates modal with information
     handleEventClick (arg) {
       this.$bvModal.show('my-modal2'),
       this.workout = arg.event.title,
       this.date1 = arg.event.start,
       this.date2 = arg.event.end,
       this.text = arg.event.id
-    }, 
+    },
+
+    // Deletes event from calendar and array on click 
     deleteEvent (arg) {
       this.$bvModal.hide('my-modal2');
       let calendarApi = this.$refs.fullCalendar.getApi();   
@@ -255,6 +269,8 @@ export default {
       event.remove();
       this.calendarEvents.splice(arg, 1)
     },
+    
+    // Pushes array to calendar event objects array
     saveDate (arg) {
       this.$bvModal.hide('my-modal'),
       this.calendarEvents.push({
@@ -264,6 +280,8 @@ export default {
         id: this.text
       })
     },
+
+    // Hides modal on click 
     hideModal() {
       this.$bvModal.hide('my-modal');
       this.$bvModal.hide('my-modal2');
@@ -271,6 +289,8 @@ export default {
       this.text = '';
 
     },
+
+    // Updates calendar events on click
     update (arg) {
       this.$bvModal.hide('my-modal2');
       let calendarApi = this.$refs.fullCalendar.getApi();  
@@ -283,8 +303,6 @@ export default {
   props: ['changeView'],
 }
 
-// homepage "timeGridWeek"
-// calendar "dayGridMonth"
 </script>
 
 <style lang='scss'>
