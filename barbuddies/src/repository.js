@@ -31,7 +31,7 @@ export function createUser (data) {
 export function createGroup (data) {
   return axios.post(`${BASE_URL}/api/group/create`,
     {
-      GroupID: data.GroupID,
+      Events: data.Events,
       UserID: data.UserID,
       groupName: data.groupName
     }).then(response => {
@@ -52,25 +52,7 @@ export function updateUser1(data, id) {
 export function updateUser (id) {
   return axios.get(`${BASE_URL}/users/${id}`).then(response => response.data)
 }
-//export function findUser(email){
-//  return axios.get('${BASE_URL}/users/',).then(response => response.data)
-//}
 
-//this is probably not working because needs to query for objectID
-/*
-export function authUser (data){
-  console.log('started authentication')
-  return axios.get(`${BASE_URL}/api/user/auth/${id}`,).then(response => {
-    //this condition is probably wrong which is why it isn't send it over to server.js
-    if(email === this.email && password === this.loginPass){
-      console.log('user authenticated 100%')
-      return response.data
-    }
-  })
-  .catch(err => Promise.reject(err.message));
-}
-*/
-// o no here I go - Luke
 export function authUser (data){
   return axios.post(`${BASE_URL}/api/user/auth/`, 
   {
@@ -80,11 +62,15 @@ export function authUser (data){
     return response.data
   })
 }
-    //this condition is probably wrong which is why it isn't send it over to server.js
 
-    //if(email === loginUser.email && password === loginUser.loginPass){
-      //console.log('user authenticated 100%')
-      //return response.data
+export function groupFind(data){
+  return axios.post(`${BASE_URL}/api/group/find`,
+  {
+    email: data.email
+  }).then(response => {
+    return response.data
+  })
+}
 
 export function findUser(email) {
   return axios.get(`${BASE_URL}/users/find`).then(response => response.data)

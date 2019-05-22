@@ -91,15 +91,6 @@ app.post('/api/user/auth/', async (request, response) => {
 })
 
 
-/* THE SACRED TEXTS OF K N O W L E D G E
-users.find({email: req.body.email, password: req.body.password}).toArray((err, userDetails) => {
-    console.log(userDetails[0])
-    res.send({user : userDetails[0]})
-    return res.data
-  })
-})
-*/
-
 app.get('/users/find,', async (req, res) => {
   let db = client.db('admin')
   let users = db.collection('users')
@@ -137,19 +128,9 @@ app.post('/api/user/create', (req, res) => {
         height:req.body.height,
         email:req.body.email,
         password: bcrypt.hashSync(req.body.password, 10),
-        //password:req.body.password,
         userID:req.body.userID,
         groupID:req.body.groupID
     });
-    /*
-      if(err) return res.status(500).status.send('There is a problem registering the user.')
-      db.selectByEmail(req.body.email, (err, user) => {
-        if(err) return res.status(500).send('There is a problem finding a user')
-        let token = jwt.sign({id: user.id}, config.secret, {expiresIn: 86400});
-        res.status(200).send({ auth: true, token, user: user})
-      })
-    */
-    //saves the user and on error display error message
     user.save( (err) => {
       if (err) return res.status(404).send({message: err.message});
       return res.send({ user });
@@ -163,10 +144,26 @@ app.post('/api/group/create', (req, res) => {
         GroupID: req.body.GroupID,
         UserID: req.body.UserID
   });
-
   group.save((err) =>{ 
     if (err) return res.status(404).send({message: err.message});
+    let db = client.db('admin')
+  let groups = db.collection('groups')
+  let userEmail = request.body.email
     return res.send({ group });
+  });
+});
+
+app.post('/api/group/find', (request, response) =>{
+  console.log('successful connect3')
+  let db = client.db('admin')
+  let groups = db.collection('groups')
+  let userEmail = request.body.email
+  console.log("here " + userEmail)
+  groups.find({UserID: userEmail}).toArray((err, user) => {
+    let groupName = user
+    console.log(groupName)
+    response.send({Group: user})
+    return response.data
   });
 });
 
