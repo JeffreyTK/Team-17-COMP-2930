@@ -20,7 +20,7 @@ export default {
   },
   mounted () {
     this.$session.destroy()
-    console.log("logged out")
+    console.log('logged out')
     setTimeout(() => {
       this.flash('Logout Successful!', 'success', {
         timeout: 1500
