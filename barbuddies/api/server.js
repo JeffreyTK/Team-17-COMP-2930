@@ -36,13 +36,14 @@ mongoClient.connect((err, db) => { // returns db connection
 });
 
 
-// CORS middleware
+// CORS middleware (comment out for public distribution)
+/*
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-
+*/
 const logRequestStart = (req, res, next) => {
   console.info(`${req.method} ${req.originalUrl} | ${res.statusCode}`);
   next();

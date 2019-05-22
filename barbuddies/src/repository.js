@@ -1,9 +1,11 @@
 /* eslint-disable */
 
 import axios from 'axios'
-// the base url is the localhost at which the database is stored
-const BASE_URL = 'http://localhost:5000'
-// const BASE_URL = 'http://159.203.57.79:5000'
+
+// comment out for production
+// const BASE_URL = 'http://localhost:5000'
+
+const BASE_URL = 'http://159.203.57.79:5000'
 export function createUser (data) {
   // on the post call if the url is this
   // sets the data of first name to the first name and responds with the data to the database
