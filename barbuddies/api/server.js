@@ -146,9 +146,6 @@ app.post('/api/group/create', (req, res) => {
   });
   group.save((err) =>{ 
     if (err) return res.status(404).send({message: err.message});
-    let db = client.db('admin')
-  let groups = db.collection('groups')
-  let userEmail = request.body.email
     return res.send({ group });
   });
 });
