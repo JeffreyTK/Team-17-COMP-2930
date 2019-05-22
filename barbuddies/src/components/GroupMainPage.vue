@@ -90,39 +90,6 @@
             </div>
           </b-modal>
           </div>
-
-        <!--
-        <div class="jumbotron" id="group1">
-          <b-button v-b-modal.modal-1 class="selectGroup" variant="outline-secondary"><h1>Mean Girls</h1></b-button>
-          <b-modal id="modal-1" title="Group Name" hide-footer>
-            <div id="addMember" class="col">
-            <b-button v-b-modal.modal-5 class="addBtn">+</b-button>
-            <b-modal id="modal-5" title="New Group" hide-footer>
-              <input type="email" placeholder = "Email" class="inputs">
-              <br /><br /><br />
-              <router-link to="groups">Add</router-link>
-            </b-modal>
-            </div>
-          </b-modal>
-          </div>
-          <div class="jumbotron" id="group2">
-            <b-button v-b-modal.modal-2 class="selectGroup" variant="outline-secondary"><h1>Moto Moto</h1></b-button>
-            <b-modal id="modal-2" title="Group Name" hide-footer>
-              <p class="member1">Jeffrey Kuo</p>
-              <p class="member2">Irene Hsieh</p>
-              <p class="member3"></p>
-              <p class="member4"></p>
-              <p class="you">Gina Kim</p>
-              <div id="addMember" class="col">
-              <b-button v-b-modal.modal-6 class="addBtn">+</b-button>
-              <b-modal id="modal-6" title="New Group" hide-footer>
-                <input type="email" placeholder = "Email" class="inputs">
-                <br /><br /><br />
-                <router-link to="groups">Add</router-link>
-              </b-modal>
-              </div>
-            </b-modal>
-          </div> -->
           <div id="add" class="col">
             <b-button v-b-modal.modal-7 class="addBtn">+</b-button>
             <b-modal id="modal-7" title="New Group" hide-footer>
@@ -149,12 +116,14 @@
 </template>
 <script>
 import NavBar from './NavBar'
+//importing functions from repository
 import { createGroup, groupFind } from '../repository'
 export default {
   name: 'Groups',
   components: {
     NavBar
   },
+  //data schema that's used for the groups page, instantiates variables
   data () {
     return {
       groupName: '',
@@ -178,9 +147,7 @@ export default {
       }
   },
   methods: {
-    increment(){
-      this.counter++;
-    },
+    //onclick function that pushes group emails into an array and then into the server axios calls
     onClick: function () {
       console.log('function started')
       // setting the data so that it pulls the information from the sign up sheet
@@ -210,20 +177,25 @@ export default {
         .catch(err => alert(err.message))
     }
   },
+  //on creation of the page, session data gets instantiated and pulls from the session start
   created () {
     console.log(this.$session.get('email'))
     let data = {
       email: this.$session.get('email')
     }
+    //group find finds the groups that are attached to the user and posts them up on the group page
     groupFind(data).then(data => {
+      //pushes the groupfind with data to parent from child
       this.$emit('groupFind', data)
+      //sets the data to group to variable groupnames
       let groupNames = {
           Group : data.Group
         }
         console.log(groupNames)
-        let count = Object.keys(groupNames.Group).length
-        this.counts = count
+        //sets groups to the data being received
         this.groups = groupNames
+        //checks if the array exists and if it does it will set the 
+        //local variables to the data pulled from the database
         if(groupNames.Group[0] != null) {
           let members0 = groupNames.Group[0].UserID
           this.members0 = members0

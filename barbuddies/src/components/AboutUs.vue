@@ -108,9 +108,4 @@ export default {
       width: 116px;
       height: 80px;
   }
-  /*
-  .headshot {
-      height: 250px;
-      width: 150px;
-  } */
 </style>
