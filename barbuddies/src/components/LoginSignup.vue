@@ -88,7 +88,7 @@
                 </div>
               </div>
               <br />
-              <router-link to = "homepage"><a @click = "onClick" href = ''>Signup</a></router-link>
+              <a @click = "onClick" href = ''>Signup</a>
             </form>
         </b-modal>
         </div>
@@ -183,8 +183,6 @@ export default {
       this.$session.set('email', info.user.email)
       this.$session.set('password', info.user.password)
       this.$session.set('id', info.user._i)
-
-
       })
       .catch(err => alert(err.message))
       this.$router.push({name: 'homepage'})
