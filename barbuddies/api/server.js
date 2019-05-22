@@ -90,7 +90,6 @@ app.post('/api/user/auth/', async (request, response) => {
   })
 })
 
-
 app.get('/users/find,', async (req, res) => {
   let db = client.db('admin')
   let users = db.collection('users')
@@ -117,7 +116,6 @@ app.post('/api/user/update/:id', (req, res) => {
 
 app.post('/api/user/create', (req, res) => {
   console.log('successful connect')
-
   //creates the new user based off of schema created in users
     const user = new User({
         firstName: req.body.firstName,
@@ -127,15 +125,29 @@ app.post('/api/user/create', (req, res) => {
         weight:req.body.weight,
         height:req.body.height,
         email:req.body.email,
-        password: bcrypt.hashSync(req.body.password, 10),
-        userID:req.body.userID,
-        groupID:req.body.groupID
+        password: bcrypt.hashSync(req.body.password, 10)
     });
     user.save( (err) => {
       if (err) return res.status(404).send({message: err.message});
       return res.send({ user });
     });
   });
+
+app.post('/api/group/event', (req, res) => {
+  console.log('successful connect4')
+  let db = client.db('admin')
+  let groups = db.collection('groups')
+  let userEmail = req.body.email
+  let Event = req.body.Events
+  groups.find({UserID: userEmail}).toArray((err, user) => {
+    user.Groups.Event.push(Event)
+    return
+  })
+  });
+
+
+
+
 
 app.post('/api/group/create', (req, res) => {
   console.log('successful connect2')

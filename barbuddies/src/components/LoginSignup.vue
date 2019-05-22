@@ -129,9 +129,9 @@ export default {
     onClick: function (event) {
 event.preventDefault()
       console.log('started onClick function')
-      // setting the data so that it pulls the information from the sign up sheet
+
+      // setting the data
       let data = {
-        // this.firstName the this means that the firstname on THIS page
         firstName: this.firstName,
         lastName: this.lastName,
         DOB: this.DOB,
@@ -143,13 +143,16 @@ event.preventDefault()
         userID: 0,
         groupID: 0
       }
-      // pasting the data created user into the create user function which create an object
+
+      // carrying the data over to createUser
       createUser(data)
         .then(data => {
           console.log('data is sent')
+
           // pushes the change up to the parent from child
           this.$emit('createUser', data.user)
           console.log('created user')
+          this.$router.push({name: '/'})
         })
         .catch(err => alert(err.message))
     },
