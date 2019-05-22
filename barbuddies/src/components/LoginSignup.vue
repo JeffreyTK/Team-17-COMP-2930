@@ -26,7 +26,6 @@
             </form>
             <br />
             <router-link to="homepage"><a @click = 'onClick2' href = ''>Login</a></router-link>
-
         </b-modal>
         </div>
       <div id="signup" class="col">
@@ -88,7 +87,7 @@
                 </div>
               </div>
               <br />
-              <a @click = "onClick" href = ''>Signup</a>
+              <a @click = 'onClick' href = ''>Signup</a>
             </form>
         </b-modal>
         </div>
@@ -128,7 +127,7 @@ export default {
   },
   methods: {
     onClick: function (event) {
-      event.preventDefault()
+event.preventDefault()
       console.log('started onClick function')
 
       // setting the data
@@ -185,7 +184,7 @@ export default {
           this.$session.set('height', info.user.height)
           this.$session.set('email', info.user.email)
           this.$session.set('password', info.user.password)
-          this.$session.set('id', info.user._i)
+          this.$session.set('id', info.user._id)
         }).catch(err => alert(err.message))
       this.$router.push({name: 'homepage'})
     }
