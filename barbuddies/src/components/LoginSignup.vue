@@ -88,7 +88,7 @@
                 </div>
               </div>
               <br />
-              <router-link to = "homepage"><a @click = "onClick" href = ''>Signup</a></router-link>
+              <a @click = "onClick" href = ''>Signup</a>
             </form>
         </b-modal>
         </div>
@@ -160,7 +160,6 @@ export default {
         email: this.loginEmail,
         password: this.loginPass
       }
-
       authUser(data)
         .then(data => {
         // console.log(userId)
