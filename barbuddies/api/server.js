@@ -37,13 +37,12 @@ mongoClient.connect((err, db) => { // returns db connection
 
 
 // CORS middleware (comment out for public distribution)
-/*
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-*/
+
 const logRequestStart = (req, res, next) => {
   console.info(`${req.method} ${req.originalUrl} | ${res.statusCode}`);
   next();
@@ -91,7 +90,6 @@ app.post('/api/user/auth/', async (request, response) => {
   })
 })
 
-
 app.get('/users/find,', async (req, res) => {
   let db = client.db('admin')
   let users = db.collection('users')
@@ -118,7 +116,6 @@ app.post('/api/user/update/:id', (req, res) => {
 
 app.post('/api/user/create', (req, res) => {
   console.log('successful connect')
-
   //creates the new user based off of schema created in users
     const user = new User({
         firstName: req.body.firstName,
@@ -128,9 +125,7 @@ app.post('/api/user/create', (req, res) => {
         weight:req.body.weight,
         height:req.body.height,
         email:req.body.email,
-        password: bcrypt.hashSync(req.body.password, 10),
-        userID:req.body.userID,
-        groupID:req.body.groupID
+        password: bcrypt.hashSync(req.body.password, 10)
     });
     user.save( (err) => {
       if (err) return res.status(404).send({message: err.message});

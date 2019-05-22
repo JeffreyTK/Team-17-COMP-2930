@@ -183,7 +183,8 @@ export default {
     },
     onClick: function () {
       console.log('function started')
-      // setting the data so that it pulls the information from the sign up sheet
+
+      // setting the data
       let userlist = []
       userlist.push(this.Email1);
       userlist.push(this.Email2);
@@ -197,10 +198,12 @@ export default {
         UserID: userlist,
         Events: []
       }
+
       // pasting the data created user into the create user function which create an object
       createGroup(data)
         .then(data => {
           console.log('data is sent')
+
           // pushes the change up to the parent from child
           this.$emit('createGroup', data.group)
           console.log('created group')
