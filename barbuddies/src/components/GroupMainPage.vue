@@ -301,4 +301,7 @@ export default {
   .selectGroup {
     border: none;
   }
+  .GroupMainPage{
+    margin-bottom: 30%;
+  }
 </style>

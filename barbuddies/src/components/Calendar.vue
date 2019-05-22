@@ -50,6 +50,7 @@ export default {
   margin-top: 0px;
   margin-left: 0px;
   font-family: "Montserrat", sans-serif;
+  margin-bottom: 45%;
 }
 img {
   width: 200px;
@@ -59,4 +60,30 @@ img {
   height: 30px;
   float: left;
 }
+
+@media screen and (max-width: 1440px) {
+  #Calendar {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 425px) {
+  #Calendar {
+    margin-bottom: 10%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #Calendar {
+    margin-bottom: 25%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #Calendar {
+    margin-bottom: 40%;
+  }
+}
+
+
 </style>

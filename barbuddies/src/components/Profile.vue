@@ -3,6 +3,11 @@
     <NavBar/>
     <br/><br/><br/>
     <div class="profile">
+      <div class="container">
+        <br /><br /><br />
+          <router-link to="Homepage"><img src="../assets/back.png" id="backIcon"></router-link>
+          <h1>PROFILE</h1>
+        </div>
       <br />
       <img id="avatar" src="../assets/profileImg.png" class="rounded-circle">
       <br /><br />
@@ -12,14 +17,14 @@
       <br/>
       <form>
         <div class="form-group row">
-          <label for="dob" class="col-sm-2 col-form-label">Date of Birth</label>
-          <div class="col-sm-2">
+          <label for="dob" class="col-sm-2 col-md-6 col-form-label">Date of Birth</label>
+          <div class="col-sm-2 col-md-3">
             <input type="date" class="form-control" v-model = "DOB" id="dob" placeholder="Date of Birth">
           </div>
         </div>
         <div class="form-group row">
-          <label for="gender" class="col-sm-2 col-form-label">Gender</label>
-          <div class="col-sm-2">
+          <label for="gender" class="col-sm-2 col-md-6 col-form-label">Gender</label>
+          <div class="col-sm-2 col-md-3">
             <select class="custom-select mr-sm-2" v-model = 'gender' id="inlineFormCustomSelect">
               <option selected>Choose</option>
               <option value="1">Female</option>
@@ -30,20 +35,20 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="weight" class="col-sm-2 col-form-label">Weight (lbs)</label>
-          <div class="col-sm-2">
+          <label for="weight" class="col-sm-2 col-md-6 col-form-label">Weight (lbs)</label>
+          <div class="col-sm-2 col-md-3">
             <input type="number" class="form-control" v-model = 'weight' id="weight" placeholder="Weight" min="0" max="1000">
           </div>
         </div>
         <div class="form-group row">
-          <label for="height" class="col-sm-2 col-form-label">Height</label>
-          <div class="col-sm-2">
+          <label for="height" class="col-sm-2 col-md-6 col-form-label">Height</label>
+          <div class="col-sm-2 col-md-3">
             <input type="number" class="form-control" v-model = 'height' id="height" placeholder="Height" min="0" max="1000">
           </div>
         </div>
         <div class="form-group row">
-          <label for="password" class="col-sm-2 col-form-label">Password</label>
-          <div class="col-sm-2">
+          <label for="password" class="col-sm-2 col-md-6 col-form-label">Password</label>
+          <div class="col-sm-2 col-md-3">
             <input type="password" class="form-control" v-model = 'password' id="password" placeholder="Change Password">
           </div>
         </div>
@@ -112,3 +117,14 @@ export default {
   }
 }
 </script>
+<style>
+  #backIcon {
+    width: 30px;
+    height: 30px;
+    float: left;
+  }
+  .profile {
+    font-family: "Montserrat", sans-serif;
+    margin: 10px;
+  }
+</style>
