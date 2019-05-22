@@ -11,7 +11,7 @@
           <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav()">×</a>
             <br />
-            <router-link to="Profile"><img src="https://dummyimage.com/150x150/fff/000" id="profileImg" class="rounded-circle" alt="profile image"></router-link>
+            <router-link to="Profile"><img src="../assets/profileImg.png" id="profileImg" class="rounded-circle" alt="profile image"></router-link>
             <br />
             <router-link to="Profile"><h1 id="userFirst">{{firstName}}</h1><h1 id="userLast">{{lastName}}</h1></router-link>
             <br />
@@ -159,10 +159,6 @@ import axios from 'axios'
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
-}
-
-.form-group-row {
-  width: 100%;
 }
 
 </style>

@@ -113,7 +113,6 @@ export default {
       this.Gender = this.$session.get('gender')
       this.weight = this.$session.get('weight')
       this.height = this.$session.get('height')
-      this.email = this.$session.get('email')
       this.password = this.$session.get('password')
   }
 }
@@ -126,5 +125,6 @@ export default {
   }
   .profile {
     font-family: "Montserrat", sans-serif;
+    margin: 10px;
   }
 </style>

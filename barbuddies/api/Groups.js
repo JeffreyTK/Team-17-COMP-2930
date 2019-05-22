@@ -7,9 +7,8 @@ const GroupsSchema =  new Schema(
     {
         //declaring what types of properties
         groupName: String,
-        GroupID: String,
-        UserID: Array,
-        numberOfUsers: Number
+        Events: Array,
+        UserID: Array
     }
 );
 //linking the groupschema to a variable
