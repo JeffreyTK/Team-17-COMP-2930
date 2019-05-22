@@ -141,8 +141,8 @@ app.post('/api/group/create', (req, res) => {
   console.log('successful connect2')
     const group = new Groups({
       groupName: req.body.groupName,
-        GroupID: req.body.GroupID,
-        UserID: req.body.UserID
+      UserID: req.body.UserID,
+      Events: req.body.Events
   });
   group.save((err) =>{ 
     if (err) return res.status(404).send({message: err.message});
