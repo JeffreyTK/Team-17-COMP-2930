@@ -1,5 +1,12 @@
 <template>
   <div id='calendar'>
+
+    <div>
+      <b-dropdown variant="danger" id="groupDropdown" ref="groupDropdown" :text= ddTitle class="m-md-2">
+        <b-dropdown-item @click="title" v-for="(groups, index) in groups" :key="groups.id">{{group.name}}</b-dropdown-item>
+      </b-dropdown>
+    </div>
+
     <div class='demo-app'>
       <div class='demo-app-top'>
         <!-- <button @click="toggleWeekends">toggle weekends</button>
@@ -19,7 +26,7 @@
         :plugins="calendarPlugins"
         :weekends="calendarWeekends"
         :events="calendarEvents"
-        @dateClick="handleSelect"
+        @dateClick="handleDateClick"
         @select="handleSelect"
         @eventClick="handleEventClick"
         @eventDrop="handleEventDrop"
@@ -189,6 +196,12 @@ export default {
   },
   data: function () {
     return {
+      ddTitle: 'My Groups',
+      groups: [
+        {id:'1', name: 'The Bros.' },
+        {id:'2', name: 'Mean Girls'},
+        {id:'3', name: 'Team 17'}
+      ],
       index: '',
       text: '',
       workout: '',
@@ -210,14 +223,14 @@ export default {
     }
   },
   methods: {
+    title (arg) {
+      this.ddTitle = this.groups.name;
+      console.log(this.ddTitle);
+    },
     handleDateClick (arg) {
-      if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
-        this.calendarEvents.push({ // add new event data
-          title: 'New Workout',
-          start: arg.date,
-          allDay: arg.allDay
-        })
-      }
+      this.$bvModal.show('my-modal'),
+      this.date1 = arg.date,
+      this.date2 = arg.date
     },
     handleEventDrop (arg) {
       this.date1 = arg.event.start
@@ -256,7 +269,7 @@ export default {
       this.$bvModal.hide('my-modal2');
       this.workout = '';
       this.text = '';
-      console.log(calendarEvents);
+
     },
     update (arg) {
       this.$bvModal.hide('my-modal2');

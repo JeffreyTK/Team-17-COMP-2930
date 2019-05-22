@@ -91,8 +91,8 @@
           </b-modal>
           </div>
 
-        <!--
-        <div class="jumbotron" id="group1">
+        
+        <!-- <div class="jumbotron"  v-bind:class="{ active: showMobileMenu }" v-on:click="showMobileMenu = !showMobileMenu"> id="group1">
           <b-button v-b-modal.modal-1 class="selectGroup" variant="outline-secondary"><h1>Mean Girls</h1></b-button>
           <b-modal id="modal-1" title="Group Name" hide-footer>
             <div id="addMember" class="col">
@@ -122,7 +122,7 @@
               </b-modal>
               </div>
             </b-modal>
-          </div> -->
+          </div>
           <div id="add" class="col">
             <b-button v-b-modal.modal-7 class="addBtn">+</b-button>
             <b-modal id="modal-7" title="New Group" hide-footer>
@@ -143,7 +143,7 @@
                 <br /><br /><br />
                 <router-link to="Groups"> <a @click = "onClick" href = ''>Submit</a></router-link>
             </b-modal>
-          </div>
+          </div> -->
       </div>
   </div>
 </template>
@@ -271,6 +271,8 @@ export default {
   .jumbotron {
     background-color: white;
     border: 3px solid #C23A3A;
+    padding: 0px;
+    width: 100%;
   }
 
   .addBtn {
@@ -300,7 +302,19 @@ export default {
 
   .selectGroup {
     border: none;
+    width: 100%;
   }
+  
+  .selectGroup:focus {
+    background-color: red;
+    color: white;
+  }
+
+  .selectedGroup {
+    background-color: red;
+    color: white;
+  }
+  
   .GroupMainPage{
     margin-bottom: 30%;
   }
