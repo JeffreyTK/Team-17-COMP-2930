@@ -6,7 +6,7 @@
       <div class="container">
         <br /><br /><br />
           <router-link to="Homepage"><img src="../assets/back.png" id="backIcon"></router-link>
-          <h1>GROUPS</h1>
+          <h1>PROFILE</h1>
         </div>
       <br />
       <img id="avatar" src="../assets/profileImg.png" class="rounded-circle">
@@ -113,7 +113,6 @@ export default {
       this.Gender = this.$session.get('gender')
       this.weight = this.$session.get('weight')
       this.height = this.$session.get('height')
-      this.email = this.$session.get('email')
       this.password = this.$session.get('password')
   }
 }
@@ -126,5 +125,6 @@ export default {
   }
   .profile {
     font-family: "Montserrat", sans-serif;
+    margin: 10px;
   }
 </style>

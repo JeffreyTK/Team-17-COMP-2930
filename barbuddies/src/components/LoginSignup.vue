@@ -18,7 +18,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Email</label>
+                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
                 <div class="col-sm-5 col-xs-5">
                   <input type="password" class="form-control" v-model = 'loginPass' id="passsword" placeholder="Password">
                 </div>
@@ -88,7 +88,7 @@
                 </div>
               </div>
               <br />
-              <router-link to = "homepage"><a @click = "onClick" href = ''>Signup</a></router-link>
+              <a @click = "onClick" href = ''>Signup</a>
             </form>
         </b-modal>
         </div>
@@ -99,8 +99,8 @@
 </template>
 <script>
 // importing the createuser function from repository into this file
-//import router from "../router"
-//import axios from "axios"
+// import router from "../router"
+// import axios from "axios"
 import { createUser, authUser, findUser } from '../repository'
 import ImageSlider from './ImageSlider'
 console.log('starting script')
@@ -160,33 +160,29 @@ export default {
         email: this.loginEmail,
         password: this.loginPass
       }
-
-      authUser(data) 
-      .then(data => {
-        //console.log(userId)
-        console.log("data object" + data)
-        this.$emit('authUser', data)
-        let info = {
-          user : data.user
-        }
-        console.log(info)
-        console.log(info.user.email)
-        console.log(info.user.firstName)
-        console.log(info.user.lastName)
-      this.$session.start()
-      this.$session.set('lastName', info.user.lastName)
-      this.$session.set('firstName', info.user.firstName)
-      this.$session.set('DOB', info.user.DOB)
-      this.$session.set('gender', info.user.gender)
-      this.$session.set('weight', info.user.weight)
-      this.$session.set('height', info.user.height)
-      this.$session.set('email', info.user.email)
-      this.$session.set('password', info.user.password)
-      this.$session.set('id', info.user._i)
-
-
-      })
-      .catch(err => alert(err.message))
+      authUser(data)
+        .then(data => {
+        // console.log(userId)
+          console.log('data object' + data)
+          this.$emit('authUser', data)
+          let info = {
+            user: data.user
+          }
+          console.log(info)
+          console.log(info.user.email)
+          console.log(info.user.firstName)
+          console.log(info.user.lastName)
+          this.$session.start()
+          this.$session.set('lastName', info.user.lastName)
+          this.$session.set('firstName', info.user.firstName)
+          this.$session.set('DOB', info.user.DOB)
+          this.$session.set('gender', info.user.gender)
+          this.$session.set('weight', info.user.weight)
+          this.$session.set('height', info.user.height)
+          this.$session.set('email', info.user.email)
+          this.$session.set('password', info.user.password)
+          this.$session.set('id', info.user._i)
+        }).catch(err => alert(err.message))
       this.$router.push({name: 'homepage'})
     }
   }
