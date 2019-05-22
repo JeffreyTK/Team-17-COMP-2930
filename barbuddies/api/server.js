@@ -137,6 +137,21 @@ app.post('/api/user/create', (req, res) => {
     });
   });
 
+app.post('/api/group/event', (req, res) => {
+  console.log('successful connect4')
+  let db = client.db('admin')
+  let groups = db.collection('groups')
+  let userEmail = req.body.email
+  let Event = req.body.Events
+  groups.find({UserID: userEmail}).toArray((err, user) => {
+    user.Groups.Event.push(Event)
+    return
+  })
+  });
+
+
+
+
 app.post('/api/group/create', (req, res) => {
   console.log('successful connect2')
     const group = new Groups({

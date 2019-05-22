@@ -76,9 +76,12 @@ export function findUser(email) {
   return axios.get(`${BASE_URL}/users/find`).then(response => response.data)
 }
 
-
-
-
-
-
-// luke end
+export function makeEvent(data) {
+  return axios.post(`${BASE_URL}/api/group/event`,
+  {
+    Events: data.Events,
+    userEmail: data.userEmail
+  }).then(response => {
+    response.data
+  }).catch(err)
+}

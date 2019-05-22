@@ -2,9 +2,6 @@
   <div id='calendar'>
     <div class='demo-app'>
       <div class='demo-app-top'>
-        <!-- <button @click="toggleWeekends">toggle weekends</button>
-        <button @click="gotoPast">go to a date in the past</button>
-        (also, click a date/time to add an event) -->
       </div>
       <FullCalendar
         class='demo-app-calendar'
@@ -18,7 +15,7 @@
         }"
         :plugins="calendarPlugins"
         :weekends="calendarWeekends"
-        :events="calendarEvents"
+        :events="Events"
         @dateClick="handleSelect"
         @select="handleSelect"
         @eventClick="handleEventClick"
@@ -164,6 +161,7 @@ import FullCalendar from '@fullcalendar/vue'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
+import { makeEvent } from '../repository'
 import $ from 'jquery'
 /* eslint-disable */
 
@@ -192,6 +190,8 @@ export default {
       index: '',
       text: '',
       workout: '',
+      Events: [],
+      userEmail: this.$session.get('email'),
       date1: new Date(),
       date2: new Date(),
       calendarPlugins: [ // plugins must be defined in the JS
@@ -244,12 +244,25 @@ export default {
     },
     saveDate (arg) {
       this.$bvModal.hide('my-modal'),
-      this.calendarEvents.push({
+      this.Events.push({
         title: this.workout,
         start: this.date1,
         end: this.date2,
         id: this.text
       })
+    let data = {
+        Events: this.Events,
+        userEmail: this.userEmail
+      }      
+      /*
+        IMPORTANT - create session storage for group name.
+      */
+      
+      /*console.log(this.userEmail)
+      makeEvent(data).then(data =>{
+        this.$emit('makeEvent', data)
+      }).catch(err => alert(err.message))
+      */
     },
     hideModal() {
       this.$bvModal.hide('my-modal');
