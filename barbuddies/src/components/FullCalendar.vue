@@ -19,8 +19,7 @@
         :plugins="calendarPlugins"
         :weekends="calendarWeekends"
         :events="calendarEvents"
-        :addEventSource="calendarEvents"
-        @dateClick="handleDateClick"
+        @dateClick="handleSelect"
         @select="handleSelect"
         @eventClick="handleEventClick"
         @eventDrop="handleEventDrop"
@@ -110,6 +109,29 @@
         </b-form-group>
 
         <b-form-group
+          label="Starts at"
+          label-for="start-date"
+        >
+          <date-picker
+            id="startDate"
+            :config="options"
+            v-model="date1"
+          ></date-picker>
+        </b-form-group>
+
+        <b-form-group
+          label="Ends at"
+          label-for="end-date"
+        >
+          <date-picker
+            id="endDate"
+            :config="options"
+            :minDate="date1"
+            v-model="date2"
+          ></date-picker>
+        </b-form-group>
+
+        <b-form-group
           label="Workout Information"
           label-for="textarea"
         >
@@ -179,6 +201,7 @@ export default {
         momentPlugin
       ],
       calendarWeekends: true,
+      calendarEvent: { title: '', start: Date(), end: Date(), id: '' },
       calendarEvents: [ // initial event data
       ],
       options: {
@@ -187,9 +210,6 @@ export default {
     }
   },
   methods: {
-    remove (index) {
-      this.$delete(this.calendarEvents, index)
-    },
     handleDateClick (arg) {
       if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
         this.calendarEvents.push({ // add new event data
@@ -220,6 +240,7 @@ export default {
       let calendarApi = this.$refs.fullCalendar.getApi();   
       let event = calendarApi.getEventById(this.text);
       event.remove();
+      this.calendarEvents.splice(arg, 1)
     },
     saveDate (arg) {
       this.$bvModal.hide('my-modal'),
@@ -233,10 +254,9 @@ export default {
     hideModal() {
       this.$bvModal.hide('my-modal');
       this.$bvModal.hide('my-modal2');
-      let calendarApi = this.$refs.fullCalendar.getApi();   
       this.workout = '';
       this.text = '';
-      console.log(this.calendarEvents);
+      console.log(calendarEvents);
     },
     update (arg) {
       this.$bvModal.hide('my-modal2');
