@@ -36,12 +36,12 @@ mongoClient.connect((err, db) => { // returns db connection
 });
 
 
-// CORS middleware (comment out for public distribution)
-app.use(function(req, res, next) {
+// CORS middleware
+/*app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
-});
+});*/
 
 const logRequestStart = (req, res, next) => {
   console.info(`${req.method} ${req.originalUrl} | ${res.statusCode}`);
@@ -153,14 +153,11 @@ app.post('/api/group/create', (req, res) => {
   console.log('successful connect2')
     const group = new Groups({
       groupName: req.body.groupName,
-        GroupID: req.body.GroupID,
-        UserID: req.body.UserID
+      UserID: req.body.UserID,
+      Events: req.body.Events
   });
   group.save((err) =>{ 
     if (err) return res.status(404).send({message: err.message});
-    let db = client.db('admin')
-  let groups = db.collection('groups')
-  let userEmail = request.body.email
     return res.send({ group });
   });
 });
