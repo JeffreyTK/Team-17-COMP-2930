@@ -1,83 +1,89 @@
 <template>
-  <div class='demo-app'>
-    <div class='demo-app-top'>
-      <button @click="toggleWeekends">toggle weekends</button>
-      <button @click="gotoPast">go to a date in the past</button>
-      (also, click a date/time to add an event)
+  <div id='Calendar'>
+    <br/><br/><br/><br />
+    <div class="container">
+      <NavBar />
+      <router-link to="Homepage"><img src="../assets/back.png" id="backIcon"></router-link>
+      <h1>CALENDAR</h1>
+      <br />
+      <FullCalendar changeView="dayGridMonth"/>
     </div>
-    <FullCalendar
-      class='demo-app-calendar'
-      ref="fullCalendar"
-      defaultView="dayGridMonth"
-      :header="{
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-      }"
-      :plugins="calendarPlugins"
-      :weekends="calendarWeekends"
-      :events="calendarEvents"
-      @dateClick="handleDateClick"
-      />
+    <br />
   </div>
 </template>
 
 <script>
-import FullCalendar from '@fullcalendar/vue'
+/* eslint-disable */
+import FullCalendar from './FullCalendar'
+import NavBar from './NavBar'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 export default {
+  name: 'Calendar',
   components: {
-    FullCalendar // make the <FullCalendar> tag available
+    NavBar,
+    FullCalendar
   },
-  data: function() {
+  data: function () {
     return {
       calendarPlugins: [ // plugins must be defined in the JS
         dayGridPlugin,
         timeGridPlugin,
         interactionPlugin // needed for dateClick
       ],
-      calendarWeekends: true,
-      calendarEvents: [ // initial event data
-        { title: 'Event Now', start: new Date() }
-      ]
-    }
-  },
-  methods: {
-    toggleWeekends() {
-      this.calendarWeekends = !this.calendarWeekends // update a property
-    },
-    gotoPast() {
-      let calendarApi = this.$refs.fullCalendar.getApi() // from the ref="..."
-      calendarApi.gotoDate('2000-01-01') // call a method on the Calendar object
-    },
-    handleDateClick(arg) {
-      if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
-        this.calendarEvents.push({ // add new event data
-          title: 'New Event',
-          start: arg.date,
-          allDay: arg.allDay
-        })
-      }
+      changeView: ''
     }
   }
 }
 </script>
 
-<style lang='scss'>
-@import '@fullcalendar/core/main.css';
-@import '@fullcalendar/daygrid/main.css';
-@import '@fullcalendar/timegrid/main.css';
-.demo-app {
-  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-  font-size: 14px;
+<style>
+#Calendar {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: black;
+  margin-top: 0px;
+  margin-left: 0px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 45%;
 }
-.demo-app-top {
-  margin: 0 0 3em;
+img {
+  width: 200px;
 }
-.demo-app-calendar {
-  margin: 0 auto;
-  max-width: 900px;
+#backIcon {
+  width: 30px;
+  height: 30px;
+  float: left;
 }
+
+@media screen and (max-width: 1440px) {
+  #Calendar {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 425px) {
+  #Calendar {
+    margin-bottom: 10%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #Calendar {
+    margin-bottom: 25%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #Calendar {
+    margin-bottom: 40%;
+  }
+}
+
+
 </style>

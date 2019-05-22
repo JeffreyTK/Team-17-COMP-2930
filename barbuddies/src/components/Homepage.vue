@@ -1,34 +1,35 @@
 <template>
   <div id="homepage">
-    <img src="./assets/bb_logo.png">
-    <Calendar/>
+    <NavBar/>
+    <br/><br/><br/><br/>
+    <div>
+      <h2>THIS WEEK</h2>
+    </div>
+    <FullCalendar changeView="timeGridWeek"/>
   </div>
 </template>
-
 <script>
-import Calendar from './components/Calendar'
+import NavBar from './NavBar'
+import FullCalendar from './FullCalendar'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
-  name: 'homepage',
+  name: 'Groups',
   components: {
-    Calendar
+    NavBar,
+    FullCalendar
+  },
+  data () {
+    return {
+      changeView: ''
+    }
   }
 }
 </script>
-
-<style>
+<style scoped>
 #homepage {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 0px;
-  margin-left: 0px;
-}
-img {
-  width: 200px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 220px;
 }
 </style>

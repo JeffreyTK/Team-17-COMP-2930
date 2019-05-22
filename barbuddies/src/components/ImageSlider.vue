@@ -1,80 +1,108 @@
 <template>
-  <div id="slider">
-    <p>
-      <a @click="prev" href='#'><</a> || <a @click="next" href='#'>></a>
-    </p>
-    
-    <transition-group name='fade' tag='div'>
-      <div
-       v-for="number in [currentNumber]"
-       :key='number'
-       >
-         <img
-             :src="currentImage"
-             v-on:mouseover="stopRotation"
-             v-on:mouseout="startRotation"
-             />
-      </div>
-    </transition-group>
+  <div class="container">
+    <b-carousel
+      class="d-block d-sm-none d-none d-sm-block d-md-none rounded"
+      id="carousel-1"
+      v-model="slide"
+      :interval="4000"
+      controls
+      indicators
+      background="white"
+      img-width="320"
+      img-height="700"
+      style="text-shadow: 1px 1px 2px #333"
+      @sliding-start="onSlideStart"
+      @sliding-end="onSlideEnd"
+    >
+      <!-- Text slides with image -->
+      <b-carousel-slide
+        class="sliderImgMobile"
+        caption="Workout With Friends"
+        text="Join a group and share each others' calendars"
+        img-src="https://images.pexels.com/photos/1855269/pexels-photo-1855269.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500%22%3E"
+      >
+      </b-carousel-slide>
+
+      <!-- Slides with custom text -->
+      <b-carousel-slide
+        class="sliderImgMobile"
+        caption="Keep Track of Your Workouts"
+        text="Record your workout and view your progress"
+        img-src="https://images.unsplash.com/photo-1520334363269-c1b342d17261?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80%22%3E"
+      >
+      </b-carousel-slide>
+    </b-carousel>
+    <b-carousel
+      class="d-none d-md-block d-lg-none d-none d-lg-block d-xl-none d-none d-xl-block"
+      id="carousel-2"
+      v-model="slide"
+      :interval="4000"
+      controls
+      indicators
+      background="#ababab"
+      img-width="1024"
+      img-height="500"
+      style="text-shadow: 1px 1px 2px #333;"
+      @sliding-start="onSlideStart"
+      @sliding-end="onSlideEnd"
+    >
+      <!-- Text slides with image -->
+      <b-carousel-slide
+        class="sliderImg"
+        caption="Workout With Friends"
+        text="Join a group and share each others' calendars"
+        img-src="https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1980&q=80"
+      >
+      </b-carousel-slide>
+
+      <!-- Slides with custom text -->
+      <b-carousel-slide
+        class="sliderImg"
+        caption="Keep Track of Your Workouts"
+        text="Record your workout and view your progress"
+        img-src="https://images.unsplash.com/photo-1516481265257-97e5f4bc50d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
+      >
+      </b-carousel-slide>
+    </b-carousel>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ImageSlider',
   data () {
     return {
-      images: [
-        'https://lafayettefamilyymca.org/wp-content/uploads/2015/07/workout-partner-1200x675.jpg',
-        'https://resveralife.com/wp-content/uploads/2016/12/Resveralife-Setting-Realistic-Workout-Expectations.jpg',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzwxoLFSB2bQf1kfrI7bJbQD97GIzo10JuO3vFfUnF0_IFF0bv'
-      ],
-      currentNumber: 0,
-      timer: null
+      slide: 0,
+      sliding: null
     }
-  },
-  mounted: function () {
-    this.startRotation();
   },
   methods: {
-    startRotation: function() {
-      this.timer = setInterval(this.next, 3000);
+    onSlideStart (slide) {
+      this.sliding = true
     },
-    stopRotation: function() {
-      clearTimeout(this.timer);
-      this.timer = null;
-    },
-    next: function() {
-      this.currentNumber += 1
-    },
-    prev: function() {
-      this.currentNumber -= 1
+    onSlideEnd (slide) {
+      this.sliding = false
     }
-  },
-  computed: {
-    	currentImage: function() {
-      	return this.images[Math.abs(this.currentNumber) % this.images.length];
-      }
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.fade-enter-active, .fade-leave-active {
-  transition: all 3.0s ease;
-  overflow: hidden;
-  visibility: visible;
-  opacity: 1;
-  position: absolute;
+@media only screen and (max-width: 768px) {
+  .sliderImgMobile {
+    object-fit: contain;
+  }
 }
 
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-  visibility: hidden;
+@media only screen and (max-width: 1193px) {
+  .sliderImg {
+    height: 50vh;
+  }
 }
-#slider img {
-  width: 100%;
+
+@media only screen and (max-width: 1440px) {
+  .sliderImg {
+    height: 60vh;
+  }
 }
+
 </style>

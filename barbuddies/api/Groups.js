@@ -1,10 +1,17 @@
+//Requiring mongoose to be used
 const mongoose = require("mongoose");
+//Creating a schema using mongoose instantiating a constructor
 const Schema = mongoose.Schema;
+//creating the layout of the constructor
 const GroupsSchema =  new Schema(
     {
-        GroupID: String,
+        //declaring what types of properties
+        groupName: String,
+        Events: Array,
         UserID: Array
     }
 );
-const Groups = mongoose.model("Groups", GroupsSchema);
-module.exports = Groups;
+//linking the groupschema to a variable
+const Group = mongoose.model("Group", GroupsSchema);
+//exporting groups to be used in other files
+module.exports = Group;

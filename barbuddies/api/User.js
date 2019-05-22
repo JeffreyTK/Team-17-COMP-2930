@@ -10,7 +10,6 @@ const UserSchema = new Schema(
         height: String,
         email: String,
         password: String,
-        userID: String,
         groupID: Array
     }
 );
