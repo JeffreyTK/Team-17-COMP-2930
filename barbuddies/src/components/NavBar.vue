@@ -41,6 +41,7 @@ import axios from 'axios'
     }
   },
         methods: {
+          //pulls user data and shows a list of users through a web call
           getUserData: function () {
             let self = this
             axios.get("/api/User").then((response) => {
@@ -52,6 +53,7 @@ import axios from 'axios'
               router.push("/")
             })
           },
+          //on open of the navbar it will set the session data to what needs to be displayed
           openNav: function() {
             console.log(this.$session.get('firstName'))
             console.log(this.$session.get('lastName'))
@@ -64,18 +66,7 @@ import axios from 'axios'
             document.getElementById("mySidebar").style.width = "0";
             document.getElementById("main").style.marginLeft= "0";
           }
-        }/*,
-          // IMPORTANT does not load yet on mount
-          mounted(){
-            //let id = this.$session.get('user')
-            //updateUser(id).then((data)=>{
-              console.log(this.$session.get('firstName'))
-              console.log(this.$session.get('lastName'))
-              this.firstName = this.$session.get('firstName')
-              this.lastName = this.$session.get('lastName')
-            //});
-            //this.getUserData()
-          } */
+        }
         }
 </script>
 

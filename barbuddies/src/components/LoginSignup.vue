@@ -12,13 +12,13 @@
         <b-modal id="modal-1" title="Login" ok-title="Login" hide-footer>
             <form>
               <div class="form-group row">
-                <label for="email" class="col-sm-5 col-xs-5 col-form-label">Email</label>
+                <label for="email" class="col-sm-5 col-xs-5 col-form-label">Email*</label>
                 <div class="col-sm-5 col-xs-5">
                   <input type="email" class="form-control" v-model = 'loginEmail' id="email" placeholder="Email">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password</label>
+                <label for="password" class="col-sm-5 col-xs-5 col-form-label">Password*</label>
                 <div class="col-sm-5 col-xs-5">
                   <input type="password" class="form-control" v-model = 'loginPass' id="passsword" placeholder="Password">
                 </div>
@@ -33,31 +33,31 @@
           <b-modal id="modal-2" title="Sign Up" hide-footer>
             <form>
               <div class="form-group row">
-                <label for="firstName" class="col-sm-5 col-xs-5 col-form-label">First Name</label>
+                <label for="firstName" class="col-sm-5 col-xs-5 col-form-label">First Name*</label>
                 <div class="col-sm-5 col-xs-5">
                   <input type="text" class="form-control" v-model = "firstName" id="firstName" placeholder="First Name">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="lastName" class="col-sm-5 col-xs-5 col-form-label">Last Name</label>
+                <label for="lastName" class="col-sm-5 col-xs-5 col-form-label">Last Name*</label>
                 <div class="col-sm-5 col-xs-5">
                   <input type="text" class="form-control" v-model = "lastName" id="lastName" placeholder="Last Name">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="email" class="col-sm-5 col-xs-5 col-form-label">Email</label>
+                <label for="email" class="col-sm-5 col-xs-5 col-form-label">Email*</label>
                 <div class="col-sm-5 col-xs-5">
                   <input type="email" class="form-control" v-model = "email" id="email" placeholder="Email">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="dob" class="col-sm-5 col-xs-5 col-form-label">Date of Birth</label>
+                <label for="dob" class="col-sm-5 col-xs-5 col-form-label">Date of Birth*</label>
                 <div class="col-sm-5 col-xs-5">
                   <input type="date" class="form-control" v-model = "DOB" placeholder="Date Of Birth">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="gender" class="col-sm-5 col-form-label" >Gender</label>
+                <label for="gender" class="col-sm-5 col-form-label" >Gender*</label>
                 <div class="col-sm-5">
                   <select class="custom-select mr-sm-2" v-model = "gender"  id="inlineFormCustomSelect">
                     <option selected>Choose</option>
@@ -69,19 +69,19 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="weight" class="col-sm-5 col-form-label">Weight (lbs)</label>
+                <label for="weight" class="col-sm-5 col-form-label">Weight (lbs)*</label>
                 <div class="col-sm-5">
                   <input type="number" class="form-control" v-model = "weight" id="weight" placeholder="Weight" min="0" max="1000">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="height" class="col-sm-5 col-form-label">Height</label>
+                <label for="height" class="col-sm-5 col-form-label">Height*</label>
                 <div class="col-sm-5">
                   <input type="number" class="form-control" v-model = "height" id="height" placeholder="Height" min="0" max="1000">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="password" class="col-sm-5 col-form-label">Password</label>
+                <label for="password" class="col-sm-5 col-form-label">Password*</label>
                 <div class="col-sm-5">
                 <input type="password" class="form-control" v-model = "password" id="dob" placeholder="Password">
                 </div>
@@ -97,9 +97,7 @@
   </div>
 </template>
 <script>
-// importing the createuser function from repository into this file
-// import router from "../router"
-// import axios from "axios"
+// importing the createuser, auth user, and find user function from repository into this file
 import { createUser, authUser, findUser } from '../repository'
 import ImageSlider from './ImageSlider'
 console.log('starting script')
@@ -108,7 +106,7 @@ export default {
   components: {
     ImageSlider
   },
-  // data function to instantiate the data schema without any informtion
+  // data function to instantiate the data schema without any information
   data () {
     return {
       firstName: '',
@@ -126,12 +124,11 @@ export default {
     }
   },
   methods: {
-    onClick: function (event) {
-event.preventDefault()
+    onClick: function () {
       console.log('started onClick function')
-      // setting the data so that it pulls the information from the sign up sheet
+
+      // setting the data
       let data = {
-        // this.firstName the this means that the firstname on THIS page
         firstName: this.firstName,
         lastName: this.lastName,
         DOB: this.DOB,
@@ -143,23 +140,30 @@ event.preventDefault()
         userID: 0,
         groupID: 0
       }
-      // pasting the data created user into the create user function which create an object
+
+      // carrying the data over to createUser
       createUser(data)
         .then(data => {
           console.log('data is sent')
+
           // pushes the change up to the parent from child
           this.$emit('createUser', data.user)
           console.log('created user')
+          this.$router.push({name: '/'})
         })
         .catch(err => alert(err.message))
     },
+    //function that starts the authentication of users and checks it against the database 
+    //as well as creates a session for the website to pull data and use from
     onClick2: function (event) {
       event.preventDefault()
       console.log('started onClick2 function')
+      //sets input of email and password into the data variable
       let data = {
         email: this.loginEmail,
         password: this.loginPass
       }
+      //runs the function authorize user given the inputs
       authUser(data)
         .then(data => {
         // console.log(userId)
@@ -172,6 +176,7 @@ event.preventDefault()
           console.log(info.user.email)
           console.log(info.user.firstName)
           console.log(info.user.lastName)
+          //uses the session data to set all the factors that the account has
           this.$session.start()
           this.$session.set('lastName', info.user.lastName)
           this.$session.set('firstName', info.user.firstName)
@@ -183,6 +188,7 @@ event.preventDefault()
           this.$session.set('password', info.user.password)
           this.$session.set('id', info.user._id)
         }).catch(err => alert(err.message))
+        //pushes from log in into the homepage
       this.$router.push({name: 'homepage'})
     }
   }

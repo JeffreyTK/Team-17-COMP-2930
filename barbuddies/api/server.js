@@ -25,7 +25,9 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 //first creating the url for the website to submit a req/res to
 var client;
+//connection string of mongodb
 const uri = 'mongodb://admin:WCUDXfYazacbMAto@SG-barbuddies-21203.servers.mongodirector.com:27017/admin';
+//calls on the uri and checks that it works and sets it to a variable
 const mongoClient = new MongoClient(uri, { useNewUrlParser: true });
 mongoClient.connect((err, db) => { // returns db connection
   if (err != null) {
@@ -35,40 +37,34 @@ mongoClient.connect((err, db) => { // returns db connection
   client = db
 });
 
-
-// CORS middleware
-/*app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});*/
-
+//log in request and status code
 const logRequestStart = (req, res, next) => {
   console.info(`${req.method} ${req.originalUrl} | ${res.statusCode}`);
   next();
 };
 app.use(logRequestStart);
-
+//gets the users and outputs a json list of users
 app.get('/users', async (req, res) => {
   let user = await User.find({});
   res.json(user);
 })
-
+//gets the groups and output a json list of groups
 app.get('/groups', async (req, res) => {
   let group = await Groups.find({});
   res.json(group)
 })
-
+//creates a json list of the one user 
 app.get('/users/:id', async (req, res) => {
   const user = await User.findById(req.params.id);
   res.json(user);
 });
-
+//calls the user based off of the email given outputs a json list
 app.get('/users/email', async (req, res) =>{
   const user = await User.findById(req.params.email);
   res.json(user);
 })
-
+//auth post request which checks the provided password against the hashed password and lets user in if
+//password matches
 app.post('/api/user/auth/', async (request, response) => {
   console.log('succesful connect in auth')
   let db = client.db('admin')
@@ -90,7 +86,7 @@ app.post('/api/user/auth/', async (request, response) => {
   })
 })
 
-
+//finds the user inside of the database using a query
 app.get('/users/find,', async (req, res) => {
   let db = client.db('admin')
   let users = db.collection('users')
@@ -103,10 +99,7 @@ app.get('/users/find,', async (req, res) => {
   const user = await User.findById(req.params.id);
   res.json(user);
 })
-
-
-
-
+//updates the user given their object id provided
 app.post('/api/user/update/:id', (req, res) => {
   console.log('successful connect')
   User.findByIdAndUpdate(req.params.id, req.body.data , { new: true }, (err, user) => {
@@ -114,10 +107,9 @@ app.post('/api/user/update/:id', (req, res) => {
     return res.send({ message: 'user updated!', user });
   });
 });
-
+//creates a brand new user with provided information
 app.post('/api/user/create', (req, res) => {
   console.log('successful connect')
-
   //creates the new user based off of schema created in users
     const user = new User({
         firstName: req.body.firstName,
@@ -127,15 +119,29 @@ app.post('/api/user/create', (req, res) => {
         weight:req.body.weight,
         height:req.body.height,
         email:req.body.email,
-        password: bcrypt.hashSync(req.body.password, 10),
-        userID:req.body.userID,
-        groupID:req.body.groupID
+        password: bcrypt.hashSync(req.body.password, 10)
     });
     user.save( (err) => {
       if (err) return res.status(404).send({message: err.message});
       return res.send({ user });
     });
   });
+//FOR FUTURE USE
+/*app.post('/api/group/event', (req, res) => {
+  console.log('successful connect4')
+  let db = client.db('admin')
+  let groups = db.collection('groups')
+  let userEmail = req.body.email
+  let Event = req.body.Events
+  groups.find({UserID: userEmail}).toArray((err, user) => {
+    user.Groups.Event.push(Event)
+    return
+  })
+  });
+*/
+
+
+
 
 app.post('/api/group/create', (req, res) => {
   console.log('successful connect2')
@@ -149,7 +155,7 @@ app.post('/api/group/create', (req, res) => {
     return res.send({ group });
   });
 });
-
+//finds the groups a user is in and then provides and object which can be accessed outside
 app.post('/api/group/find', (request, response) =>{
   console.log('successful connect3')
   let db = client.db('admin')
@@ -163,7 +169,7 @@ app.post('/api/group/find', (request, response) =>{
     return response.data
   });
 });
-
+//makes sure the app is listening on port 5000
 mongoose.connect(uri, {useNewUrlParser: true}).then(() => {
   app.listen(5000);
 });

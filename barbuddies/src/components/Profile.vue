@@ -61,6 +61,7 @@
 </template>
 <script>
 /* eslint-disable */
+//importing functions from the repository
 import { updateUser } from '../repository'
 import { updateUser1 } from '../repository'
 import NavBar from './NavBar'
@@ -70,6 +71,7 @@ export default {
   components: {
     NavBar
   },
+  //sets the data structure of the page
   data () {
     return {
       firstName: '',
@@ -84,8 +86,10 @@ export default {
       groupID: ''
     }
   },
+  //used to call parent properties
   props: ['user'],
   methods: {
+    //save function that will update the user in the databse with the input information given
     save(){
       let data = {
         DOB: this.DOB,
@@ -96,6 +100,7 @@ export default {
         password: this.password
       }
       console.log(data)
+      //sets session data so that it can be used in a call for update user
       let id = this.$session.get('id')
       console.log(id)
       updateUser1(data, id)
@@ -106,6 +111,7 @@ export default {
         .catch(err => alert(err.message));
     },
   },
+  //on mount we want to load the information of the user currently in the database into the web page
   mounted () {
       this.firstName = this.$session.get('firstName')
       this.email = this.$session.get('email')
