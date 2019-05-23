@@ -39,7 +39,7 @@
       :interval="4000"
       controls
       indicators
-      background="#ababab"
+      background="white"
       img-width="1024"
       img-height="500"
       style="text-shadow: 1px 1px 2px #333;"
@@ -87,9 +87,9 @@ export default {
 </script>
 <style scoped>
 
-@media only screen and (max-width: 768px) {
-  .sliderImgMobile {
-    object-fit: contain;
+@media only screen and (max-width: 1440px) {
+  .sliderImg {
+    height: 60vh;
   }
 }
 
@@ -99,10 +99,6 @@ export default {
   }
 }
 
-@media only screen and (max-width: 1440px) {
-  .sliderImg {
-    height: 60vh;
-  }
-}
+
 
 </style>
