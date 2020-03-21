@@ -1,0 +1,15 @@
+order_number,holiday,item,name,quantity,product_id,description,has_batteries,min_age,dimensions,num_rooms,speed,jump_height,has_glow,spider_type,num_sound,colour,has_lactose,has_nuts,variety,pack_size,stuffing,size,fabric
+1,Christmas,Toy,Santas Workshop - Essentials Edition,10,C1230T,The most sought after christmas present! Get yours today!,N,5,"50,90",4,,,,,,,,,,,,,
+2,Easter,StuffedAnimal,Easter Bunny with Top Hat,2,E2446E,The easter bunny is now ready for all the tea parties you can host with his Jacket and Top Hat!,,,,,,,,,,Grey,,,,,Polyester Fibrefill,M,Linen
+3,Christmas,Toy,Santas Workshop - Deluxe Edition,5,C1256T,The number one christmas present now in delux edition! Expand your workshop with new specialized rooms.,N,5,"120,90",7,,,,,,,,,,,,,
+4,Easter,Toy,Mr. Hoppers,10,E4835T,Learn the alphabet with the interactive toys for infants.,Y,1,,,,,,,30,Orange,,,,,,,
+5,Halloween,Toy,Terrifying Tarantula,3,H9484T,Scare the living daylights out of your friend with this remote controlled tarantula,Y,9,,,11,3,Y,Tarantula,,,,,,,,,
+6,Easter,Candy,Crème Eggs - Large,1,E9451C,A large pack of crème eggs,,,,,,,,,,,Y,Y,,50,,,
+7,Halloween,StuffedAnimal,Skello the Tap Dancer,1,H4443S,Decorate your home with Skello the Tap Dancer. Oh the whimsical horror!,,,,,,,Y,,,,,,,,Polyester Fibrefill,L,Acrylic
+8,Christmas,StuffedAnimal,Rudolph the Red Nosed Reindeer,2,C8311S,Let your child hug rudolph to sleep with this ultra soft christmas stuffed plushie!,,,,,,,Y,,,,,,,,Wool,S,Cotton
+9,Christmas,Candy,Candy Canes - Green,6,C5510C,Green candy canes,,,,,,,,,,Green,N,N,,,,,
+10,Easter,StuffedAnimal,Easter Bunny with Beach Attire,5,E0012S,Take the easter bunny with you on vacation. He's ready to hit the beach.,,,,,,,,,,Pink,,,,,Polyester Fibrefill,S,Linen
+11,Halloween,Toy,Howling Wolf Spider,4,H2345T,The howling wolf spider jumps higher and faster than the terrifying tarantula. This is the toy for the ultimate prank.,Y,9,,,15,5,N,Wolf Spider,,,,,,,,,
+12,Halloween,Toy,Tiny Tarantula,1,H0983T,The safe-for-kids tiny tarantula is an adorable spider for your adorable child!,Y,5,,,4,1,Y,Tarantula,,,,,,,,,
+13,Christmas,Candy,Candy Canes - Red,10,C7777C,Red candy canes,,,,,,,,,,Red,N,N,,,,,
+14,Halloween,Candy,Seas Salt Pumpkin Caramel Toffee,13,H1003C,Whats better than Pumpkin Caramel Toffees? Sea Salt Pumpkin Caramel Toffees!,,,,,,,,,,,Y,Y,Sea Salt,,,,
