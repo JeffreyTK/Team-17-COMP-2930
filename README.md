@@ -8,7 +8,7 @@ A social media fitness app.
 
 ## Deployment
 
-Not yet implemented
+http://barbuddies.surge.sh/
 
 ## Built With
 
